@@ -27,6 +27,7 @@ website that belongs to my TDD repository, that is packed with dozens of
   <figcaption>A typical setting of an online coding dojo.</figcaption>
 </figure>
 <figure style="float: right; width: 45%; text-align: center">
+  &nbsp;
   <a href="https://www.hendrikse.name/tdd/dojo.html">
     <img src="images/zeger_teaching.jpg" alt="Coding dojo"/>
   </a>
