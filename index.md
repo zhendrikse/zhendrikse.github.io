@@ -3,10 +3,11 @@
 
 <div style="float: left;">
 <figure style="float: left;">
-    <img src="images/zeger-teaching-1.png" alt="Zeger" width="25%" />
+    <img src="images/zeger-teaching-1.png" alt="Zeger" width="35%" />
     <figcaption>Zeger motivating an audience for <a href="https://www.hendrikse.name/tdd/">practicing TDD</a>.</figcaption>
 </figure>
 </div>
+<p style="clear: both;"></p>
 
 # Test-driven development
 <div style="border-top: 2px solid #cccccc"><br/></div>
@@ -20,14 +21,13 @@ website that belongs to my TDD repository, that is packed with dozens of
 <div style="border-top: 1px solid #999999"><br/></div>
 
 <div style="display: flex; align-items: flex-end;">
-<figure style="float: left; width: 50%; text-align: center">
+<figure style="float: left; width: 55%; text-align: center">
   <a href="https://www.hendrikse.name/tdd/dojo.html">
     <img alt="Online dojo" src="images/DojoInAction.png"/>
   </a>&nbsp;&nbsp;&nbsp;
   <figcaption>A typical setting of an online coding dojo.</figcaption>
 </figure>
 <figure style="float: right; width: 45%; text-align: center">
-  &nbsp;
   <a href="https://www.hendrikse.name/tdd/dojo.html">
     <img src="images/zeger_teaching.jpg" alt="Coding dojo"/>
   </a>
