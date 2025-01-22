@@ -1,9 +1,9 @@
 # Welcome
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
-<div style="display: flex; align-items: left;">
-<figure style="float: left; text-align: center;">
-    <img src="images/zeger-teaching-1.png" alt="Zeger" width="25%" height="25%"/>
+<div style="float: left;">
+<figure style="float: left;">
+    <img src="images/zeger-teaching-1.png" alt="Zeger" width="25%" />
     <figcaption>Zeger motivating an audience for <a href="https://www.hendrikse.name/tdd/">practicing TDD</a>.</figcaption>
 </figure>
 </div>
