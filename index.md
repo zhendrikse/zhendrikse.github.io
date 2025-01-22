@@ -1,7 +1,7 @@
 # Welcome
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
-<figure style="float: center; text-align: center;">
+<figure style="float: left; text-align: center;">
     <img src="images/zeger-teaching-1.png" alt="Zeger" width="50%" height="50%"/>
     <figcaption>Zeger motivating an audience for <a href="https://www.hendrikse.name/tdd/">practicing TDD</a>.</figcaption>
 </figure>
@@ -21,13 +21,13 @@ website that belongs to my TDD repository, that is packed with dozens of
 <div style="display: flex; align-items: flex-end;">
 <figure style="float: left; width: 50%; text-align: center">
   <a href="https://www.hendrikse.name/tdd/dojo.html">
-    <img alt="Online dojo" src="https://github.com/zhendrikse/tdd/blob/master/assets/DojoInAction.png"/>
+    <img alt="Online dojo" src="images/DojoInAction.png"/>
   </a>&nbsp;&nbsp;&nbsp;
   <figcaption>A typical setting of an online coding dojo.</figcaption>
 </figure>
 <figure style="float: right; width: 50%; text-align: center">
   <a href="https://www.hendrikse.name/tdd/dojo.html">
-    <img src="https://github.com/zhendrikse/tdd/blob/master/assets/zeger_teaching.jpg" alt="Coding dojo"/>
+    <img src="images/zeger_teaching.jpg" alt="Coding dojo"/>
   </a>
   <figcaption>A typical setting of a coding dojo.</figcaption>
 </figure>
@@ -46,13 +46,13 @@ at least a short visit!
 <div style="display: flex; align-items: flex-end;">
 <figure style="float: left; width: 50%; text-align: center">
   <a href="https://www.hendrikse.name/science/">
-    <img alt="Particle in magnetic field" src="https://github.com/zhendrikse/science/blob/main/images/helical_motion.png"/>
+    <img alt="Particle in magnetic field" src="https://www.hendrikse.name/science/images/helical_motion.png"/>
   </a>
   <figcaption>A charged particle forming a helical motion in a magnetic field.</figcaption>
 </figure>
 <figure style="float: right; width: 50%; text-align: center">
   <a href="https://www.hendrikse.name/science/">
-    <img alt="Spherical harmonics" src="https://github.com/zhendrikse/science/blob/main/images/atomic_orbitals.png" /> 
+    <img alt="Spherical harmonics" src="https://www.hendrikse.name/science/images/atomic_orbitals.png" /> 
   </a>
   <figcaption>3D-visualizations of spherical harmonic functions.</figcaption>
 </figure>
