@@ -29,7 +29,7 @@ website that belongs to my TDD repository, that is packed with dozens of
 </figure>
 <figure style="float: right; width: 45%; text-align: center">
   <a href="https://www.hendrikse.name/tdd/dojo.html">
-    <img src="images/zeger_teaching.jpg" alt="Coding dojo"/>
+    <img src="images/zeger_teaching.jpg" alt="Coding dojo"/><br/>
   </a>
   <figcaption>A typical setting of a coding dojo.</figcaption>
 </figure>
