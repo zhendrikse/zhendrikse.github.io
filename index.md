@@ -40,10 +40,9 @@ website that belongs to my TDD repository, that is packed with dozens of
 # The beauty of physics and mathematics
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
-I maintain a site containing countless visualizations in physics and mathematics.
+I maintain a site containing countless [visualizations in physics and mathematics](https://www.hendrikse.name/science/).
 It also contains a [math art gallery](https://www.hendrikse.name/science/geometry.html) with 3D geometric shapes.
-All visualizations are both dynamic and three-dimensional, so make sure to pay 
-at least a short visit!
+All visualizations are both dynamic and three-dimensional, so make sure to pay at least a short visit!
 
 <div style="display: flex; align-items: flex-end;">
 <figure style="float: left; width: 50%; text-align: center">
