@@ -1,0 +1,12 @@
+figure {
+  border: none;
+  padding: 4px;
+  margin: auto;
+}
+
+figcaption {
+  color: white;
+  font-style: italic;
+  padding: 2px;
+  text-align: center;
+}
