@@ -11,6 +11,6 @@ plugins:
 plugins:
 - jekyll-seo-tag
 
-url: "https://example.com" # the base hostname & protocol for your site
+url: "https://www.hendrikse.name/" # the base hostname & protocol for your site
 plugins:
 - jekyll-sitemap
