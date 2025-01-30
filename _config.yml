@@ -1,8 +1,8 @@
 markdown: kramdown
 
 remote_theme: pages-themes/midnight@v0.2.0
-title: Zeger's home page
-description: Home page of Zeger Hendrikse
+title: Zeger Hendrikse
+description: TDD, physics, and mathematics
 show_downloads: false
 
 url: "https://www.hendrikse.name/" # the base hostname & protocol for your site
