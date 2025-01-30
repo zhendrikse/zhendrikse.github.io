@@ -5,7 +5,7 @@ title: Zeger Hendrikse
 description: TDD, physics, and mathematics
 show_downloads: false
 
-url: "https://www.hendrikse.name/" # the base hostname & protocol for your site
+url: "https://www.hendrikse.name/science" # the base hostname & protocol for your site
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
