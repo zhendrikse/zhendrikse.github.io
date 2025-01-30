@@ -7,3 +7,10 @@ show_downloads: false
 
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
+
+plugins:
+- jekyll-seo-tag
+
+url: "https://example.com" # the base hostname & protocol for your site
+plugins:
+  - jekyll-sitemap
