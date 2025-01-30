@@ -5,12 +5,8 @@ title: Zeger's home page
 description: Home page of Zeger Hendrikse
 show_downloads: false
 
-plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
-
-plugins:
-- jekyll-seo-tag
-
 url: "https://www.hendrikse.name/" # the base hostname & protocol for your site
 plugins:
-- jekyll-sitemap
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-sitemap 
