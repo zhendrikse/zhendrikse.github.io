@@ -1,11 +1,11 @@
 # Welcome
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
-<div style="float: left;">
-<figure style="float: left;">
-    <img src="images/zeger-teaching-1.png" alt="Zeger" width="35%" />
+<div style="display: flex; align-items: flex-end;">
+  <figure style="border: none; padding: 4px; margin: auto; float: left; width: 50%; text-align: center;">
+    <img src="images/zeger-teaching-1.png" alt="Zeger" />
     <figcaption>My resume can be downloaded <a href="https://www.hendrikse.name/cvWeb.docx.pdf">here</a>.</figcaption>
-</figure>
+  </figure>
 </div>
 <p style="clear: both;"></p>
 
