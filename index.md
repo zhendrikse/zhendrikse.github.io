@@ -4,7 +4,7 @@
 <div style="float: left;">
 <figure style="float: left;">
     <img src="images/zeger-teaching-1.png" alt="Zeger" width="35%" />
-    <figcaption>Zeger motivating an audience for <a href="https://www.hendrikse.name/tdd/">practicing TDD</a>.</figcaption>
+    <figcaption>My resume can be downloaded <a href="https://www.hendrikse.name/cvWeb.docx.pdf">here</a>.</figcaption>
 </figure>
 </div>
 <p style="clear: both;"></p>
