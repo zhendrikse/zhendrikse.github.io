@@ -50,7 +50,7 @@ All visualizations are both dynamic and three-dimensional, so make sure to pay a
 </figure>
 <figure style="float: right; width: 50%; text-align: center">
   <a href="https://www.hendrikse.name/science/">
-    <img alt="Spherical harmonics" src="https://www.hendrikse.name/science/images/geometry/spherical_harmonics.png" /> 
+    <img alt="Spherical harmonics" src="https://www.hendrikse.name/science/mathematics/gallery/images/spherical_harmonics.png" /> 
   </a>
   <figcaption>3D-visualizations of spherical harmonic functions.</figcaption>
 </figure>
