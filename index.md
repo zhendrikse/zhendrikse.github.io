@@ -52,7 +52,7 @@ All visualizations are both dynamic and three-dimensional, so make sure to pay a
   <a href="https://www.hendrikse.name/science/">
     <img alt="Klein&apos;s bottle" src="https://www.hendrikse.name/science/mathematics/gallery/images/klein_bottle_contour.png" /> 
   </a>
-  <figcaption>3D-immersion of Klein&apos;s bottle.</figcaption>
+  <figcaption>3D-immersion of Klein&apos;s bottle, an example of a non-orientable surface.</figcaption>
 </figure>
 </div>
 <p style="clear: both;"></p>
