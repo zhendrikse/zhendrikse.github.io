@@ -44,16 +44,15 @@ All visualizations are both dynamic and three-dimensional, so make sure to pay a
 <div style="display: flex; align-items: flex-end;">
 <figure style="float: left; width: 50%; text-align: center">
   <a href="https://www.hendrikse.name/science/">
-    <img alt="Particle in magnetic field" src="https://www.hendrikse.name/science/images/helical_motion.png"/>
+    <img alt="Particle in magnetic field" src="https://www.hendrikse.name/science/images/electromagnetic_wave_quiver.png"/>
   </a>
   <figcaption>A charged particle forming a helical motion in a magnetic field.</figcaption>
 </figure>
 <figure style="float: right; width: 50%; text-align: center">
   <a href="https://www.hendrikse.name/science/">
-    <img alt="Spherical harmonics" src="https://www.hendrikse.name/science/mathematics/gallery/images/spherical_harmonics.png" /> 
+    <img alt="Spherical harmonics" src="https://www.hendrikse.name/science/mathematics/gallery/images/klein_bottle_contour.png" /> 
   </a>
   <figcaption>3D-visualizations of spherical harmonic functions.</figcaption>
 </figure>
 </div>
 <p style="clear: both;"></p>
-
