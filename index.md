@@ -44,7 +44,7 @@ All visualizations are both dynamic and three-dimensional, so make sure to pay a
 <div style="display: flex; align-items: flex-end;">
 <figure style="float: left; width: 50%; text-align: center">
   <a href="https://www.hendrikse.name/science/">
-    <img alt="Electromagnetic wave" src="https://www.hendrikse.name/science/images/electromagnetic_wave_quiver.png"/>
+    <img alt="Electromagnetic wave" src="https://www.hendrikse.name/science/electromagnetism/images/electromagnetic_wave_quiver.png"/>
   </a>
   <figcaption>Electromagnetic wave visualized as a quiver field.</figcaption>
 </figure>
