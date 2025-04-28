@@ -594,19 +594,17 @@
     let currentSelectedMolecule = molecules[2]
     setMolecule("Lactate");
 
-    function isMouseWithinCanvas(event) {
-        const rect = canvas.getBoundingClientRect();
-        const x = event.clientX,
-            y = event.clientY;
-        return (x > rect.left || x < rect.right || y > rect.top || y < rect.bottom)
-    }
-
     function setMolecule(molecule) {
         molecules.forEach((molecule) => {molecule.hide();});
         currentSelectedMolecule = molecules[buttons.get(molecule)];
         currentSelectedMolecule.show();
         buttons.keys().forEach((button) => {document.getElementById(button).checked = false;});
         document.getElementById(molecule).checked = true;
+    }
+
+    function isMouseWithinCanvas(x, y) {
+        const rect = canvas.getBoundingClientRect();
+        return (x > rect.left && x < rect.right && y > rect.top && y < rect.bottom);
     }
 
     function onMouseMove(event) {
@@ -663,7 +661,7 @@
     document.addEventListener('contextmenu', (e) => e.preventDefault());
 
     document.addEventListener('mousemove', (e) => {
-        if (!isMouseWithinCanvas(e))
+        if (!isMouseWithinCanvas(e.clientX, e.clientY))
             return;
 
         const deltaX = e.clientX - mouseX;
@@ -681,26 +679,24 @@
     });
 
     document.addEventListener('dblclick', (e) => {
-        if (!isMouseWithinCanvas(e))
+        if (!isMouseWithinCanvas(e.clientX, e.clientY))
             return;
-
         currentSelectedMolecule.rotate(0, 0, 0);
         camera.position.set(0, 0, 8);
     });
 
     document.addEventListener('wheel', (e) => {
-        if (!isMouseWithinCanvas(e))
+        if (!isMouseWithinCanvas(e.clientX, e.clientY))
             return;
-
         camera.position.z += e.deltaY * 0.01;
         camera.position.z = Math.max(4, Math.min(camera.position.z, 20));
     });
 
-    window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    });
+    // window.addEventListener('resize', () => {
+    //     camera.aspect = window.innerWidth / window.innerHeight;
+    //     camera.updateProjectionMatrix();
+    //     renderer.setSize(window.innerWidth, window.innerHeight);
+    // });
 
     function animate() {
         requestAnimationFrame(animate);
