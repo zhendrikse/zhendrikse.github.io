@@ -1,24 +1,17 @@
 <div style="display: flex;">
-<figure style="float: left; width: 25%; ">
+  <figure style="float: left; width: 25%; ">
     <img src="images/zeger-teaching-1.png" alt="Zeger" />
-</figure>
-<div style="float: left; width: 75%; vertical-align: top;">
-🔭 I’m looking for a job (freelance)!</li>
-
-📝 My resume can be downloaded <a href="https://www.hendrikse.name/cvWeb.docx.pdf">here</a>
-
-👯 I’m currently working on my ✨<a href="https://www.hendrikse.name/science/">science &amp; mathematics website</a>
-
-🌱 I’m currently relearning the stuff I did as a student theoretical physics
-
-🤔 I’m looking for help creating more scientific 3D visualizations
-
-💬 Ask me about anything!
-
-📫 How to reach me: zeger d.o.t. hendrikse at gmail d.o.t. com
-
-⚡ Fun fact: I love playing the piano 🎹</li>
-</div>
+  </figure>
+  <div style="float: left; width: 75%; vertical-align: top;">
+    <p>🔭 I’m looking for a job (freelance)!</p>
+    <p>📝 My resume can be downloaded <a href="https://www.hendrikse.name/cvWeb.docx.pdf">here</a></p>
+    <p>👯 I’m currently working on my ✨<a href="https://www.hendrikse.name/science/">science &amp; mathematics website</a></p>
+    <p>🌱 I’m currently relearning the stuff I did as a student theoretical physics</p>
+    <p>🤔 I’m looking for help creating more scientific 3D visualizations</p>
+    <p>💬 Ask me about anything!</p>
+    <p>📫 How to reach me: zeger d.o.t. hendrikse at gmail d.o.t. com</p>
+    <p>⚡ Fun fact: I love playing the piano 🎹</p>
+  </div>
 </div>
 <p style="clear: both;"></p>
 
