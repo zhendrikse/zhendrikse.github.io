@@ -45,6 +45,7 @@ Some examples are reproduced below.
 
 {% include_relative portfolio/molecules.html %}
 
+<p style="clear: both;"></p>
 
 ## 2D visualizations in plain Javascript
 <div style="border-top: 1px solid #999999"><br/></div>

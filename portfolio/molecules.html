@@ -7,7 +7,7 @@
     <label for="Ammonia"><input type="radio" id="Ammonia" onclick="setMolecule('Ammonia')"/>Ammonia</label>
 </div>
 
-<canvas id="myCanvas" width="600" height="400" style="border: none;"></canvas>
+<canvas id="moleculesCanvas" width="600" height="400" style="border: none;"></canvas>
 
 <div style="margin-top: 15px;">
     <label for="toggleRotate"><input type="checkbox" id="toggleRotate" onclick="toggleRotation()" checked="checked"/>&nbsp;Rotate</label>
@@ -66,7 +66,7 @@
     const color = THREE.Color;
     const vector = THREE.Vector3;
 
-    const canvas = document.getElementById('myCanvas');
+    const canvas = document.getElementById('moleculesCanvas');
     canvas.focus();
     const canvasWidth = canvas.getAttribute('width');
     const canvasHeight = canvas.getAttribute('height');
