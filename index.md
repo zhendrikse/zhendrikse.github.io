@@ -34,12 +34,21 @@ section that belongs to my TDD repository, which in turn is packed with dozens o
 <p style="clear: both;"></p>
 
 
-# [The beauty of physics and mathematics](https://www.hendrikse.name/science/)
+# Portfolio
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
 I maintain a site containing countless [visualizations in physics and mathematics](https://www.hendrikse.name/science/).
 Some examples are reproduced below.
 
+## 3D visualizations with [three.js](https://threejs.org/)
+<div style="border-top: 1px solid #999999"><br/></div>
+
 {% include_relative portfolio/molecules.html %}
+
+
+## 2D visualizations in plain Javascript
+<div style="border-top: 1px solid #999999"><br/></div>
+
+{% include_relative portfolio/mandelbrot.html %}
 
 <p style="clear: both;"></p>
