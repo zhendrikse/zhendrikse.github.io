@@ -35,7 +35,7 @@
 # My portfolio
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
-## [Test-driven development](https://www.hendrikse.name/tdd/index.html)
+## Test-driven development
 <div style="border-top: 1px solid #999999"><br/></div>
 
 I love teaching people more about [TDD](https://www.hendrikse.name/tdd/).
