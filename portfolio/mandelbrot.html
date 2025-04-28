@@ -56,9 +56,9 @@
 </style>
 
 <script>
-    const canvas = document.getElementById("mandelbrotCanvas");
-    const display = canvas.getContext("2d");
-    canvas.focus();
+    const mandelbrotCanvas = document.getElementById("mandelbrotCanvas");
+    const display = mandelbrotCanvas.getContext("2d");
+    mandelbrotCanvas.focus();
 
 
     const juliaButtons = new Map();
@@ -97,8 +97,8 @@
     class PixelImage {
         constructor(pixelSize=1) {
             const Array2D = (r, c) => [...Array(r)].map(_=>Array(c).fill([0, 0, 0]));
-            this.dimX = canvas.width / pixelSize;
-            this.dimY = canvas.height / pixelSize;
+            this.dimX = mandelbrotCanvas.width / pixelSize;
+            this.dimY = mandelbrotCanvas.height / pixelSize;
             this.pixelSize = pixelSize;
             this.colours = Array2D(this.dimX, this.dimY);
         }
@@ -116,10 +116,10 @@
         }
 
         asCanvasImageData() {
-            const imageData = display.createImageData(canvas.width, canvas.height);
-            for (let x = 0 ; x < canvas.width; x++)
-                for (let y = 0 ; y < canvas.height; y++) {
-                    let coordinate = y * (canvas.width * 4) + x * 4;
+            const imageData = display.createImageData(mandelbrotCanvas.width, mandelbrotCanvas.height);
+            for (let x = 0 ; x < mandelbrotCanvas.width; x++)
+                for (let y = 0 ; y < mandelbrotCanvas.height; y++) {
+                    let coordinate = y * (mandelbrotCanvas.width * 4) + x * 4;
                     const pixelX = Math.trunc(x / this.pixelSize);
                     const pixelY = Math.trunc(y / this.pixelSize);
 
@@ -132,7 +132,7 @@
         }
 
         render() {
-            display.clearRect(0, 0, canvas.width, canvas.height);
+            display.clearRect(0, 0, mandelbrotCanvas.width, mandelbrotCanvas.height);
             display.putImageData(this.asCanvasImageData(), 0, 0);
         }
     }
@@ -286,8 +286,8 @@
     resetButtons();
     document.getElementById("mandelbrotToggle").checked = true;
 
-    canvas.addEventListener("mousedown", function(event) {
-        const rect = canvas.getBoundingClientRect();
+    mandelbrotCanvas.addEventListener("mousedown", function(event) {
+        const rect = mandelbrotCanvas.getBoundingClientRect();
         const zoomOut = event.button === 2
         fractal.zoom(event.clientX - rect.left, event.clientY - rect.top, zoomOut);
     });
@@ -305,20 +305,20 @@
     });
 
     document.getElementById("canvasSizeButton1").addEventListener("click", function(event) {
-        canvas.width = 600;
-        canvas.height = 400;
+        mandelbrotCanvas.width = 600;
+        mandelbrotCanvas.height = 400;
         fractal.render();
     });
 
     document.getElementById("canvasSizeButton2").addEventListener("click", function(event) {
-        canvas.width = 1200;
-        canvas.height = 800;
+        mandelbrotCanvas.width = 1200;
+        mandelbrotCanvas.height = 800;
         fractal.render();
     });
 
     document.getElementById("canvasSizeButton3").addEventListener("click", function(event) {
-        canvas.width = 1800;
-        canvas.height = 1200;
+        mandelbrotCanvas.width = 1800;
+        mandelbrotCanvas.height = 1200;
         fractal.render();
     });
 
