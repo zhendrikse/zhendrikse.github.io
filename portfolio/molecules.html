@@ -658,8 +658,6 @@
             rightMouseDown = false;
     });
 
-    document.addEventListener('contextmenu', (e) => e.preventDefault());
-
     document.addEventListener('mousemove', (e) => {
         if (!isMouseWithinCanvas(e.clientX, e.clientY))
             return;
