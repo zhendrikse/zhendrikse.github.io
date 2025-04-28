@@ -38,22 +38,9 @@ website that belongs to my TDD repository, that is packed with dozens of
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
 I maintain a site containing countless [visualizations in physics and mathematics](https://www.hendrikse.name/science/).
-It also contains a [math art gallery](https://www.hendrikse.name/science/geometry.html) with 3D geometric shapes.
-All visualizations are both dynamic and three-dimensional, so make sure to pay at least a short visit!
+Some examples are reproduced below.
 
-<div style="display: flex; align-items: flex-end;">
-<figure style="float: left; width: 50%; text-align: center">
-  <a href="https://www.hendrikse.name/science/">
-    <img alt="Particle in magnetic field" src="https://www.hendrikse.name/science/images/helical_motion.png"/>
-  </a>
-  <figcaption>A charged particle forming a helical motion in a magnetic field.</figcaption>
-</figure>
-<figure style="float: right; width: 50%; text-align: center">
-  <a href="https://www.hendrikse.name/science/">
-    <img alt="Spherical harmonics" src="https://www.hendrikse.name/science/images/geometry/spherical_harmonics.png" /> 
-  </a>
-  <figcaption>3D-visualizations of spherical harmonic functions.</figcaption>
-</figure>
-</div>
+{% include portfolio/molecules.html %}
+
 <p style="clear: both;"></p>
 
