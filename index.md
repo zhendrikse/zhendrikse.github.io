@@ -3,28 +3,28 @@
     <img src="images/zeger-teaching-1.png" alt="Zeger" />
   </figure>
   <div style="float: left; width: 75%; vertical-align: top;">
-   <div style="margin-bottom: 2px;">
+   <div style="margin-bottom: 5px;">
     &nbsp;🔭 I’m looking for a job (freelance)!<br/>
    </div>
-   <div style="margin-bottom: 2px;">
+   <div style="margin-bottom: 5px;">
     &nbsp;📝 My resume can be downloaded <a href="https://www.hendrikse.name/cvWeb.docx.pdf">here</a><br/>
    </div>
-   <div style="margin-bottom: 2px;">
+   <div style="margin-bottom: 5px;">
     &nbsp;👯 I’m currently working on my ✨<a href="https://www.hendrikse.name/science/">science &amp; mathematics website</a>✨<br/>
    </div>
-   <div style="margin-bottom: 2px;">
+   <div style="margin-bottom: 5px;">
     &nbsp;🌱 I’m currently relearning the stuff I did as a student theoretical physics<br/>
    </div>
-   <div style="margin-bottom: 2px;">
+   <div style="margin-bottom: 5px;">
     &nbsp;🤔 I’m looking for help creating more scientific 3D visualizations<br/>
    </div>
-   <div style="margin-bottom: 2px;">
+   <div style="margin-bottom: 5px;">
     &nbsp;💬 Ask me about anything!<br/>
    </div>
-   <div style="margin-bottom: 2px;">
+   <div style="margin-bottom: 5px;">
     &nbsp;📫 How to reach me: zeger d.o.t. hendrikse at gmail d.o.t. com<br/>
    </div>
-   <div style="margin-bottom: 2px;">
+   <div style="margin-bottom: 5px;">
     &nbsp;⚡ Fun fact: I love playing the piano 🎹
    </div>
   </div>
