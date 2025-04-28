@@ -3,13 +3,13 @@
     <img src="images/zeger-teaching-1.png" alt="Zeger" />
   </figure>
   <div style="float: left; width: 75%; vertical-align: top;">
-    &nbsp;🔭 I’m looking for a job (freelance)!
-    &nbsp;📝 My resume can be downloaded <a href="https://www.hendrikse.name/cvWeb.docx.pdf">here</a>
-    &nbsp;👯 I’m currently working on my ✨<a href="https://www.hendrikse.name/science/">science &amp; mathematics website</a>
-    &nbsp;🌱 I’m currently relearning the stuff I did as a student theoretical physics
-    &nbsp;🤔 I’m looking for help creating more scientific 3D visualizations
-    &nbsp;💬 Ask me about anything!
-    &nbsp;📫 How to reach me: zeger d.o.t. hendrikse at gmail d.o.t. com
+    &nbsp;🔭 I’m looking for a job (freelance)!<br/>
+    &nbsp;📝 My resume can be downloaded <a href="https://www.hendrikse.name/cvWeb.docx.pdf">here</a><br/>
+    &nbsp;👯 I’m currently working on my ✨<a href="https://www.hendrikse.name/science/">science &amp; mathematics website</a><br/>
+    &nbsp;🌱 I’m currently relearning the stuff I did as a student theoretical physics<br/>
+    &nbsp;🤔 I’m looking for help creating more scientific 3D visualizations<br/>
+    &nbsp;💬 Ask me about anything!<br/>
+    &nbsp;📫 How to reach me: zeger d.o.t. hendrikse at gmail d.o.t. com<br/>
     &nbsp;⚡ Fun fact: I love playing the piano 🎹
   </div>
 </div>
