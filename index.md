@@ -6,15 +6,15 @@
 </div>
 <p style="clear: both;"></p>
 
-# Test-driven development
+# [Test-driven development](https://www.hendrikse.name/tdd/index.html)
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
 I love teaching people more about [TDD](https://www.hendrikse.name/tdd/).
-Strongly recommended: take a look at [my TDD GitHub pages](https://www.hendrikse.name/tdd/) 
-website that belongs to my TDD repository, that is packed with dozens of 
-[coding kata&apos;s](https://www.hendrikse.name/tdd/katas.md).
+Strongly recommended: take a look at [my TDD pages](https://www.hendrikse.name/tdd/) 
+section that belongs to my TDD repository, which in turn is packed with dozens of 
+[coding kata&apos;s](https://www.hendrikse.name/tdd/katas/index.html).
 
-## My coding dojos
+## My [coding dojos](https://www.hendrikse.name/dojo/index.html)
 <div style="border-top: 1px solid #999999"><br/></div>
 
 <div style="display: flex; align-items: flex-end;">
@@ -34,7 +34,7 @@ website that belongs to my TDD repository, that is packed with dozens of
 <p style="clear: both;"></p>
 
 
-# The beauty of physics and mathematics
+# [The beauty of physics and mathematics](https://www.hendrikse.name/science/)
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
 I maintain a site containing countless [visualizations in physics and mathematics](https://www.hendrikse.name/science/).
@@ -43,4 +43,3 @@ Some examples are reproduced below.
 {% include portfolio/molecules.html %}
 
 <p style="clear: both;"></p>
-
