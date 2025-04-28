@@ -1,10 +1,22 @@
 <div style="display: flex; align-items: flex-end;">
-  <figure style="border: none; padding: 4px; margin: auto; float: left; width: 40%; text-align: center;">
+<figure style="float: left;">
     <img src="images/zeger-teaching-1.png" alt="Zeger" />
     <figcaption>My resume can be downloaded <a href="https://www.hendrikse.name/cvWeb.docx.pdf">here</a>.</figcaption>
-  </figure>
+</figure>
+<div>
+<ul>
+  <li>👯 I’m currently working on ✨<a href="https://www.hendrikse.name/science/">my science &amp; mathematics visualizations website</a></li>
+  <li>🌱 I’m currently relearning the stuff I did as a student theoretical physics</li>
+  <li>🔭 I’m looking for a job (freelance)!</li>
+  <li>🤔 I’m looking for help creating more scientific 3D visualizations</li>
+  <li>💬 Ask me about anything!</li>
+  <li>📫 How to reach me: zeger d.o.t. hendrikse at gmail d.o.t. com</li>
+  <li> ⚡ Fun fact: I love playing the piano 🎹</li>
+</ul>
+</div>
 </div>
 <p style="clear: both;"></p>
+
 
 # [Test-driven development](https://www.hendrikse.name/tdd/index.html)
 <div style="border-top: 2px solid #cccccc"><br/></div>
