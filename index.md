@@ -1,9 +1,9 @@
 <div style="display: flex; align-items: flex-end;">
-<figure style="float: left;">
+<figure style="float: left; width: 40%; ">
     <img src="images/zeger-teaching-1.png" alt="Zeger" />
     <figcaption>My resume can be downloaded <a href="https://www.hendrikse.name/cvWeb.docx.pdf">here</a>.</figcaption>
 </figure>
-<div>
+<div style="float: left; width: 60%; vertical-align: top;">
 <ul>
   <li>👯 I’m currently working on ✨<a href="https://www.hendrikse.name/science/">my science &amp; mathematics visualizations website</a></li>
   <li>🌱 I’m currently relearning the stuff I did as a student theoretical physics</li>
