@@ -40,6 +40,6 @@ section that belongs to my TDD repository, which in turn is packed with dozens o
 I maintain a site containing countless [visualizations in physics and mathematics](https://www.hendrikse.name/science/).
 Some examples are reproduced below.
 
-{% include portfolio/molecules.html %}
+{% include_relative portfolio/molecules.html %}
 
 <p style="clear: both;"></p>
