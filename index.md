@@ -79,10 +79,3 @@ Some examples are reproduced below.
 {% include_relative portfolio/spiral_galaxy.html %}
 
 <p style="clear: both;"></p>
-
-### 2D visualizations in plain Javascript
-<div style="border-top: 1px solid #999999"><br/></div>
-
-{% include_relative portfolio/mandelbrot.html %}
-
-<p style="clear: both;"></p>
