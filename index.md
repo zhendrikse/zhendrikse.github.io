@@ -3,28 +3,31 @@
     <img src="images/zeger-teaching-1.png" alt="Zeger" />
   </figure>
   <div style="float: left; width: 75%; vertical-align: top;">
-    <p>🔭 I’m looking for a job (freelance)!</p>
-    <p>📝 My resume can be downloaded <a href="https://www.hendrikse.name/cvWeb.docx.pdf">here</a></p>
-    <p>👯 I’m currently working on my ✨<a href="https://www.hendrikse.name/science/">science &amp; mathematics website</a></p>
-    <p>🌱 I’m currently relearning the stuff I did as a student theoretical physics</p>
-    <p>🤔 I’m looking for help creating more scientific 3D visualizations</p>
-    <p>💬 Ask me about anything!</p>
-    <p>📫 How to reach me: zeger d.o.t. hendrikse at gmail d.o.t. com</p>
-    <p>⚡ Fun fact: I love playing the piano 🎹</p>
+    &nbsp;🔭 I’m looking for a job (freelance)!
+    &nbsp;📝 My resume can be downloaded <a href="https://www.hendrikse.name/cvWeb.docx.pdf">here</a>
+    &nbsp;👯 I’m currently working on my ✨<a href="https://www.hendrikse.name/science/">science &amp; mathematics website</a>
+    &nbsp;🌱 I’m currently relearning the stuff I did as a student theoretical physics
+    &nbsp;🤔 I’m looking for help creating more scientific 3D visualizations
+    &nbsp;💬 Ask me about anything!
+    &nbsp;📫 How to reach me: zeger d.o.t. hendrikse at gmail d.o.t. com
+    &nbsp;⚡ Fun fact: I love playing the piano 🎹
   </div>
 </div>
 <p style="clear: both;"></p>
 
 
-# [Test-driven development](https://www.hendrikse.name/tdd/index.html)
+# My portfolio
 <div style="border-top: 2px solid #cccccc"><br/></div>
+
+## [Test-driven development](https://www.hendrikse.name/tdd/index.html)
+<div style="border-top: 1px solid #999999"><br/></div>
 
 I love teaching people more about [TDD](https://www.hendrikse.name/tdd/).
 Strongly recommended: take a look at [my TDD pages](https://www.hendrikse.name/tdd/) 
 section that belongs to my TDD repository, which in turn is packed with dozens of 
 [coding kata&apos;s](https://www.hendrikse.name/tdd/katas/index.html).
 
-## My [coding dojos](https://www.hendrikse.name/dojo/index.html)
+### My [coding dojos](https://www.hendrikse.name/dojo/index.html)
 <div style="border-top: 1px solid #999999"><br/></div>
 
 <div style="display: flex; align-items: flex-end;">
@@ -43,21 +46,21 @@ section that belongs to my TDD repository, which in turn is packed with dozens o
 </div>
 <p style="clear: both;"></p>
 
+## Interactive 3D simulations & visualizations
+<div style="border-top: 1px solid #999999"><br/></div>
 
-# Portfolio
-<div style="border-top: 2px solid #cccccc"><br/></div>
-
-I maintain a site containing countless [visualizations in physics and mathematics](https://www.hendrikse.name/science/).
+I maintain a site containing countless 
+[interactive simulations in physics and mathematics](https://www.hendrikse.name/science/).
 Some examples are reproduced below.
 
-## 3D visualizations with [three.js](https://threejs.org/)
+### 3D visualizations with [three.js](https://threejs.org/)
 <div style="border-top: 1px solid #999999"><br/></div>
 
 {% include_relative portfolio/molecules.html %}
 
 <p style="clear: both;"></p>
 
-## 2D visualizations in plain Javascript
+### 2D visualizations in plain Javascript
 <div style="border-top: 1px solid #999999"><br/></div>
 
 {% include_relative portfolio/mandelbrot.html %}
