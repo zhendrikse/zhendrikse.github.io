@@ -1,13 +1,13 @@
-<div style="display: flex; align-items: flex-end;">
-<figure style="float: left; width: 40%; ">
+<div style="display: flex;">
+<figure style="float: left; width: 30%; ">
     <img src="images/zeger-teaching-1.png" alt="Zeger" />
-    <figcaption>My resume can be downloaded <a href="https://www.hendrikse.name/cvWeb.docx.pdf">here</a>.</figcaption>
 </figure>
-<div style="float: left; width: 60%; vertical-align: top;">
-<ul>
+<div style="float: left; width: 70%; vertical-align: top;">
+<ul style="list-style-type: none;">
+  <li>🔭 I’m looking for a job (freelance)!</li>
+  <li>📝 My resume can be downloaded <a href="https://www.hendrikse.name/cvWeb.docx.pdf">here</a></li>
   <li>👯 I’m currently working on ✨<a href="https://www.hendrikse.name/science/">my science &amp; mathematics visualizations website</a></li>
   <li>🌱 I’m currently relearning the stuff I did as a student theoretical physics</li>
-  <li>🔭 I’m looking for a job (freelance)!</li>
   <li>🤔 I’m looking for help creating more scientific 3D visualizations</li>
   <li>💬 Ask me about anything!</li>
   <li>📫 How to reach me: zeger d.o.t. hendrikse at gmail d.o.t. com</li>
