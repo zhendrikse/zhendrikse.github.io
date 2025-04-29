@@ -1,36 +1,45 @@
+<div style="margin-bottom: 2px;">
+    <label>Action:</label>
+    <button id="resetView">🔄 Reset View</button>
+    <button id="zoomIn">➕ Zoom In</button>
+    <button id="zoomOut">➖ Zoom Out</button>
+</div>
 <canvas id="mandelbrotCanvas" width="650" height="400" style="border: none;"></canvas>
-<p style="clear: both;"></p>
-<label>Colors:</label><button id="colorSchemeButton1">scheme 1</button>
-<button id="colorSchemeButton2">scheme 2</button>&nbsp;&nbsp;&nbsp;
-<label>Canvas:</label><button id="canvasSizeButton1">small</button>
-<button id="canvasSizeButton2">big</button>
-<button id="canvasSizeButton3">huge</button>&nbsp;&nbsp;&nbsp;
-<label>Action:</label><button id="resetButton">reset</button>
-<p style="clear: both;"></p>
-<table style="border: none">
-    <tr style="border-style: hidden;">
-        <td><label for="mandelbrotToggle"><input type="radio" id="mandelbrotToggle"/>Mandelbrot</label></td>
-        <td><label for="burningShipToggle"><input type="radio" id="burningShipToggle"/>Burning ship</label></td>
-    </tr>
-    <tr style="border-style: hidden;">
-        <td><label for="juliaToggle0"><input type="radio" id="juliaToggle0"/>z=x + iy, c=0.325 + 0.417i</label></td>
-        <td><label for="juliaToggle1"><input type="radio" id="juliaToggle1"/>z=x + iy, c=-0.4 + 0.4i</label></td>
-    </tr>
-    <tr style="border-style: hidden;">
-        <td><label for="juliaToggle2"><input type="radio" id="juliaToggle2"/>z=x + iy, c=-0.4 + 0.6i</label></td>
-        <td><label for="juliaToggle3"><input type="radio" id="juliaToggle3"/>z=x + iy, c=-0.5251993 - 0.5251993i</label></td>
-    </tr>
-    <tr style="border-style: hidden;">
-        <td><label for="juliaToggle4"><input type="radio" id="juliaToggle4"/>z=x + iy, c=0.285 + 0.0001i</label></td>
-        <td><label for="juliaToggle5"><input type="radio" id="juliaToggle5"/>z=x + iy, c=-0.8 + 0.156i</label></td>
-    </tr>
-    <tr style="border-style: hidden;">
-        <td><label for="juliaToggle6"><input type="radio" id="juliaToggle6"/>z=x + iy, c=-0.0 + 0.8i</label></td>
-        <td><label for="juliaToggle6"><input type="radio" id="juliaToggle7"/>z=x + iy, c=-0.70176 - 0.3842i</label></td>
-    </tr>
-</table>
-
+<div style="margin-top: 2px;">
+    <label>Colors:</label><button id="colorSchemeButton1">scheme 1</button>
+    <button id="colorSchemeButton2">scheme 2</button>&nbsp;&nbsp;&nbsp;
+    <label>Canvas:</label><button id="canvasSizeButton1">small</button>
+    <button id="canvasSizeButton2">big</button>
+    <button id="canvasSizeButton3">huge</button>&nbsp;&nbsp;&nbsp;
+</div>
+<div style="margin-top: 1px;">
+    <table style="border: none">
+        <tr style="border-style: hidden;">
+            <td><label for="mandelbrotToggle"><input type="radio" id="mandelbrotToggle"/>Mandelbrot</label></td>
+            <td><label for="burningShipToggle"><input type="radio" id="burningShipToggle"/>Burning ship</label></td>
+        </tr>
+        <tr style="border-style: hidden;">
+            <td><label for="juliaToggle0"><input type="radio" id="juliaToggle0"/>z=x + iy, c=0.325 + 0.417i</label></td>
+            <td><label for="juliaToggle1"><input type="radio" id="juliaToggle1"/>z=x + iy, c=-0.4 + 0.4i</label></td>
+        </tr>
+        <tr style="border-style: hidden;">
+            <td><label for="juliaToggle2"><input type="radio" id="juliaToggle2"/>z=x + iy, c=-0.4 + 0.6i</label></td>
+            <td><label for="juliaToggle3"><input type="radio" id="juliaToggle3"/>z=x + iy, c=-0.5251993 - 0.5251993i</label></td>
+        </tr>
+        <tr style="border-style: hidden;">
+            <td><label for="juliaToggle4"><input type="radio" id="juliaToggle4"/>z=x + iy, c=0.285 + 0.0001i</label></td>
+            <td><label for="juliaToggle5"><input type="radio" id="juliaToggle5"/>z=x + iy, c=-0.8 + 0.156i</label></td>
+        </tr>
+        <tr style="border-style: hidden;">
+            <td><label for="juliaToggle6"><input type="radio" id="juliaToggle6"/>z=x + iy, c=-0.0 + 0.8i</label></td>
+            <td><label for="juliaToggle6"><input type="radio" id="juliaToggle7"/>z=x + iy, c=-0.70176 - 0.3842i</label></td>
+        </tr>
+    </table>
+</div>
 <style>
+    body {
+        background-color: #1a1a1a;
+    }
     label {
         color: white;
         padding: 7px 7px;
@@ -145,6 +154,17 @@
             this.im_max = im_max;
         }
 
+        scale(scale) {
+            const realRange = this.realRange(),
+                imaginaryRange = this.imaginaryRange(),
+                centerX = this.re_min + .5 * this.realRange(),
+                centerY = this.im_min + .5 * this.imaginaryRange();
+            this.re_min = centerX - .5 * realRange * scale;
+            this.re_max = centerX + .5 * realRange * scale;
+            this.im_min = centerY - .5 * imaginaryRange * scale;
+            this.im_max = centerY + .5 * imaginaryRange * scale;
+        }
+
         realRange() {
             return this.re_max - this.re_min;
         }
@@ -160,7 +180,7 @@
             this.maxIter = max_iter;
             this.colorFunction = colorFunction;
             this.range = range;
-            this.initialRange = range;
+            this.initialRange = new FractalRange(range.re_min, range.re_max, range.im_min, range.im_max);
             this.image = new PixelImage();
         }
 
@@ -187,14 +207,26 @@
             this.image.render();
         }
 
-        zoom(x, y, zoomOut) {
+        zoom(zoomOut) {
+            this.range.scale(zoomOut ? 1.1 : .8);
+            this.render();
+        }
+
+        zoomOut() {
+            this.zoom(true);
+        }
+
+        zoomIn() {
+            this.zoom(false);
+        }
+
+        recenter(x, y) {
             const c = this.mapXyToComplexPlane(x, y);
-
-            const scale = zoomOut ? 2 : .5
-            const re_range = scale * this.range.realRange();
-            const im_range = scale * this.range.imaginaryRange();
-
-            this.range = new FractalRange(c[0] - .5 * re_range, c[0] + .5 * re_range, c[1] - .5 * im_range, c[1] + .5 * im_range);
+            this.range = new FractalRange(
+                c[0] - .5 * this.range.realRange(),
+                c[0] + .5 * this.range.realRange(),
+                c[1] - .5 * this.range.imaginaryRange(),
+                c[1] + .5 * this.range.imaginaryRange());
             this.render();
         }
 
@@ -288,11 +320,18 @@
 
     mandelbrotCanvas.addEventListener("mousedown", function(event) {
         const rect = mandelbrotCanvas.getBoundingClientRect();
-        const zoomOut = event.button === 2
-        fractal.zoom(event.clientX - rect.left, event.clientY - rect.top, zoomOut);
+        fractal.recenter(event.clientX - rect.left, event.clientY - rect.top);
     });
 
-    document.getElementById("resetButton").addEventListener("click", function(event) {
+    document.getElementById("zoomIn").addEventListener("click", function(event) {
+        fractal.zoomIn();
+    });
+
+    document.getElementById("zoomOut").addEventListener("click", function(event) {
+        fractal.zoomOut();
+    });
+
+    document.getElementById("resetView").addEventListener("click", function(event) {
         fractal.reset();
     });
 

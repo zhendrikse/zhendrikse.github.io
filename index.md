@@ -13,7 +13,7 @@
     👯 I’m currently working on my ✨<a href="https://www.hendrikse.name/science/">science &amp; mathematics website</a>✨<br/>
    </div>
    <div style="margin-bottom: 5px; margin-left: 10px;">
-    🌱 I’m currently relearning the stuff I did as a student theoretical physics<br/>
+    🌱 I’m relearning the stuff I did as a student theoretical physics<br/>
    </div>
    <div style="margin-bottom: 5px; margin-left: 10px;">
     🤔 I’m looking for help creating more scientific 3D visualizations<br/>
@@ -22,7 +22,7 @@
     💬 Ask me about anything!<br/>
    </div>
    <div style="margin-bottom: 5px; margin-left: 10px;">
-    📫 How to reach me: zeger d.o.t. hendrikse at gmail d.o.t. com<br/>
+    📫 How to reach me: zegerh_＠_yahoo_•_co_•_uk<br/>
    </div>
    <div style="margin-bottom: 5px; margin-left: 10px;">
     ⚡ Fun fact: I love playing the piano 🎹
@@ -95,4 +95,13 @@ Some examples are reproduced below.
       globular clusters, often too dim to be noticeable.
 
 {% include_relative portfolio/spiral_galaxy.html %}
+<p style="clear: both;"></p>
+
+### Mandelbrot and Julia sets
+<div style="border-top: 1px solid #999999"><br/></div>
+
+- Implemented in 100% pure Javascript
+- CLick anywhere on the fractal to re-center
+
+{% include_relative portfolio/mandelbrot.html %}
 <p style="clear: both;"></p>
