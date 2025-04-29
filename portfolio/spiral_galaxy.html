@@ -43,7 +43,7 @@
     controls.target.set(0, 0, 0);
     controls.update();
 
-    let zoomLevel = 1; // 1 = default
+    let zoomLevel = 0.8; // 1 = default
     function updateCameraPosition() {
         galaxyCamera.position.set(
             cameraBase.x * zoomLevel,
@@ -53,6 +53,7 @@
         galaxyCamera.lookAt(0, 0, 0);
         controls.update();
     }
+    updateCameraPosition();
 
     // We need a custom shader as THREE.points geometry does not
     // allow to vary the size of the points individually, and we do
@@ -98,20 +99,20 @@
 
 
     // GUI controls
-    document.getElementById('resetView').addEventListener('click', () => {
-        zoomLevel = 1;
-        updateCameraPosition();
-    });
-
-    document.getElementById('zoomIn').addEventListener('click', () => {
-        zoomLevel *= 0.9;
-        updateCameraPosition();
-    });
-
-    document.getElementById('zoomOut').addEventListener('click', () => {
-        zoomLevel *= 1.1;
-        updateCameraPosition();
-    });
+    // document.getElementById('resetView').addEventListener('click', () => {
+    //     zoomLevel = 1;
+    //     updateCameraPosition();
+    // });
+    //
+    // document.getElementById('zoomIn').addEventListener('click', () => {
+    //     zoomLevel *= 0.9;
+    //     updateCameraPosition();
+    // });
+    //
+    // document.getElementById('zoomOut').addEventListener('click', () => {
+    //     zoomLevel *= 1.1;
+    //     updateCameraPosition();
+    // });
 
 
     /**
