@@ -97,6 +97,21 @@ Some examples are reproduced below.
 {% include_relative portfolio/spiral_galaxy.html %}
 <p style="clear: both;"></p>
 
+### Black hole ray tracer
+<div style="border-top: 1px solid #999999"><br/></div>
+
+- Based on the
+  [blackhole_raytracer](https://github.com/silvaan/blackhole_raytracer/tree/master) project
+  by Arman T, Casper Y, Lulu W.
+- See their accompanying [GitHub pages](https://cyang2020.github.io/BlackHoleRayTracer/)
+  and [video](https://www.youtube.com/watch?v=VTodu1YTURY), where they explain the code.
+- This [black_hole_raytracer.html](https://github.com/zhendrikse/science/blob/main/relativity/code/black_hole_raytracer.html)
+  is a 100% Javascript port of the original Python code.
+- Refactored and extended with realistic colour coding!
+
+{% include_relative portfolio/black_hole.html %}
+<p style="clear: both;"></p>
+
 ### Mandelbrot and Julia sets
 <div style="border-top: 1px solid #999999"><br/></div>
 
