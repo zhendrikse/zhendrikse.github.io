@@ -69,8 +69,8 @@ I maintain a site containing countless
 [interactive simulations in physics and mathematics](https://www.hendrikse.name/science/).
 Some examples are reproduced below.
 
-###     [3D visualization of some molecules](https://www.hendrikse.name/science/molecularphysics/molecules.html)
-<div style="border-top: 1px solid #999999"><br/></div>
+### [3D visualization of some molecules](https://www.hendrikse.name/science/molecularphysics/molecules.html)
+<div style="border-top: 1px solid #ffcc00"><br/></div>
 
 - Code developed in collaboration with [MrBlankCoding](https://github.com/MrBlankCoding)
   in [this GitHub repo](https://github.com/MrBlankCoding/Molecule-3d-Visualisation).
@@ -82,7 +82,7 @@ Some examples are reproduced below.
 <p style="clear: both;"></p>
 
 ### [Spiral galaxy simulation](https://www.hendrikse.name/science/astrophysics/spiral_galaxy.html)
-<div style="border-top: 1px solid #999999"><br/></div>
+<div style="border-top: 1px solid #ffcc00"><br/></div>
 
 - Based on an original idea and [article](https://towardsdatascience.com/create-3-d-galactic-art-with-matplotlib-a7534148a319/) by [Lee Vaughan](https://towardsdatascience.com/author/lee_vaughan/).
 - Written in Javascript and [Three.js](https://threejs.org/), extended with colouring and fading:
@@ -100,7 +100,7 @@ Some examples are reproduced below.
 <!--
 -->
 ### [Black hole ray tracer](https://www.hendrikse.name/science/relativity/black_hole_raytracer.html)
-<div style="border-top: 1px solid #999999"><br/></div>
+<div style="border-top: 1px solid #ffcc00"><br/></div>
 
 - Based on the
   [blackhole_raytracer](https://github.com/silvaan/blackhole_raytracer/tree/master) project
@@ -115,10 +115,10 @@ Some examples are reproduced below.
 <p style="clear: both;"></p>
 
 ### [Mandelbrot and Julia sets](https://www.hendrikse.name/science/mathematics/mandelbrot.html)
-<div style="border-top: 1px solid #999999"><br/></div>
+<div style="border-top: 1px solid #ffcc00"><br/></div>
 
-- Implemented in 100% pure Javascript
-- CLick anywhere on the fractal to re-center
+- Implemented in 100% pure Javascript.
+- Click anywhere on the fractal to re-center.
 
 {% include_relative portfolio/mandelbrot.html %}
 <p style="clear: both;"></p>
