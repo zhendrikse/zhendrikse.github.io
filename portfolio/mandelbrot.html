@@ -1,8 +1,8 @@
 <div style="margin-bottom: 5px;">
     <label>Action:</label>
-    <button id="resetView">🔄 Reset View</button>
-    <button id="zoomIn">➕ Zoom In</button>
-    <button id="zoomOut">➖ Zoom Out</button>
+    <button id="resetViewButton">🔄 Reset View</button>
+    <button id="zoomInButton">➕ Zoom In</button>
+    <button id="zoomOutButton">➖ Zoom Out</button>
 </div>
 <canvas id="mandelbrotCanvas" width="650" height="400" style="border: none;"></canvas>
 <div style="margin-top: 2px;">
@@ -323,15 +323,15 @@
         fractal.recenter(event.clientX - rect.left, event.clientY - rect.top);
     });
 
-    document.getElementById("zoomIn").addEventListener("click", function(event) {
+    document.getElementById("zoomInButton").addEventListener("click", function(event) {
         fractal.zoomIn();
     });
 
-    document.getElementById("zoomOut").addEventListener("click", function(event) {
+    document.getElementById("zoomOutButton").addEventListener("click", function(event) {
         fractal.zoomOut();
     });
 
-    document.getElementById("resetView").addEventListener("click", function(event) {
+    document.getElementById("resetViewButton").addEventListener("click", function(event) {
         fractal.reset();
     });
 
