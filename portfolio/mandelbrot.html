@@ -66,9 +66,8 @@
 
 <script>
     const mandelbrotCanvas = document.getElementById("mandelbrotCanvas");
-    const display = mandelbrotCanvas.getContext("2d");
+    const mandelbrotDisplay = mandelbrotCanvas.getContext("2d");
     mandelbrotCanvas.focus();
-
 
     const juliaButtons = new Map();
     juliaButtons.set("juliaToggle0", [0.325, .417]);
@@ -125,7 +124,7 @@
         }
 
         asCanvasImageData() {
-            const imageData = display.createImageData(mandelbrotCanvas.width, mandelbrotCanvas.height);
+            const imageData = mandelbrotDisplay.createImageData(mandelbrotCanvas.width, mandelbrotCanvas.height);
             for (let x = 0 ; x < mandelbrotCanvas.width; x++)
                 for (let y = 0 ; y < mandelbrotCanvas.height; y++) {
                     let coordinate = y * (mandelbrotCanvas.width * 4) + x * 4;
@@ -141,8 +140,8 @@
         }
 
         render() {
-            display.clearRect(0, 0, mandelbrotCanvas.width, mandelbrotCanvas.height);
-            display.putImageData(this.asCanvasImageData(), 0, 0);
+            mandelbrotDisplay.clearRect(0, 0, mandelbrotCanvas.width, mandelbrotCanvas.height);
+            mandelbrotDisplay.putImageData(this.asCanvasImageData(), 0, 0);
         }
     }
 

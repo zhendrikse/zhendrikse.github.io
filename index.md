@@ -98,6 +98,7 @@ Some examples are reproduced below.
 <p style="clear: both;"></p>
 
 <!--
+-->
 ### Black hole ray tracer
 <div style="border-top: 1px solid #999999"><br/></div>
 
@@ -112,7 +113,6 @@ Some examples are reproduced below.
 
 {% include_relative portfolio/black_hole.html %}
 <p style="clear: both;"></p>
--->
 
 ### Mandelbrot and Julia sets
 <div style="border-top: 1px solid #999999"><br/></div>
