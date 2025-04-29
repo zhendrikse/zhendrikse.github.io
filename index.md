@@ -84,9 +84,8 @@ Some examples are reproduced below.
 ### Spiral galaxy simulation
 <div style="border-top: 1px solid #999999"><br/></div>
 
-- Based on the original idea and [article](https://towardsdatascience.com/create-3-d-galactic-art-with-matplotlib-a7534148a319/) by [Lee Vaughan](https://towardsdatascience.com/author/lee_vaughan/).
-- This [spiral_galaxy.html](https://github.com/zhendrikse/science/blob/main/astrophysics/code/spiral_galaxy.html) page is a port to Javascript and [Three.js](https://threejs.org/), extended with 
-  colouring and fading:
+- Based on an original idea and [article](https://towardsdatascience.com/create-3-d-galactic-art-with-matplotlib-a7534148a319/) by [Lee Vaughan](https://towardsdatascience.com/author/lee_vaughan/).
+- Written in Javascript and [Three.js](https://threejs.org/), extended with colouring and fading:
     - **Core / Bulge** (Central Region): yellow-white to reddish color, since the core is
       populated mostly by older stars (Population II), which are cooler and more evolved.
     - **Mid-to-Outer Disk** (Arms): bluish-white color, because the spiral arms host young, hot,
