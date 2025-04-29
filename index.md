@@ -69,7 +69,7 @@ I maintain a site containing countless
 [interactive simulations in physics and mathematics](https://www.hendrikse.name/science/).
 Some examples are reproduced below.
 
-### 3D visualization of some molecules
+###     [3D visualization of some molecules](https://www.hendrikse.name/science/molecularphysics/molecules.html)
 <div style="border-top: 1px solid #999999"><br/></div>
 
 - Code developed in collaboration with [MrBlankCoding](https://github.com/MrBlankCoding)
@@ -81,7 +81,7 @@ Some examples are reproduced below.
 {% include_relative portfolio/molecules.html %}
 <p style="clear: both;"></p>
 
-### Spiral galaxy simulation
+### [Spiral galaxy simulation](https://www.hendrikse.name/science/astrophysics/spiral_galaxy.html)
 <div style="border-top: 1px solid #999999"><br/></div>
 
 - Based on an original idea and [article](https://towardsdatascience.com/create-3-d-galactic-art-with-matplotlib-a7534148a319/) by [Lee Vaughan](https://towardsdatascience.com/author/lee_vaughan/).
@@ -98,7 +98,8 @@ Some examples are reproduced below.
 <p style="clear: both;"></p>
 
 <!--
-### Black hole ray tracer
+-->
+### [Black hole ray tracer](https://www.hendrikse.name/science/relativity/black_hole_raytracer.html)
 <div style="border-top: 1px solid #999999"><br/></div>
 
 - Based on the
@@ -112,9 +113,8 @@ Some examples are reproduced below.
 
 {% include_relative portfolio/black_hole.html %}
 <p style="clear: both;"></p>
--->
 
-### Mandelbrot and Julia sets
+### [Mandelbrot and Julia sets](https://www.hendrikse.name/science/mathematics/mandelbrot.html)
 <div style="border-top: 1px solid #999999"><br/></div>
 
 - Implemented in 100% pure Javascript
