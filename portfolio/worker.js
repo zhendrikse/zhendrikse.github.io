@@ -18,6 +18,25 @@ class HtmlCanvasImage {
     setColour(pixelX, pixelY, colour) {
         this.colours[pixelX][pixelY] = colour;
     }
+
+    asCanvasImageData() {
+        const imageData = blackHoleDisplay.createImageData(blackHoleCanvas.width, blackHoleCanvas.height);
+        for (let x = 0 ; x < blackHoleCanvas.width; x++)
+            for (let y = 0 ; y < blackHoleCanvas.height; y++) {
+                let coordinate = y * (blackHoleCanvas.width * 4) + x * 4;
+
+                imageData.data[coordinate++] = this.colours[x][y][0];
+                imageData.data[coordinate++] = this.colours[x][y][1];
+                imageData.data[coordinate++] = this.colours[x][y][2];
+                imageData.data[coordinate++] = 255
+            }
+        return imageData;
+    }
+
+    render() {
+        blackHoleDisplay.clearRect(0, 0, blackHoleCanvas.width, blackHoleCanvas.height);
+        blackHoleDisplay.putImageData(this.asCanvasImageData(), 0, 0);
+    }
 }
 
 class BlackHole {
@@ -244,7 +263,6 @@ class Engine {
 
         return imgData;
     }
-
     render() {
         const ratio = this.scene.width / this.scene.height
         // NOTE:
@@ -264,10 +282,10 @@ class Engine {
 
         for (let j = 0; j < this.scene.height; j++) {
             const y = y0 + j * ystep;
-            // Since Javascript is so fast, there is no need to keep
-            // track of the progress.
-            // if ((j+1) % 10 === 0)
+            // if ((j+1) % 10 === 0) {
             //     console.log('line ' + (j+1) + '/' + this.scene.height);
+            //     this.scene.image.render();
+            // }
 
             for (let i = 0; i < this.scene.width; i++) {
                 const x = x0 + i * xstep;
@@ -276,6 +294,7 @@ class Engine {
             }
         }
 
+        this.scene.image.render();
         // TODO ?
         //this.output = Image.fromarray(this.scene.image.pixels.astype(np.uint8))
     }
@@ -335,10 +354,6 @@ class Engine {
 
 self.onmessage = (event) => {
     if (event.data.type === "start") {
-        const width = event.data.width;
-        const height = event.data.height;
-
-        // Je originele setup
         const c_origin = new Vector(0, -.75, -9.0);
         const c_focus = new Vector(0, 0, 0.0);
         const bh = new BlackHole(c_focus, 85);
@@ -352,9 +367,9 @@ self.onmessage = (event) => {
         );
 
         const engine = new Engine(scene);
-        const imageData = engine.renderToImageData(width, height);
+        const imageData = engine.renderToImageData(blackHoleCanvasWidth, blackHoleCanvasHeight);
         //engine.save('images/blackhole.png');
-        // Stuur gerenderd beeld terug
+
         self.postMessage(imageData);
     }
 };
