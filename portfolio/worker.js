@@ -18,25 +18,6 @@ class HtmlCanvasImage {
     setColour(pixelX, pixelY, colour) {
         this.colours[pixelX][pixelY] = colour;
     }
-
-    asCanvasImageData() {
-        const imageData = blackHoleDisplay.createImageData(blackHoleCanvas.width, blackHoleCanvas.height);
-        for (let x = 0 ; x < blackHoleCanvas.width; x++)
-            for (let y = 0 ; y < blackHoleCanvas.height; y++) {
-                let coordinate = y * (blackHoleCanvas.width * 4) + x * 4;
-
-                imageData.data[coordinate++] = this.colours[x][y][0];
-                imageData.data[coordinate++] = this.colours[x][y][1];
-                imageData.data[coordinate++] = this.colours[x][y][2];
-                imageData.data[coordinate++] = 255
-            }
-        return imageData;
-    }
-
-    render() {
-        blackHoleDisplay.clearRect(0, 0, blackHoleCanvas.width, blackHoleCanvas.height);
-        blackHoleDisplay.putImageData(this.asCanvasImageData(), 0, 0);
-    }
 }
 
 class BlackHole {
