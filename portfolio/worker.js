@@ -1,9 +1,7 @@
-const blackHoleCanvas = document.getElementById("blackHoleCanvas");
-const blackHoleDisplay = blackHoleCanvas.getContext("2d");
-blackHoleCanvas.focus();
-
-const c = 1.0 // Speed of light
-const G = 2e-3 // Gravitational constant
+const c = 1.0; // Speed of light
+const G = 2e-3; // Gravitational constant
+const width = 500;
+const height = 250;
 
 function isString(value) {
     return typeof value === 'string';
@@ -20,27 +18,6 @@ class HtmlCanvasImage {
 
     setColour(pixelX, pixelY, colour) {
         this.colours[pixelX][pixelY] = colour;
-    }
-
-    asCanvasImageData() {
-        const imageData = blackHoleDisplay.createImageData(blackHoleCanvas.width, blackHoleCanvas.height);
-        for (let x = 0 ; x < blackHoleCanvas.width; x++)
-            for (let y = 0 ; y < blackHoleCanvas.height; y++) {
-                let coordinate = y * (blackHoleCanvas.width * 4) + x * 4;
-                const pixelX = Math.trunc(x / this.pixelSize);
-                const pixelY = Math.trunc(y / this.pixelSize);
-
-                imageData.data[coordinate++] = this.colours[pixelX][pixelY][0];
-                imageData.data[coordinate++] = this.colours[pixelX][pixelY][1];
-                imageData.data[coordinate++] = this.colours[pixelX][pixelY][2];
-                imageData.data[coordinate++] = 255
-            }
-        return imageData;
-    }
-
-    render() {
-        blackHoleDisplay.clearRect(0, 0, blackHoleCanvas.width, blackHoleCanvas.height);
-        blackHoleDisplay.putImageData(this.asCanvasImageData(), 0, 0);
     }
 }
 
@@ -303,7 +280,6 @@ class Engine {
             }
         }
 
-        this.scene.image.render();
         // TODO ?
         //this.output = Image.fromarray(this.scene.image.pixels.astype(np.uint8))
     }
@@ -361,21 +337,28 @@ class Engine {
     }
 }
 
-const c_origin = new Vector(0, -.75, -9.0); //new Vector(0, 0.7, -9.0);
-const c_focus = new Vector(0, 0, 0.0);
-const bh = new BlackHole(c_focus, 85);
+self.onmessage = (event) => {
+    if (event.data.type === "start") {
+        const width = event.data.width;
+        const height = event.data.height;
 
-// You can specify a texture file for the accretion disk with `texture='filename.png'` or a color by `color=Color('#ffffff') (default)`
-const disk = new Disk(c_focus, 4.5 * bh.radius, 16.2 * bh.radius);
-const scene = new Scene(
-    new Camera(c_origin, c_focus.subtract(c_origin), 1.2),
-    bh,
-    disk,
-    500,
-    250
-);
+        // Je originele setup
+        const c_origin = new Vector(0, -.75, -9.0);
+        const c_focus = new Vector(0, 0, 0.0);
+        const bh = new BlackHole(c_focus, 85);
+        const disk = new Disk(c_focus, 4.5 * bh.radius, 16.2 * bh.radius);
+        const scene = new Scene(
+            new Camera(c_origin, c_focus.subtract(c_origin), 1.2),
+            bh,
+            disk,
+            500,
+            250
+        );
 
-const engine = new Engine(scene);
-engine.render();
-
-//engine.save('images/blackhole.png');
+        const engine = new Engine(scene);
+        const imageData = engine.renderToImageData(width, height);
+        //engine.save('images/blackhole.png');
+        // Stuur gerenderd beeld terug
+        self.postMessage(imageData);
+    }
+};

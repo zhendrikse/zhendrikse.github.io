@@ -4,20 +4,20 @@
     const canvas = document.getElementById("blackHoleCanvas");
     const ctx = canvas.getContext("2d");
 
-    // Toon tijdelijk een zwart vlak
+    // While the ray tracing takes place, show a black canvas
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Start de worker
+    // Prepare the worker with the ray tracing logic
     const worker = new Worker("portfolio/worker.js");
 
-    // Ontvang het gerenderde beeld
+    // Receive the image data to be displayed
     worker.onmessage = (event) => {
         const imageData = event.data;
         ctx.putImageData(imageData, 0, 0);
     };
 
-    // Start het renderproces
+    // Start the ray tracing
     worker.postMessage({
         type: "start",
         width: canvas.width,
