@@ -10,9 +10,7 @@ function isString(value) {
 class HtmlCanvasImage {
     constructor(width, height) {
         const Array2D = (r, c) => Array.from({length: r}, () => Array.from({length: c}, () => [0, 0, 0]));
-        this.width = width;
-        this.height = height;
-        this.colours = Array2D(this.width, this.height);
+        this.colours = Array2D(width, height);
     }
 
     setColour(pixelX, pixelY, colour) {
