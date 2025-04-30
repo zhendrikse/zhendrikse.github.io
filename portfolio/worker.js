@@ -12,7 +12,7 @@ class HtmlCanvasImage {
         const Array2D = (r, c) => Array.from({length: r}, () => Array.from({length: c}, () => [0, 0, 0]));
         this.width = width;
         this.height = height;
-        this.pixelSize = blackHoleCanvas.width / width;
+        this.pixelSize = 1;
         this.colours = Array2D(this.width, this.height);
     }
 
@@ -227,17 +227,14 @@ class Engine {
     }
 
     renderToImageData(canvasWidth, canvasHeight) {
-        this.render(); // vult this.scene.image.colours
+        this.render(); // fill the array this.scene.image.colours with colours representing the final image
 
         const imgData = new ImageData(canvasWidth, canvasHeight);
-        const pixelSize = canvasWidth / this.scene.width;
 
         for (let x = 0 ; x < canvasWidth; x++) {
             for (let y = 0 ; y < canvasHeight; y++) {
                 const coord = y * (canvasWidth * 4) + x * 4;
-                const pixelX = Math.trunc(x / pixelSize);
-                const pixelY = Math.trunc(y / pixelSize);
-                const color = this.scene.image.colours[pixelX][pixelY];
+                const color = this.scene.image.colours[x][y];
 
                 imgData.data[coord + 0] = color[0];
                 imgData.data[coord + 1] = color[1];
