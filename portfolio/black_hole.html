@@ -9,7 +9,7 @@
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Start de worker
-    const worker = new Worker("worker.js");
+    const worker = new Worker("portfolio/worker.js");
 
     // Ontvang het gerenderde beeld
     worker.onmessage = (event) => {
