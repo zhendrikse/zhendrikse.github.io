@@ -1,7 +1,7 @@
 const c = 1.0; // Speed of light
 const G = 2e-3; // Gravitational constant
-const width = 500;
-const height = 250;
+const blackHoleCanvasWidth = 650;
+const blackHoleCanvasHeight = 325;
 
 function isString(value) {
     return typeof value === 'string';
@@ -12,7 +12,6 @@ class HtmlCanvasImage {
         const Array2D = (r, c) => Array.from({length: r}, () => Array.from({length: c}, () => [0, 0, 0]));
         this.width = width;
         this.height = height;
-        this.pixelSize = 1;
         this.colours = Array2D(this.width, this.height);
     }
 
@@ -348,8 +347,8 @@ self.onmessage = (event) => {
             new Camera(c_origin, c_focus.subtract(c_origin), 1.2),
             bh,
             disk,
-            500,
-            250
+            blackHoleCanvasWidth,
+            blackHoleCanvasHeight
         );
 
         const engine = new Engine(scene);
