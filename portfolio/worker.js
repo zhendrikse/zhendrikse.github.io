@@ -244,6 +244,7 @@ class Engine {
 
         return imgData;
     }
+
     render() {
         const ratio = this.scene.width / this.scene.height
         // NOTE:
@@ -275,7 +276,7 @@ class Engine {
             }
         }
 
-        this.scene.image.render();
+        //this.scene.image.render();
         // TODO ?
         //this.output = Image.fromarray(this.scene.image.pixels.astype(np.uint8))
     }
