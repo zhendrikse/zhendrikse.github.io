@@ -43,18 +43,18 @@ Strongly recommended: take a look at [my TDD pages](https://www.hendrikse.name/t
 section that belongs to my TDD repository, which in turn is packed with dozens of 
 [coding kata&apos;s](https://www.hendrikse.name/tdd/katas/index.html).
 
-### My [coding dojos](https://www.hendrikse.name/dojo/index.html)
+### My [coding dojos](https://www.hendrikse.name/tdd/dojo/index.html)
 <div style="border-top: 1px solid #999999"><br/></div>
 
 <div style="display: flex; align-items: flex-end;">
 <figure style="float: left; width: 55%; text-align: center">
-  <a href="https://www.hendrikse.name/tdd/dojo.html">
+  <a href="https://www.hendrikse.name/tdd/dojo/index.html">
     <img alt="Online dojo" src="images/DojoInAction.png"/>
   </a>&nbsp;&nbsp;&nbsp;
   <figcaption>A typical setting of an online coding dojo.</figcaption>
 </figure>
 <figure style="float: right; width: 45%; text-align: center">
-  <a href="https://www.hendrikse.name/tdd/dojo.html">
+  <a href="https://www.hendrikse.name/tdd/dojo/index.html">
     <img src="images/zeger_teaching.jpg" alt="Coding dojo"/>
   </a>
   <figcaption><br/>A typical setting of a coding dojo.</figcaption>
