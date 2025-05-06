@@ -97,8 +97,6 @@ Some examples are reproduced below.
 {% include_relative portfolio/spiral_galaxy.html %}
 <p style="clear: both;"></p>
 
-<!--
--->
 ### [Black hole ray tracer](https://www.hendrikse.name/science/relativity/black_hole_raytracer.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
@@ -112,6 +110,17 @@ Some examples are reproduced below.
 - Refactored and extended with realistic colour coding!
 
 {% include_relative portfolio/black_hole.html %}
+<p style="clear: both;"></p>
+
+### [Falling raindrops](https://www.hendrikse.name/science/nature/raindrop_waves.html)
+<div style="border-top: 1px solid #ffcc00"><br/></div>
+
+- Based on [this example](https://beltoforion.de/de/unterhaltungsmathematik/2d-wellengleichung.php)
+  from [Recreational Mathematics with Python](https://github.com/beltoforion/recreational_mathematics_with_python)
+- Ported to Javascript and [three.js](https://threejs.org/) by [Zeger Hendrikse](https://github.com/zhendrikse/), see
+  [raindrop_waves.html](https://github.com/zhendrikse/science/blob/main/nature/code/raindrop_waves.html)
+
+{% include_relative portfolio/raindrops.html %}
 <p style="clear: both;"></p>
 
 ### [Mandelbrot and Julia sets](https://www.hendrikse.name/science/mathematics/mandelbrot.html)
