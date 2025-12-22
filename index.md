@@ -129,5 +129,5 @@ Some examples are reproduced below.
 - Implemented in 100% pure Javascript.
 - Click anywhere on the fractal to re-center.
 
-{% include_relative portfolio/mandelbrot.html %}
+{% include_relative portfolio/3d_surfaces.html %}
 <p style="clear: both;"></p>
