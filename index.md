@@ -138,9 +138,10 @@ and [video](https://www.youtube.com/watch?v=VTodu1YTURY), where they explain the
 ### [3D function plots](https://www.hendrikse.name/science/mathematics/multivariate_surface_plot.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
-🔧 Implemented in Javascript with [Three.js](https://threejs.org/).
+🔧 [This surface renderer](https://github.com/zhendrikse/science/blob/main/mathematics/code/multivariate_surface_plot.py)
+is 100% Javascript using [Three.js](https://threejs.org/).
 
-🚀 Try e.g. `sin(pi * x) * cos(pi * y)` or `sin(3 * sqrt(x*x + y*y)) / sqrt(x*x + y*y)`
+🚀 Try e.g. `sin(pi * x) * cos(pi * y)`
 
 {% include_relative portfolio/3d_surfaces.html %}
 <p style="clear: both;"></p>
