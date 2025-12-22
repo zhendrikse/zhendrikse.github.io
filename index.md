@@ -72,11 +72,15 @@ Some examples are reproduced below.
 ### [3D visualization of some molecules](https://www.hendrikse.name/science/molecularphysics/molecules.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
-- Code developed in collaboration with [MrBlankCoding](https://github.com/MrBlankCoding)
+🔧 This [black hole ray tracer](https://github.com/zhendrikse/science/blob/main/relativity/code/worker.js)
+Written in pure Javascript and [three.js](https://threejs.org/).
+
+➡️ Code developed in collaboration with [MrBlankCoding](https://github.com/MrBlankCoding)
   in [this GitHub repo](https://github.com/MrBlankCoding/Molecule-3d-Visualisation).
-- Molecular data taken from [this code](https://glowscript.org/#/user/priisdk/folder/molecules).
-- Written in pure Javascript and [three.js](https://threejs.org/).
-- Hovering your mouse over each of the atoms displays additional information!
+
+➡️ Molecular data taken from [this code](https://glowscript.org/#/user/priisdk/folder/molecules).
+
+➡️ Hovering your mouse over each of the atoms displays additional information!
 
 {% include_relative portfolio/molecules.html %}
 <p style="clear: both;"></p>
@@ -84,15 +88,19 @@ Some examples are reproduced below.
 ### [Spiral galaxy simulation](https://www.hendrikse.name/science/astrophysics/spiral_galaxy.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
-- Based on an original idea and [article](https://towardsdatascience.com/create-3-d-galactic-art-with-matplotlib-a7534148a319/) by [Lee Vaughan](https://towardsdatascience.com/author/lee_vaughan/).
-- Written in Javascript and [Three.js](https://threejs.org/), extended with colouring and fading:
-    - **Core / Bulge** (Central Region): yellow-white to reddish color, since the core is
-      populated mostly by older stars (Population II), which are cooler and more evolved.
-    - **Mid-to-Outer Disk** (Arms): bluish-white color, because the spiral arms host young, hot,
-      and massive stars (Population I), which are blue and short-lived. Also, star-forming regions
-      and nebulae contribute a diffuse glow.
-    - **Outer Halo**: dim red to transparent, as this region contains very old stars and
-      globular clusters, often too dim to be noticeable.
+🔧 Written in Javascript and [Three.js](https://threejs.org/), extended with colouring and fading
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ➡️ **Core / Bulge** (Central Region): yellow-white to reddish color, since the core is
+populated mostly by older stars (Population II), which are cooler and more evolved.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ➡️ **Mid-to-Outer Disk** (Arms): bluish-white color, because the spiral arms host young, hot,
+and massive stars (Population I), which are blue and short-lived. Also, star-forming regions
+and nebulae contribute a diffuse glow.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ➡️ **Outer Halo**: dim red to transparent, as this region contains very old stars and
+globular clusters, often too dim to be noticeable.
+
+➡️ Based on an original idea and [article](https://towardsdatascience.com/create-3-d-galactic-art-with-matplotlib-a7534148a319/) by [Lee Vaughan](https://towardsdatascience.com/author/lee_vaughan/).
 
 {% include_relative portfolio/spiral_galaxy.html %}
 <p style="clear: both;"></p>
@@ -100,14 +108,17 @@ Some examples are reproduced below.
 ### [Black hole ray tracer](https://www.hendrikse.name/science/relativity/black_hole_raytracer.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
-- Based on the
+🔧 This [black hole ray tracer](https://github.com/zhendrikse/science/blob/main/relativity/code/worker.js)
+is a port to Javascript executed by a [web worker](https://en.wikipedia.org/wiki/Web_worker).
+
+🔧 Refactored and extended with realistic colour coding!
+
+➡️ Based on the
   [blackhole_raytracer](https://github.com/silvaan/blackhole_raytracer/tree/master) project
   by Arman T, Casper Y, Lulu W.
-- See their accompanying [GitHub pages](https://cyang2020.github.io/BlackHoleRayTracer/)
-  and [video](https://www.youtube.com/watch?v=VTodu1YTURY), where they explain the code.
-- This [black hole ray tracer](https://github.com/zhendrikse/science/blob/main/relativity/code/worker.js)
-  is a port to Javascript executed by a [web worker](https://en.wikipedia.org/wiki/Web_worker).
-- Refactored and extended with realistic colour coding!
+
+➡️ See their accompanying [GitHub pages](https://cyang2020.github.io/BlackHoleRayTracer/)
+and [video](https://www.youtube.com/watch?v=VTodu1YTURY), where they explain the code.
 
 {% include_relative portfolio/black_hole.html %}
 <p style="clear: both;"></p>
@@ -115,19 +126,19 @@ Some examples are reproduced below.
 ### [Falling raindrops](https://www.hendrikse.name/science/nature/raindrop_waves.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
-- Based on [this example](https://beltoforion.de/de/unterhaltungsmathematik/2d-wellengleichung.php)
+🔧 Ported to Javascript and [Three.js](https://threejs.org/) by [Zeger Hendrikse](https://github.com/zhendrikse/), see
+[raindrop_waves.html](https://github.com/zhendrikse/science/blob/main/nature/code/raindrop_waves.html)
+
+➡️ Based on [this example](https://beltoforion.de/de/unterhaltungsmathematik/2d-wellengleichung.php)
   from [Recreational Mathematics with Python](https://github.com/beltoforion/recreational_mathematics_with_python)
-- Ported to Javascript and [three.js](https://threejs.org/) by [Zeger Hendrikse](https://github.com/zhendrikse/), see
-  [raindrop_waves.html](https://github.com/zhendrikse/science/blob/main/nature/code/raindrop_waves.html)
 
 {% include_relative portfolio/raindrops.html %}
 <p style="clear: both;"></p>
 
-### [Mandelbrot and Julia sets](https://www.hendrikse.name/science/mathematics/mandelbrot.html)
+### [3D function plots](https://www.hendrikse.name/science/mathematics/multivariate_surface_plot.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
-- Implemented in 100% pure Javascript.
-- Click anywhere on the fractal to re-center.
+🔧 Implemented in Javascript with [Three.js](https://threejs.org/).
 
-{% include_relative portfolio/mandelbrot.html %}
+{% include_relative portfolio/3d_surfaces.html %}
 <p style="clear: both;"></p>
