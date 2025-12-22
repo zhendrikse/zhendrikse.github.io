@@ -69,7 +69,7 @@ I maintain a site containing countless
 [interactive simulations in physics and mathematics](https://www.hendrikse.name/science/).
 Some examples are reproduced below.
 
-### [3D visualization of some molecules](https://www.hendrikse.name/science/molecularphysics/molecules.html)
+### 🚀 [3D visualization of some molecules](https://www.hendrikse.name/science/molecularphysics/molecules.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
 🔧 This [black hole ray tracer](https://github.com/zhendrikse/science/blob/main/relativity/code/worker.js)
@@ -85,7 +85,7 @@ Written in pure Javascript and [three.js](https://threejs.org/).
 {% include_relative portfolio/molecules.html %}
 <p style="clear: both;"></p>
 
-### [Spiral galaxy simulation](https://www.hendrikse.name/science/astrophysics/spiral_galaxy.html)
+### 🚀 [Spiral galaxy simulation](https://www.hendrikse.name/science/astrophysics/spiral_galaxy.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
 🔧 Written in Javascript and [Three.js](https://threejs.org/), extended with colouring and fading
@@ -105,7 +105,7 @@ globular clusters, often too dim to be noticeable.
 {% include_relative portfolio/spiral_galaxy.html %}
 <p style="clear: both;"></p>
 
-### [Black hole ray tracer](https://www.hendrikse.name/science/relativity/black_hole_raytracer.html)
+### 🚀 [Black hole ray tracer](https://www.hendrikse.name/science/relativity/black_hole_raytracer.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
 🔧 This [black hole ray tracer](https://github.com/zhendrikse/science/blob/main/relativity/code/worker.js)
@@ -123,7 +123,7 @@ and [video](https://www.youtube.com/watch?v=VTodu1YTURY), where they explain the
 {% include_relative portfolio/black_hole.html %}
 <p style="clear: both;"></p>
 
-### [Falling raindrops](https://www.hendrikse.name/science/nature/raindrop_waves.html)
+### 🚀 [Falling raindrops](https://www.hendrikse.name/science/nature/raindrop_waves.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
 🔧 Ported to Javascript and [Three.js](https://threejs.org/) by [Zeger Hendrikse](https://github.com/zhendrikse/), see
@@ -135,7 +135,7 @@ and [video](https://www.youtube.com/watch?v=VTodu1YTURY), where they explain the
 {% include_relative portfolio/raindrops.html %}
 <p style="clear: both;"></p>
 
-### [3D function plots](https://www.hendrikse.name/science/mathematics/multivariate_surface_plot.html)
+### 🚀 [3D function plots](https://www.hendrikse.name/science/mathematics/multivariate_surface_plot.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
 🔧 Implemented in Javascript with [Three.js](https://threejs.org/).
