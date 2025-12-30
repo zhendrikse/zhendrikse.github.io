@@ -135,13 +135,11 @@ and [video](https://www.youtube.com/watch?v=VTodu1YTURY), where they explain the
 {% include_relative portfolio/raindrops.html %}
 <p style="clear: both;"></p>
 
-### [3D function plots](https://www.hendrikse.name/science/mathematics/multivariate_surface_plot.html)
+### [3D shapes](https://www.hendrikse.name/science/mathematics/geometric_surfaces.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
-🔧 [This surface renderer](https://github.com/zhendrikse/science/blob/main/mathematics/code/multivariate_surface_plot.html)
+🔧 This [3D shapes renderer](https://github.com/zhendrikse/science/blob/main/mathematics/code/geometric_surfaces.html)
 is 100% Javascript using [Three.js](https://threejs.org/).
-
-🚀 Try e.g. `sin(pi * x) * cos(pi * y)`
 
 {% include_relative portfolio/3d_surfaces.html %}
 <p style="clear: both;"></p>
