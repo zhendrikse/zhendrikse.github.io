@@ -73,8 +73,9 @@
 
     const Category = Object.freeze({
         BASIC: "Basic",
-        CONIC: "Conics",
+        CONIC: "Conic",
         MISC: "Miscellaneous",
+        NON_ORIENTABLE: "Non-Orientable",
         SPIRAL: "Spiral",
         TOROID: "Toroid"
     });
@@ -111,7 +112,7 @@
         },
         intervals: [["0", "pi"], ["pi", "0"]]
     }, {
-        meta: {name: "Bohemian dome", category: Category.MISC},
+        meta: {name: "Bohemian dome", category: Category.TOROID},
         parametrization: {
             xFn: "7 * cos(u)",
             yFn: "7 * sin(u) + 3 * cos(v)",
@@ -142,6 +143,14 @@
             zFn: "1.2 ^u * (1 + cos(v)) * sin(u)"
         },
         intervals: [["0", "6 * pi"], ["2 * pi", "0"]]
+    }, {
+        meta: {name: "Cross cap", category: Category.NON_ORIENTABLE},
+        parametrization: {
+            xFn: "sin(2 * v) * cos(u)",
+            yFn: "-cos(v) * cos(v) + 0.5  * cos(u) * cos(u) * sin(v) * sin(v)",
+            zFn: "sin(2 * v) * sin(u)"
+        },
+        intervals: [["0", "2 * pi"], ["2 * pi", "0"]]
     }, {
         meta: {name: "Cone", category: Category.CONIC},
         parametrization: {
@@ -199,6 +208,14 @@
         },
         intervals: [["0", "2 * pi"], ["pi", "0"]]
     }, {
+        meta: {name: "Helicoid", category: Category.SPIRAL},
+        parametrization: {
+            xFn: "1.25 * u * cos(v)",
+            yFn: "0.6 * v",
+            zFn: "1.25 * u * sin(v)"
+        },
+        intervals: [["-2", "2"], ["3 * pi", "0"]]
+    }, {
         meta: {name: "Horn", category: Category.SPIRAL},
         parametrization: {
             xFn: "(2 + u * cos(v)) * sin (2 * pi * u)",
@@ -223,7 +240,7 @@
         },
         intervals: [["0", "2 * pi"], ["2", "-2"]]
     }, {
-        meta: {name: "Möbius strip", category: Category.MISC},
+        meta: {name: "Möbius strip", category: Category.NON_ORIENTABLE},
         parametrization: {
             xFn: "(2 + u * cos(v / 2)) * cos(v)",
             yFn: "(2 + u * cos(v / 2)) * sin(v)",
@@ -263,6 +280,14 @@
         },
         intervals: [["-3/2", "3/2"], ["3/2", "-3/2"]]
     }, {
+        meta: {name: "Roman surface", category: Category.NON_ORIENTABLE},
+        parametrization: {
+            xFn: "cos(u) * cos(v) * sin(v)",
+            yFn: "cos(u) * sin(u) * cos(v) * cos(v)",
+            zFn: "sin(u) * cos(v) * sin(v)"
+        },
+        intervals: [["0", "2 * pi"], ["2 * pi", "0"]]
+    }, {
         meta: {name: "Saddle / hyperbolic paraboloid", category: Category.BASIC},
         parametrization: {
             xFn: "u * sin(v)",
@@ -278,6 +303,14 @@
             zFn: "2 * (1 - v / (2 * pi)) * sin(3 * v) * (1 + cos(u)) + 0.25 * sin(3 * v)"
         },
         intervals: [["0", "2 * pi"], ["0", "2 * pi"]]
+    }, {
+        meta: {name: "Self intersecting disc", category: Category.NON_ORIENTABLE},
+        parametrization: {
+            xFn: "1.0 * v * cos(2 * u)",
+            yFn: "-1.0 * v * cos(u)",
+            zFn: "1.0 * v * sin(2 * u)"
+        },
+        intervals: [["0", "2 * pi"], ["0", "1"]]
     }, {
         meta: {name: "Sine", category: Category.MISC},
         parametrization: {
@@ -311,7 +344,7 @@
         },
         intervals: [["0", "8 * pi"], ["0", "2 * pi"]]
     }, {
-        meta: {name: "Torus", category: Category.TOROID},
+        meta: {name: "Torus", category: Category.BASIC},
         parametrization: {
             xFn: "cos(u) * (3 + 1.5 * cos(v))",
             yFn: "1.5 * sin(v)",
@@ -319,13 +352,29 @@
         },
         intervals: [["0", "2 * pi"], ["2 * pi", "0"]]
     }, {
-        meta: {name: "Trefoil knot", category: Category.TOROID},
+        meta: {name: "Big torus", category: Category.TOROID},
         parametrization: {
-            xFn: "(4 * (1 + 1/4 * sin(3 * v)) + cos(u)) * cos(2 * v)",
-            yFn: "(4 * (1 + 1/4 * sin(3 * v)) + cos(u)) * sin(2 * v)",
+            xFn: "cos(u) * (3 + 1.5 * cos(v))",
+            yFn: "2.75 * sin(v)",
+            zFn: "sin(u) * (3 + 1.5 * cos(v))"
+        },
+        intervals: [["0", "2 * pi"], ["2 * pi", "0"]]
+    }, {
+        meta: {name: "Trefoil knot 1", category: Category.TOROID},
+        parametrization: {
+            xFn: "(6 * (1 + 1/4 * sin(3 * v)) + cos(u)) * cos(2 * v)",
+            yFn: "(6 * (1 + 1/4 * sin(3 * v)) + cos(u)) * sin(2 * v)",
             zFn: "sin(u) + 2 * cos(3 * v)"
         },
         intervals: [["0", "2 * pi"], ["2 * pi", "0"]]
+    },{
+        meta: {name: "Trefoil knot 2", category: Category.TOROID},
+        parametrization: {
+            xFn: "1.5 * sin(3 * u) / (2 + cos(v))",
+            yFn: "1.5 * (sin(u) + 2 * sin(2 * u)) / (2 + cos(v + pi * 2 / 3))",
+            zFn: "1.0 * (cos(u) - 2 * cos(2 * u)) * (2 + cos(v)) * (2 + cos(v + pi * 2 / 3)) / 4"
+        },
+        intervals: [["0", "4 * pi"], ["4 * pi", "0"]]
     },{
         meta: {name: "Twisted torus", category: Category.TOROID},
         parametrization: {
@@ -334,6 +383,14 @@
             zFn: "sin(u) + 3 * cos(v)"
         },
         intervals: [["0", "2 * pi"], ["2 * pi", "0"]]
+    },{
+        meta: {name: "Umbrella", category: Category.MISC},
+        parametrization: {
+            xFn: "u^(1/3) * ((4 - 4/9) * cos(v) + 4/9 * cos((9 - 1) * v))",
+            yFn: "3 * (1 - u)",
+            zFn: "u^(1/3) * ((4 - 4/9) * sin(v) + 4/9 * sin((9 - 1) * v))"
+        },
+        intervals: [["1e-5", "1 - 1e-5"], ["2 * pi", "0"]]
     },{
         meta: {name: "Whitney umbrella", category: Category.MISC},
         parametrization: {
@@ -966,11 +1023,11 @@
                 if (this.useBaseColor) {
                     color.setStyle(this.baseColor);
                     color.getHSL(hsl);
-                    hsl.l = 0.1 + 0.3 * (1 - t);
+                    hsl.l = 0.1 + 0.4 * (1 - t);
                 } else {
                     hsl.h = t * 0.5 - 0.025;
                     hsl.s = 0.9;
-                    hsl.l = 0.4 + 0.2 * (1 - t);
+                    hsl.l = 0.4 + 0.3 * (1 - t);
                 }
 
                 color.setHSL(hsl.h, hsl.s, hsl.l);
@@ -1049,12 +1106,14 @@
             }
 
             const color = new THREE.Color();
+            const epsilon = 1e-4;
 
             for (let i = 0; i < pos.count; i++) {
                 const u = uv.getX(i);
                 const v = uv.getY(i);
 
                 const K = this.curvature.gaussianCurvature(u, v);
+                if (Math.abs(K) < epsilon) continue; // black where Gaussian curvature equals zero
                 this.#colorFromK(K, color);
 
                 colorAttr.array[3 * i]     = color.r;
@@ -1503,7 +1562,7 @@
 
         findSurfaceByName = (name) => this.surfaces.find(surface => surface.data().meta.name === name);
         findSurfaceByMesh = (mesh) => this.surfaces.find(surface => surface.selectableObject() === mesh);
-        getSelectableObjects = () => this.visibleRingItems().map(surface => surface.selectableObject());
+        selectableObjects = () => this.visibleRingItems().map(surface => surface.selectableObject());
         rotateRingToSelectedSurface = () => { if (this.#rotationToTargetSurfaceIsNeeded()) this.#rotate(); };
         rotateSurfaces = () => this.visibleRingItems().forEach(surface => surface.rotateBy(this.rotationSpeed));
         onSelectTo = (selectedRingSurface) => this.#onSelectedSurface(selectedRingSurface);
@@ -1522,7 +1581,7 @@
 
     const surfaceDefinition = surfaces[3];
     const visualizationParameters = new ViewParameters();
-    let surfaceInAxes = create(surfaceDefinition, visualizationParameters, scenery, axes);
+    let surfaceInAxes = displayedSurface(surfaceDefinition, visualizationParameters, scenery, axes);
 
     const boundingBox = surfaceInAxes.boundingBox();
     Utils.scaleBox3(boundingBox, 0.23)
@@ -1538,7 +1597,7 @@
     bbox.setFromObject( axesGroup );
     scenery.fitToBoundingBox(bbox, {padding: 1.2, translationY: -0.5});
 
-    function create(surfaceData, visualizationParameters, scenery, axes) {
+    function displayedSurface(surfaceData, visualizationParameters, scenery, axes) {
         scenery.updateSurfaceData(surfaceData);
         const surfaceInAxes = new DisplayedSurfaceView(axesGroup, new Surface(surfaceData), visualizationParameters);
         surfaceInAxes.resetTransform();
@@ -1560,7 +1619,7 @@
         raycaster.setFromCamera(mouse, scenery.camera);
 
         const hits = raycaster.intersectObjects(
-            ring.getSelectableObjects(),
+            ring.selectableObjects(),
             false // IMPORTANT: no recursion
         );
 
@@ -1569,7 +1628,7 @@
         const selectedMesh = hits[0].object;
         const selectedRingSurface = ring.findSurfaceByMesh(selectedMesh);
         surfaceInAxes.dispose();
-        surfaceInAxes = create(selectedRingSurface.data(), visualizationParameters, scenery, axes);
+        surfaceInAxes = displayedSurface(selectedRingSurface.data(), visualizationParameters, scenery, axes);
         ring.onSelectTo(selectedRingSurface);
         controlsGui.updateSurfaceWith(surfaceInAxes);
     });
