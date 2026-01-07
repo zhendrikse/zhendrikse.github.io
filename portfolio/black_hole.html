@@ -1,5 +1,21 @@
-<canvas id="blackHoleCanvas" width="650" height="325" style="border: none;"></canvas>
+<style>
+    .blackhole-container {
+        width: 100%;
+        max-width: 800px;
+        margin: auto;
+        aspect-ratio: 2 / 1;
+        background: black; /* letterbox */
+    }
 
+    .blackhole-container canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+</style>
+<div class="blackhole-container">
+    <canvas id="blackHoleCanvas" width="600" height="300"></canvas>
+</div>
 <script>
     const canvas = document.getElementById("blackHoleCanvas");
     const ctx = canvas.getContext("2d");
