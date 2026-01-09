@@ -63,8 +63,8 @@
 
 <div id="surface-title"></div>
 <div id="surface-equation"></div>
-<div id="container">
-    <canvas id="myCanvas"></canvas><br/>
+<div id="surfaceCanvasContainer">
+    <canvas id="3dSurfaceCanvas"></canvas><br/>
 </div>
 <div id="gui-container"></div>
 
@@ -77,8 +77,8 @@
         from 'https://www.hendrikse.name/science/js/components-library.js';
     import GUI from "https://cdn.jsdelivr.net/npm/lil-gui@0.18/+esm";
 
-    const canvasContainer = document.getElementById("container");
-    const canvas = document.getElementById("myCanvas");
+    const canvasContainer = document.getElementById("surfaceCanvasContainer");
+    const canvas = document.getElementById("3dSurfaceCanvas");
 
     const surfaces = [{
         meta: {name: "Apple", category: Category.NATURE},
