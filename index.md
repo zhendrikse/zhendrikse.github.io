@@ -109,11 +109,3 @@ is a port to Javascript executed by a [web worker](https://en.wikipedia.org/wiki
 
 {% include_relative portfolio/raindrops.html %}
 <p style="clear: both;"></p>
-
-### [3D shapes](https://www.hendrikse.name/science/mathematics/geometric_surfaces.html)
-<div style="border-top: 1px solid #ffcc00"><br/></div>
-
-🔧 This [3D shapes renderer](https://github.com/zhendrikse/science/blob/main/mathematics/code/geometric_surfaces.html) is 100% Javascript using [Three.js](https://threejs.org/).
-
-{% include_relative portfolio/3d_surfaces.html %}
-<p style="clear: both;"></p>
