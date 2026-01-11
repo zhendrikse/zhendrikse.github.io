@@ -71,17 +71,17 @@
 
 <script type="module">
     import * as THREE from "three";
-    import { ThreeJsUtils, Plot3D } from 'https://www.hendrikse.name/science/js/three-js-utils.js';
-    import { Axes, AxesParameters, MatlabAxesLayout, MatlabAnnotations }
+    import { ThreeJsUtils, Axes, AxesParameters, MatlabAxesLayout, MatlabAnnotations }
         from 'https://www.hendrikse.name/science/js/three-js-extensions.js';
-    import { Category, Surface, StandardSurfaceView, MinimalSurfaceView, ViewParameters, ColorMode, ContourType }
+    import { Plot3D, Category, Surface, StandardSurfaceView, MinimalSurfaceView, SurfaceSpecification,
+        ViewParameters, ColorMode, ContourType, LiteralStringBasedSurfaceDefinition }
         from 'https://www.hendrikse.name/science/js/3d-surface-components.js';
     import GUI from "https://cdn.jsdelivr.net/npm/lil-gui@0.18/+esm";
 
     const canvasContainer = document.getElementById("surface-canvas-container");
     const canvas = document.getElementById("surfaceCanvas");
 
-    const surfaces = [{
+    const SurfaceDefinitions = [{
         meta: {name: "Apple", category: Category.NATURE},
         parametrization: {
             xFn: "cos(u) * (4 + 3.8 * cos(v))",
@@ -152,7 +152,7 @@
             yFn: "-cos(v) * cos(v) + 0.5  * cos(u) * cos(u) * sin(v) * sin(v)",
             zFn: "sin(2 * v) * sin(u)"
         },
-        intervals: [["0", "2 * pi"], ["2 * pi", "0"]]
+        intervals: [["0", "1 * pi"], ["1 * pi", "0"]]
     }, {
         meta: {name: "Cone", category: Category.CONIC},
         parametrization: {
@@ -506,20 +506,41 @@
         },
         intervals: [["-2", "2"], ["-2", "2"]]
     }];
+    function deepFreeze(obj) {
+        Object.freeze(obj);
+        Object.values(obj).forEach(v => {
+            if (typeof v === 'object' && v !== null && !Object.isFrozen(v)) {
+                deepFreeze(v);
+            }
+        });
+        return obj;
+    }
+
+    const FrozenSurfaceDefinitions = SurfaceDefinitions.map(s => deepFreeze(s));
 
     class ControlsGui {
         constructor(surface, axes, annotations, ring, viewParameters=new ViewParameters()) {
             this.viewParameters = viewParameters;
             this.surface = surface;
+            this.axes = axes;
             const controls = new GUI({width: 300, autoPlace: false});
             document.getElementById("gui-container").appendChild(controls.domElement);
+
+            this.xFunction = null;
+            this.yFunction = null;
+            this.zFunction = null;
+            this.surfaceCoordinates = {
+                x: surface.definition().specification().parametrization.xFn,
+                y: surface.definition().specification().parametrization.yFn,
+                z: surface.definition().specification().parametrization.xFn
+            }
 
             controls.add(this.viewParameters, 'category', Object.values(Category))
                 .name("Category")
                 .onChange(value => ring.changeActiveCategoryTo(value));
 
             this.#createAppearanceFolder(controls, axes, annotations);
-            this.#createContourFolder(controls);
+            this.#createMathFolder(controls);
         }
 
         #createContourFolder(folder) {
@@ -553,6 +574,13 @@
             surfaceFolder.add(this.viewParameters, "resolution", 10, 200, 1)
                 .name("Resolution")
                 .onFinishChange(resolution => this.surface.resampleWith(resolution));
+            surfaceFolder.add(this.viewParameters, 'wireframe')
+                .name("Wireframe")
+                .onChange(value => this.surface.toggleWireframe(value));
+            surfaceFolder.add(this.viewParameters, 'normals')
+                .name('Show Normals')
+                .onChange(value => this.#showNormals(this.surface, value));
+            surfaceFolder.add(this.viewParameters, 'autoRotate').name('Auto rotate');
             surfaceFolder.close();
         }
 
@@ -562,32 +590,52 @@
                 .name("Axes").onChange(value => value ? axesLayout.showAxes() : axesLayout.hideAxes());
             axesFolder.add(this.viewParameters.axesParameters, 'axesLabels')
                 .name("Axes labels").onChange(value => annotations.visible = value);
-            axesFolder.add(this.viewParameters.axesParameters, 'xyPlane')
-                .name("XY plane").onChange(value => value ? axesLayout.showXY() : axesLayout.hideXY());
-            axesFolder.add(this.viewParameters.axesParameters, 'xzPlane')
-                .name("XZ plane").onChange(value => value ? axesLayout.showXZ() : axesLayout.hideXZ());
-            axesFolder.add(this.viewParameters.axesParameters, 'yzPlane')
-                .name("YZ plane").onChange(value => value ? axesLayout.showYZ() : axesLayout.hideYZ());
-            axesFolder.close()
+            axesFolder.add(this.viewParameters.axesParameters, 'xyPlane') // intentional misuse of xyPlane for all planes
+                .name("Grid planes").onChange(value => {
+                value ? axesLayout.showXY() : axesLayout.hideXY();
+                value ? axesLayout.showXZ() : axesLayout.hideXZ();
+                value ? axesLayout.showYZ() : axesLayout.hideYZ();
+            });
+            axesFolder.close();
         }
 
-        #createOptionsFolder(folder) {
-            const optionsFolder = folder.addFolder("Options");
-            optionsFolder.add(this.viewParameters, 'wireframe')
-                .name("Wireframe")
-                .onChange(value => this.surface.toggleWireframe(value));
-            optionsFolder.add(this.viewParameters, 'normals')
-                .name('Show Normals')
-                .onChange(value => this.#showNormals(this.surface, value));
-            optionsFolder.add(this.viewParameters, 'autoRotate').name('Auto rotate');
-            optionsFolder.close();
+        #createMathFolder(folder) {
+            const mathFolder = folder.addFolder("Math");
+
+            this.xFunction = mathFolder.add(this.surfaceCoordinates, "x").name("Fx(u,v) =")
+                .onFinishChange(expr => {
+                    const surfaceSpecification =
+                        this.surface.definition().specification().withParametrization({x: expr});
+                    this.surface.dispose();
+                    surfaceInAxes = displayedSurface(surfaceSpecification, this.viewParameters, this.axes);
+                    this.updateCurrentSurfaceWith(surfaceInAxes);
+                });
+
+            this.yFunction = mathFolder.add(this.surfaceCoordinates, "y").name("Fy(u,v) =")
+                .onFinishChange(expr => {
+                    const surfaceSpecification =
+                        this.surface.definition().specification().withParametrization({y: expr});
+                    this.surface.dispose();
+                    surfaceInAxes = displayedSurface(surfaceSpecification, this.viewParameters, this.axes);
+                    this.updateCurrentSurfaceWith(surfaceInAxes);
+                });
+
+            this.zFunction = mathFolder.add(this.surfaceCoordinates, "z").name("Fz(u,v) =")
+                .onFinishChange(expr => {
+                    const surfaceSpecification =
+                        this.surface.definition().specification().withParametrization({z: expr});
+                    this.surface.dispose();
+                    surfaceInAxes = displayedSurface(surfaceSpecification, this.viewParameters, this.axes);
+                    this.updateCurrentSurfaceWith(surfaceInAxes);
+                });
+
+            mathFolder.close();
         }
 
         #createAppearanceFolder(controls, axes, annotations) {
             const appearanceFolder = controls.addFolder("Appearance");
             this.#createSurfaceFolder(appearanceFolder);
             this.#createAxesFolder(appearanceFolder, axes, annotations);
-            this.#createOptionsFolder(appearanceFolder);
             this.#createContourFolder(appearanceFolder);
 
             appearanceFolder.add({reset: () =>
@@ -612,12 +660,36 @@
             }
         }
 
+        #updateSurfaceDataTitleBox() {
+            const nameDiv = document.getElementById("surface-title");
+            const surfaceData = this.surface.definition().specification();
+            nameDiv.textContent = surfaceData.meta.category + ": " + surfaceData.meta.name;
+
+            const equationDiv = document.getElementById("surface-equation");
+            equationDiv.innerHTML = "$$\\begin{pmatrix}" +
+                surfaceData.parametrization.xFn + " \\\\" +
+                surfaceData.parametrization.yFn + " \\\\" +
+                surfaceData.parametrization.zFn + "\\end{pmatrix}\\text{, } \\begin{cases} u \\in [" +
+                surfaceData.intervals[0][0] + ", " +
+                surfaceData.intervals[0][1] + "] \\\\ v \\in [" +
+                surfaceData.intervals[1][0] + ", " +
+                surfaceData.intervals[1][1] + "] \\end{cases}$$";
+            if (window.MathJax) MathJax.typesetPromise([equationDiv]);
+        }
+
         render() {
             if (this.viewParameters.autoRotate)
                 this.surface.rotateBy(0.005);
         }
 
-        updateSurfaceWith= (newSurface) => this.surface = newSurface;
+        updateCurrentSurfaceWith= (newSurface) => {
+            this.surface = newSurface;
+            this.#updateSurfaceDataTitleBox();
+            const surfaceSpecification = this.surface.definition().specification();
+            this.xFunction.setValue(surfaceSpecification.parametrization.xFn);
+            this.yFunction.setValue(surfaceSpecification.parametrization.yFn);
+            this.zFunction.setValue(surfaceSpecification.parametrization.zFn);
+        }
     }
 
     class Ring {
@@ -641,28 +713,11 @@
             this.selectedSurface = null;
         }
 
-        #updateSurfaceData(surfaceData) {
-            const nameDiv = document.getElementById("surface-title");
-            nameDiv.textContent = surfaceData.meta.category + ": " + surfaceData.meta.name;
-
-            const equationDiv = document.getElementById("surface-equation");
-            equationDiv.innerHTML = "$$\\begin{pmatrix}" +
-                surfaceData.parametrization.xFn + " \\\\" +
-                surfaceData.parametrization.yFn + " \\\\" +
-                surfaceData.parametrization.zFn + "\\end{pmatrix}\\text{, } \\begin{cases} u \\in [" +
-                surfaceData.intervals[0][0] + ", " +
-                surfaceData.intervals[0][1] + "] \\\\ v \\in [" +
-                surfaceData.intervals[1][0] + ", " +
-                surfaceData.intervals[1][1] + "] \\end{cases}$$";
-            if (window.MathJax) MathJax.typesetPromise([equationDiv]);
-        }
-
         #onSelectedSurface(selectedRingSurface) {
             this.#setTargetRotation(selectedRingSurface);
             if (this.selectedSurface) this.selectedSurface.onDeselect();
             selectedRingSurface.onSelect();
             this.selectedSurface = selectedRingSurface;
-            this.#updateSurfaceData(selectedRingSurface.data());
         }
 
         #placeAndShowSurface = (surface, index) => {
@@ -699,8 +754,10 @@
         }
 
         add(surfaces) {
-            surfaces.forEach(surfaceData => {
-                const selectorSurface = new MinimalSurfaceView(this.group, new Surface(surfaceData), {});
+            surfaces.forEach(surfaceDataAsString => {
+                const surfaceSpecification = new SurfaceSpecification(surfaceDataAsString);
+                const surfaceDefinition = new LiteralStringBasedSurfaceDefinition(surfaceSpecification);
+                const selectorSurface = new MinimalSurfaceView(this.group, new Surface(surfaceDefinition), {});
                 ThreeJsUtils.fitGroupToBox(
                     selectorSurface.group,
                     selectorSurface.boundingBox(),
@@ -717,16 +774,17 @@
             this.#redistribute();
         }
 
-        findSurfaceByName = (name) => this.surfaces.find(surface => surface.data().meta.name === name);
+        findSurfaceByName = (name) => this.surfaces.find(surface => surface.definition().specification().meta.name === name);
         findSurfaceByMesh = (mesh) => this.surfaces.find(surface => surface.selectableObject() === mesh);
         render = () => { this.#rotateRingToSelectedSurface(); this.#rotateSurfaces(); }
         selectableObjects = () => this.visibleRingItems().map(surface => surface.selectableObject());
         onSelectTo = (selectedRingSurface) => this.#onSelectedSurface(selectedRingSurface);
-        visibleRingItems = () => this.surfaces.filter(surface => surface.data().meta.category === this.activeCategory);
+        visibleRingItems = () => this.surfaces.filter(surface => surface.definition().specification().meta.category === this.activeCategory);
     }
 
-    function displayedSurface(surfaceData, visualizationParameters, scenery, axes) {
-        const surfaceInAxes = new StandardSurfaceView(worldGroup, new Surface(surfaceData), visualizationParameters);
+    function displayedSurface(surfaceSpecification, visualizationParameters, axes) {
+        const surfaceDefinition = new LiteralStringBasedSurfaceDefinition(surfaceSpecification);
+        const surfaceInAxes = new StandardSurfaceView(worldGroup, new Surface(surfaceDefinition), visualizationParameters);
         surfaceInAxes.resetTransform();
 
         const axesBoundingBox = new THREE.Box3();
@@ -759,18 +817,18 @@
     bbox.setFromObject( worldGroup );
     plot3D.fitToBoundingBox(bbox, {padding: 1.2, translationY: -3.0});
 
-    const surfaceDefinition = surfaces[19];
+    const surfaceData = FrozenSurfaceDefinitions[19];
     const visualizationParameters = new ViewParameters({axesParameters: new AxesParameters({axesLabels: false})});
     annotations.visible = visualizationParameters.axesParameters.axesLabels;
-    let surfaceInAxes = displayedSurface(surfaceDefinition, visualizationParameters, plot3D, axes);
+    let surfaceInAxes = displayedSurface(new SurfaceSpecification(surfaceData), visualizationParameters, axes);
 
     // Ring
     const boundingBox = surfaceInAxes.boundingBox();
     ThreeJsUtils.scaleBox3(boundingBox, 0.20);
     const ring = new Ring(worldGroup, surfaceInAxes, boundingBox);
-    ring.add(surfaces);
-    ring.changeActiveCategoryTo(surfaceDefinition.meta.category);
-    const selectedRingSurface = ring.findSurfaceByName(surfaceDefinition.meta.name);
+    ring.add(FrozenSurfaceDefinitions);
+    ring.changeActiveCategoryTo(surfaceData.meta.category);
+    const selectedRingSurface = ring.findSurfaceByName(surfaceData.meta.name);
     ring.onSelectTo(selectedRingSurface);
 
     // Interaction
@@ -793,9 +851,9 @@
         const selectedMesh = hits[0].object;
         const selectedRingSurface = ring.findSurfaceByMesh(selectedMesh);
         surfaceInAxes.dispose();
-        surfaceInAxes = displayedSurface(selectedRingSurface.data(), visualizationParameters, plot3D, axes);
+        surfaceInAxes = displayedSurface(selectedRingSurface.definition().specification(), visualizationParameters, axes);
         ring.onSelectTo(selectedRingSurface);
-        controlsGui.updateSurfaceWith(surfaceInAxes);
+        controlsGui.updateCurrentSurfaceWith(surfaceInAxes);
     });
 
     function animate() {
