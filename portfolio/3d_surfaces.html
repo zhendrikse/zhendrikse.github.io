@@ -71,12 +71,14 @@
 </div>
 <div class="guiContainer" id="gui-container"></div>
 
+
 <script type="module">
     import {Scene, Color, Group, Box3, PerspectiveCamera, WebGLRenderer, Vector3, Vector2, Raycaster,
         DirectionalLight, AmbientLight, HemisphereLight} from "three";
     import { Plot3DView, ThreeJsUtils, AxesParameters, AxesController }
         from 'https://www.hendrikse.name/science/js/three-js-extensions.js';
-    import { SurfaceController, Category, TangentFrameParameters, ViewParameters, ColorMapper, ContourType, SurfaceDefinitions }
+    import { SurfaceController, Category, TangentFrameParameters, ViewParameters, ColorMapper, ContourType,
+        SurfaceSelector, SurfaceDefinitions }
         from 'https://www.hendrikse.name/science/js/3d-surface-components.js';
     import GUI from "https://cdn.jsdelivr.net/npm/lil-gui@0.18/+esm";
 
@@ -318,7 +320,7 @@
     resize();
 
     // Ring
-    const ring = new Ring(ringBoundingBox, {
+    const ring = new SurfaceSelector(ringBoundingBox, {
         ringRadius: 7,
         verticalOffset: 1.75,
         activeCategory: surfaceData.meta.category
