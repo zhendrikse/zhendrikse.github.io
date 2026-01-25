@@ -10,3 +10,49 @@ figcaption {
   padding: 2px;
   text-align: center;
 }
+
+.applicationCanvas {
+  display: block;
+  background-color: #131313;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+}
+
+.canvasWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+}
+
+.guiContainer {
+  margin-top: 0;
+  background: #131313;
+}
+
+.titleDiv {
+  text-align: center;
+  font-size: clamp(16px, 4vw, 24px);
+  font-family: sans-serif;
+  color: yellow;
+  padding: 10px;
+  font-weight: bold;
+  text-shadow: 0 0 8px black;
+  margin: 0;
+  background: #131313;
+}
+
+.equationDiv {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  font-size: 13px;
+  color: yellow;
+  text-align: center;
+  z-index: 10;
+  background: #131313;
+  padding: 5px;
+}
