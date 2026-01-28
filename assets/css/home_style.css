@@ -13,7 +13,7 @@ figcaption {
 
 .applicationCanvas {
   display: block;
-  background-color: #131313;
+  background-color: transparent;
   width: 100%;
   max-width: 800px;
   aspect-ratio: 1 / 1;
@@ -30,7 +30,7 @@ figcaption {
 
 .guiContainer {
   margin-top: 0;
-  background: #131313;
+  background: transparent;
 }
 
 .titleDiv {
