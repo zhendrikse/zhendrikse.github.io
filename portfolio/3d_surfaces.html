@@ -48,8 +48,8 @@
     ThreeJsUtils.scaleBox3(ringBoundingBox, 1.1); // scaling factor to obtain miniature surfaces
 
     // Directional light (shadow, nice highlights)
-    const dirLight = new DirectionalLight(0xffffff, 1);
-    dirLight.position.set(5, 5, 5);
+    const dirLight = new DirectionalLight(0xffffff, .75);
+    dirLight.position.set(15, 15, 15);
     ringScene.add(dirLight);
 
     // Ambient light
@@ -61,7 +61,6 @@
     const Category = Object.freeze({
         BASIC: "Basic",
         CONIC: "Conic",
-        FUNCTION: "Functions",
         MISC: "Miscellaneous",
         NON_ORIENTABLE: "Non-Orientable",
         OBJECT: "Object",
@@ -132,13 +131,13 @@
                 .onChange(value => this._surfaceController.onContourTypeChange(surfaceParams.contourParameters));
             contourFolder.add(surfaceParams.contourParameters, 'color')
                 .name("Color")
-                .onChange(() => {if (this.#isValidColor()) this._surfaceController.updateContoursView(surfaceParams.contourParameters);});
+                .onChange(() => {if (this.#isValidColor()) this._surfaceController.onContourSettingsChange(surfaceParams.contourParameters);});
             contourFolder.add(surfaceParams.contourParameters, "uCount", 1, 50, 1)
                 .name("U contours")
-                .onFinishChange(value => this._surfaceController.updateContours(surfaceParams.contourParameters));
+                .onFinishChange(value => this._surfaceController.onContourSettingsChange(surfaceParams.contourParameters));
             contourFolder.add(surfaceParams.contourParameters, "vCount", 1, 50, 1)
                 .name("V contours")
-                .onFinishChange(value => this._surfaceController.updateContours(surfaceParams.contourParameters));
+                .onFinishChange(value => this._surfaceController.onContourSettingsChange(surfaceParams.contourParameters));
             contourFolder.close();
         }
 
@@ -150,7 +149,7 @@
 
             surfaceFolder.add(surfaceParams, 'baseColor')
                 .name("Base color")
-                .onChange(() => {if (this.#isValidColor()) this._surfaceController.updateColor(surfaceParams);});
+                .onChange(() => {if (this.#isValidColor()) this._surfaceController.onColorChange(surfaceParams);});
             surfaceFolder.add(surfaceParams, "opacity", 0, 1, .01)
                 .name("Opacity")
                 .onChange(value => this._surfaceController.updateOpacity(value));
@@ -202,7 +201,7 @@
             const newSpec = oldSpec.withIntervals(intervals);
             const definition = new LiteralStringBasedSurfaceDefinition(newSpec);
 
-            this._surfaceController.changeSurface(new Surface(definition), surfaceParams);
+            this._surfaceController.onSurfaceChange(new Surface(definition), surfaceParams);
             updateViewForSurface();
             this.update();
         }
@@ -215,7 +214,7 @@
                     const specification = this._surfaceController.surface
                         .definition().specification().withParametrization({xFn: expr});
                     const definition = new LiteralStringBasedSurfaceDefinition(specification);
-                    this._surfaceController.changeSurface(new Surface(definition), surfaceParams);
+                    this._surfaceController.onSurfaceChange(new Surface(definition), surfaceParams);
                     updateViewForSurface();
                 });
 
@@ -224,7 +223,7 @@
                     const specification = this._surfaceController.surface
                         .definition().specification().withParametrization({yFn: expr});
                     const definition = new LiteralStringBasedSurfaceDefinition(specification);
-                    this._surfaceController.changeSurface(new Surface(definition), surfaceParams);
+                    this._surfaceController.onSurfaceChange(new Surface(definition), surfaceParams);
                     updateViewForSurface();
                 });
 
@@ -233,7 +232,7 @@
                     const specification = this._surfaceController.surface
                         .definition().specification().withParametrization({zFn: expr});
                     const definition = new LiteralStringBasedSurfaceDefinition(specification);
-                    this._surfaceController.changeSurface(new Surface(definition), surfaceParams);
+                    this._surfaceController.onSurfaceChange(new Surface(definition), surfaceParams);
                     updateViewForSurface();
                 });
             this._uInterval = mathFolder.add(this._intervalInputs, "u")
@@ -531,14 +530,6 @@
             zFn: "2 * sqrt(u / 1) * sin(v)"
         },
         intervals: [["1e-5", "1 - 1e-5"], ["0", "2 * pi"]]
-    }, {
-        meta: {name: "Peak", category: Category.FUNCTION},
-        parametrization: {
-            xFn: "u",
-            yFn: "5 * exp(-u*u - v*v)",
-            zFn: "v"
-        },
-        intervals: [["-3", "3"], ["3", "-3"]]
     },{
         meta: {name: "Pillow", category: Category.OBJECT},
         parametrization: {
@@ -555,30 +546,6 @@
             zFn: "u + v + 1"
         },
         intervals: [["-3/2", "3/2"], ["3/2", "-3/2"]]
-    }, {
-        meta: {name: "Polynomial", category: Category.FUNCTION},
-        parametrization: {
-            xFn: "u",
-            yFn: ".3 * (v*v*v*u - u*u*u*v)",
-            zFn: "v"
-        },
-        intervals: [["-2", "2"], ["2", "-2"]]
-    }, {
-        meta: {name: "Ricker wavelet", category: Category.FUNCTION},
-        parametrization: {
-            xFn: "u",
-            yFn: "3 * (1 - 2 * (u*u + v*v))*exp(-2 * (u*u + v*v))",
-            zFn: "v"
-        },
-        intervals: [["-2", "2"], ["2", "-2"]]
-    },{
-        meta: {name: "Ripple", category: Category.FUNCTION},
-        parametrization: {
-            xFn: "u",
-            yFn: ".5 * sin(pi * u * v)",
-            zFn: "v"
-        },
-        intervals: [["-3", "3"], ["3", "-3"]]
     },{
         meta: {name: "Roman/Steiner surface", category: Category.NON_ORIENTABLE},
         parametrization: {
@@ -587,14 +554,6 @@
             zFn: "sin(u) * cos(v) * sin(v)"
         },
         intervals: [["0", "pi"], ["pi", "0"]]
-    }, {
-        meta: {name: "Saddle", category: Category.FUNCTION},
-        parametrization: {
-            xFn: "u",
-            yFn: "0.3 * (u * u - v * v)",
-            zFn: "v"
-        },
-        intervals: [["-3", "3"], ["3", "-3"]]
     },{
         meta: {name: "Saddle / hyperbolic paraboloid", category: Category.BASIC},
         parametrization: {
@@ -700,22 +659,6 @@
         },
         intervals: [["1e-5", "1 - 1e-5"], ["2 * pi", "0"]]
     },{
-        meta: {name: "Wavelet", category: Category.FUNCTION},
-        parametrization: {
-            xFn: "u",
-            yFn: "sin(4 * sqrt(u*u + v*v)) / sqrt(u*u + v*v +1e-3)",
-            zFn: "v"
-        },
-        intervals: [["-2", "2"], ["2", "-2"]]
-    },{
-        meta: {name: "Waves", category: Category.FUNCTION},
-        parametrization: {
-            xFn: "u",
-            yFn: "cos(pi * u + pi/6) * sin(pi * v + pi/6)",
-            zFn: "v"
-        },
-        intervals: [["-2", "2"], ["2", "-2"]]
-    },{
         meta: {name: "Whitney umbrella", category: Category.MISC},
         parametrization: {
             xFn: "u * v",
@@ -809,7 +752,7 @@
         ring.onSelectTo(selectedRingSurface);
 
         const definition = new LiteralStringBasedSurfaceDefinition(selectedRingSurface.definition().specification());
-        surfaceController.changeSurface(new Surface(definition), surfaceParams);
+        surfaceController.onSurfaceChange(new Surface(definition), surfaceParams);
         updateViewForSurface();
         controlsGui.update();
     });
