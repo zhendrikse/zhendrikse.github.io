@@ -73,18 +73,29 @@ Some examples are reproduced below.
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
 🔧 This [black hole ray tracer](https://github.com/zhendrikse/science/blob/main/relativity/code/worker.js) Written in pure Javascript and [three.js](https://threejs.org/). <br/>
-➡️ Code developed in collaboration with [MrBlankCoding](https://github.com/MrBlankCoding) in [this GitHub repo](https://github.com/MrBlankCoding/Molecule-3d-Visualisation).<br/>
-➡️ Molecular data taken from [this code](https://glowscript.org/#/user/priisdk/folder/molecules). <br/>
-🚀 Hovering your mouse over each of the atoms displays additional information!
+👉 Code developed in collaboration with [MrBlankCoding](https://github.com/MrBlankCoding) in [this GitHub repo](https://github.com/MrBlankCoding/Molecule-3d-Visualisation).<br/>
+👉 Molecular data taken from [this code](https://glowscript.org/#/user/priisdk/folder/molecules). <br/>
+🔑 Hovering your mouse over each of the atoms displays additional information!
 
 {% include_relative portfolio/molecules.html %}
+<p style="clear: both;"></p>
+
+
+### [Solar system](https://www.hendrikse.name/science/astrophysics/solar_system.html)
+<div style="border-top: 1px solid #ffcc00"><br/></div>
+
+🔧 Written in JavaScript and [Three.js](https://threejs.org/)<br/>
+👉 Based on an original idea and [article](https://towardsdatascience.com/create-3-d-galactic-art-with-matplotlib-a7534148a319/) by [Lee Vaughan](https://towardsdatascience.com/author/lee_vaughan/).
+
+{% include_relative portfolio/spiral_galaxy.html %}
 <p style="clear: both;"></p>
 
 ### [Spiral galaxy simulation](https://www.hendrikse.name/science/astrophysics/spiral_galaxy.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
-🔧 Written in Javascript and [Three.js](https://threejs.org/), extended with coloring and fading<br/>
-➡️ Based on an original idea and [article](https://towardsdatascience.com/create-3-d-galactic-art-with-matplotlib-a7534148a319/) by [Lee Vaughan](https://towardsdatascience.com/author/lee_vaughan/).
+🔧 Written in JavaScript and [Three.js](https://threejs.org/), extended with coloring and fading<br/>
+👉 Inspired on [solar-system](https://github.com/lukekulik/solar-system) by [Luke Kulik](https://github.com/lukekulik/) &amp;
+[solarsystem](https://github.com/pint-drinker/solarsystem) by [Dana Wensberg](https://github.com/pint-drinker/)<br/>
 
 {% include_relative portfolio/spiral_galaxy.html %}
 <p style="clear: both;"></p>
@@ -93,10 +104,10 @@ Some examples are reproduced below.
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
 🔧 This [black hole ray tracer](https://github.com/zhendrikse/science/blob/main/relativity/code/worker.js)
-is a port to Javascript executed by a [web worker](https://en.wikipedia.org/wiki/Web_worker).<br/>
-🔧 Refactored and extended with realistic colour coding!<br/>
-➡️ Based on the [blackhole_raytracer](https://github.com/silvaan/blackhole_raytracer/tree/master) project by Arman T, Casper Y, Lulu W.<br/>
-➡️ See their accompanying [GitHub pages](https://cyang2020.github.io/BlackHoleRayTracer/) and [video](https://www.youtube.com/watch?v=VTodu1YTURY), where they explain the code.
+is a port to JavaScript executed by a [web worker](https://en.wikipedia.org/wiki/Web_worker).<br/>
+👉 Refactored and extended with realistic colour coding!<br/>
+👉 Based on the [blackhole_raytracer](https://github.com/silvaan/blackhole_raytracer/tree/master) project by Arman T, Casper Y, Lulu W.<br/>
+👉 See their accompanying [GitHub pages](https://cyang2020.github.io/BlackHoleRayTracer/) and [video](https://www.youtube.com/watch?v=VTodu1YTURY), where they explain the code.
 
 {% include_relative portfolio/black_hole.html %}
 <p style="clear: both;"></p>
@@ -104,8 +115,8 @@ is a port to Javascript executed by a [web worker](https://en.wikipedia.org/wiki
 ### [Falling raindrops](https://www.hendrikse.name/science/nature/raindrop_waves.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
-🔧 Ported to Javascript and [Three.js](https://threejs.org/) by [Zeger Hendrikse](https://github.com/zhendrikse/), see [raindrop_waves.html](https://github.com/zhendrikse/science/blob/main/nature/code/raindrop_waves.html)<br/>
-➡️ Based on [this example](https://beltoforion.de/de/unterhaltungsmathematik/2d-wellengleichung.php) from [Recreational Mathematics with Python](https://github.com/beltoforion/recreational_mathematics_with_python)
+🔧 Ported to JavaScript and [Three.js](https://threejs.org/) by [Zeger Hendrikse](https://github.com/zhendrikse/), see [raindrop_waves.html](https://github.com/zhendrikse/science/blob/main/nature/code/raindrop_waves.html)<br/>
+👉 Based on [this example](https://beltoforion.de/de/unterhaltungsmathematik/2d-wellengleichung.php) from [Recreational Mathematics with Python](https://github.com/beltoforion/recreational_mathematics_with_python)
 
 {% include_relative portfolio/raindrops.html %}
 <p style="clear: both;"></p>
@@ -113,7 +124,7 @@ is a port to Javascript executed by a [web worker](https://en.wikipedia.org/wiki
 ### [3D shapes](https://www.hendrikse.name/science/mathematics/geometric_surfaces.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
-🔧 This [3D shapes renderer](https://github.com/zhendrikse/science/blob/main/mathematics/code/geometric_surfaces.html) is 100% Javascript using [Three.js](https://threejs.org/).
+🔧 This [3D shapes renderer](https://github.com/zhendrikse/science/blob/main/mathematics/code/geometric_surfaces.html) is 100% JavaScript using [Three.js](https://threejs.org/).
 
 {% include_relative portfolio/3d_surfaces.html %}
 <p style="clear: both;"></p>
