@@ -85,17 +85,16 @@ Some examples are reproduced below.
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
 🔧 Written in JavaScript and [Three.js](https://threejs.org/)<br/>
-👉 Based on an original idea and [article](https://towardsdatascience.com/create-3-d-galactic-art-with-matplotlib-a7534148a319/) by [Lee Vaughan](https://towardsdatascience.com/author/lee_vaughan/).
+👉 Inspired on [solar-system](https://github.com/lukekulik/solar-system) by [Luke Kulik](https://github.com/lukekulik/) &amp; [solarsystem](https://github.com/pint-drinker/solarsystem) by [Dana Wensberg](https://github.com/pint-drinker/)<br/>
 
-{% include_relative portfolio/spiral_galaxy.html %}
+{% include_relative portfolio/solarsystem.html %}
 <p style="clear: both;"></p>
 
 ### [Spiral galaxy simulation](https://www.hendrikse.name/science/astrophysics/spiral_galaxy.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
 🔧 Written in JavaScript and [Three.js](https://threejs.org/), extended with coloring and fading<br/>
-👉 Inspired on [solar-system](https://github.com/lukekulik/solar-system) by [Luke Kulik](https://github.com/lukekulik/) &amp;
-[solarsystem](https://github.com/pint-drinker/solarsystem) by [Dana Wensberg](https://github.com/pint-drinker/)<br/>
+👉 Based on an original idea and [article](https://towardsdatascience.com/create-3-d-galactic-art-with-matplotlib-a7534148a319/) by [Lee Vaughan](https://towardsdatascience.com/author/lee_vaughan/).
 
 {% include_relative portfolio/spiral_galaxy.html %}
 <p style="clear: both;"></p>
