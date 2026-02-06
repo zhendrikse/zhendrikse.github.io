@@ -1,3 +1,13 @@
+<style>
+    canvas {
+        background: #131313;
+        display: block;
+        width: 100%;
+        aspect-ratio: 19 / 12;
+        max-width: 800px;
+        margin: auto;
+    }
+</style>
 <script type="importmap">
     {
       "imports": {
@@ -10,21 +20,23 @@
 <div id="planetControls">
     <table>
         <tr>
-            <td><button data-body="sun">🌞&nbsp;Sun</button></td>
+            <td><button data-body="sun">🔅&nbsp;Sun</button></td>
             <td><button data-body="mercury">Mercury</button></td>
             <td><button data-body="venus">Venus</button></td>
-            <td><button data-body="earth">Earth</button></td>
+            <td><button data-body="earth">🌍&nbsp;Earth</button></td>
             <td><button data-body="mars">Mars</button></td>
+            <td><button id="farField1">🔭</button></td>
         </tr>
     </table>
     <canvas class="applicationCanvas" id="planetsCanvas" style="aspect-ratio: 19 / 12;"></canvas>
     <table>
         <tr>
-            <td> <button id="resetCamera">🔄&nbsp;Reset</button></td>
+            <td> <button id="resetCamera">🧭&nbsp;Reset</button></td>
             <td><button data-body="jupiter">Jupiter</button></td>
-            <td><button data-body="saturn">Saturn</button></td>
+            <td><button data-body="saturn">🪐&nbsp;Saturn</button></td>
             <td><button data-body="uranus">Uranus</button></td>
-            <td><button data-body="neptune">Neptune</button></td>
+            <td><button data-body="neptune">🔱&nbsp;Neptune</button></td>
+            <td><button id="farField2">💫</button></td>
         </tr>
     </table>
 </div>
@@ -34,7 +46,7 @@
     import { Group, Box3, SphereGeometry, MeshPhongMaterial, Mesh, TextureLoader, Color, ShaderMaterial,
         Scene, PerspectiveCamera, Vector3, WebGLRenderer, AmbientLight, PointLight, BackSide, AdditiveBlending,
         DoubleSide, Quaternion, BufferGeometry, BufferAttribute, SRGBColorSpace, ACESFilmicToneMapping,
-        MeshBasicMaterial, LinearSRGBColorSpace, NoToneMapping, FrontSide} from "three";
+        MeshBasicMaterial, LinearSRGBColorSpace, NoToneMapping, FrontSide, Sprite, SpriteMaterial, CanvasTexture} from "three";
     import { OrbitControls } from "three/addons/controls/OrbitControls.js";
     import { ThreeJsUtils, SkyDome, Trail } from 'https://www.hendrikse.name/science/js/three-js-extensions.js';
     import GUI from "https://cdn.jsdelivr.net/npm/lil-gui@0.18/+esm";
@@ -45,8 +57,26 @@
 
     const textureLoader = new TextureLoader();
     textureLoader.setCrossOrigin("anonymous");
+    const capitalizeFirstLetter = (string) => String(string).charAt(0).toUpperCase() + String(string).slice(1);
+    const toSuperscript = (num) => {
+        const map = {
+            '-': '⁻',
+            '0': '⁰',
+            '1': '¹',
+            '2': '²',
+            '3': '³',
+            '4': '⁴',
+            '5': '⁵',
+            '6': '⁶',
+            '7': '⁷',
+            '8': '⁸',
+            '9': '⁹'
+        };
+        return String(num).split('').map(c => map[c] || '').join('');
+    }
 
-    let dt = 1;
+    let dt = 1; // dt = 1 equals to one hour per frame
+    const frameRate = 40;
 
     const AU = 1.496 * 1E11;   // astronomical unit
     const EARTH_SEMI_MAJOR_AXIS = 149598261.;
@@ -73,7 +103,6 @@
     planetRenderer.toneMapping = ACESFilmicToneMapping;
     planetRenderer.toneMappingExposure = 1.5;
     planetRenderer.outputColorSpace = SRGBColorSpace;
-
 
     // Resizing for mobile devices
     ThreeJsUtils.resizeRendererToCanvas(planetRenderer, planetCamera);
@@ -102,8 +131,9 @@
             this._tilt = bodyData.tilt;
             this._timescale = 1;
             this._spin = bodyData.spin;
+            this._scaledRadius = bodyData.radius / scale;
 
-            this._geometry = new SphereGeometry(bodyData.radius / scale, 64, 64);
+            this._geometry = new SphereGeometry(this._scaledRadius, 64, 64);
             this._body = new Mesh(this._geometry, this._material(bumpScale, identicalBumpMap));
             this.add(this._body);
             this._body.castShadow = true;
@@ -113,9 +143,11 @@
             this._trail = new Trail(this);
         }
 
+        get scaledRadius() { return this._scaledRadius; }
         get tilt() { return this._tilt; }
         get radius() { return this._radius; }
         get mass() { return this._mass; }
+        //get name() { return this._name; }
 
         _orbitIndex(t) { return Math.floor(t / this._timescale) % this._coordinates.length; }
 
@@ -140,7 +172,6 @@
             let eccAnomOld = new Array(nPoints);
 
             let maxDiff = Infinity;
-
             while (maxDiff > acc) {
                 maxDiff = 0;
                 eccAnomOld = eccAnom.slice(); // copy array
@@ -175,7 +206,6 @@
                     Math.cos(inclination));
 
                 const y = Math.sin(theta - ascension) * Math.sin(inclination);
-
                 points.push(new Vector3(x, y, z).multiplyScalar(r));
             }
 
@@ -197,8 +227,8 @@
             this.quaternion.copy(tiltQuaternion).multiply(spinQuaternion);
         }
 
-        enableTrail({ maxPoints=1000, color=0xffff00, lineWidth=1 } = {}) {
-            this._trail.enable({maxPoints, color, lineWidth});
+        enableTrail({ maxPoints=1000, color=0xffff00, lineWidth=1, trailStep=10 } = {}) {
+            this._trail.enable({maxPoints, color, lineWidth, trailStep });
         }
 
         updateTrail(dt) { this._trail.update(dt); }
@@ -336,25 +366,40 @@
 
             this._body.castShadow = false;
             this._body.receiveShadow = false;
+            this._spin = bodyData.spin;
 
             // 🌞 inner glow (FrontSide, harsher, brighter)/
-            const innerGlowMaterial = this._createAtmosphereMaterial(true, false, 0xfffa00, 0.3, 2.0);
+            const innerGlowMaterial = this._createAtmosphereMaterial(true, false, 0xffffcc, 0.3, 2.0);
             innerGlowMaterial.side = FrontSide;
-            const innerGlow = new Mesh(this._geometry.clone(), innerGlowMaterial);
-            innerGlow.scale.multiplyScalar(1.01);
-            innerGlow.material.blending = AdditiveBlending;
+            this._innerGlow = new Mesh(this._geometry.clone(), innerGlowMaterial);
+            this._innerGlow.scale.multiplyScalar(1.01);
+            this._innerGlow.material.blending = AdditiveBlending;
 
             // 🌞 outer glow (BackSide, softer, bigger)
-            const outerGlowMaterial = this._createAtmosphereMaterial(false, false, 0xfffa00, 0.3, 4.0);
+            const outerGlowMaterial = this._createAtmosphereMaterial(false, false, 0xffe066, 0.3, 4.0);
             outerGlowMaterial.side = BackSide;
-            const outerGlow = new Mesh(this._geometry.clone(), outerGlowMaterial);
-            outerGlow.scale.multiplyScalar(1.2);
+            this._outerGlow = new Mesh(this._geometry.clone(), outerGlowMaterial);
+            this._outerGlow.scale.multiplyScalar(1.22);
 
-            this.add(innerGlow, outerGlow);
+            this.add(this._innerGlow, this._outerGlow);
         }
 
         _material(bumpScale, identicalBumpMap) {
-            return new MeshBasicMaterial({map: textureLoader.load(`${TEXTURES_PATH}` + "sunmap.jpg")})
+            return new MeshBasicMaterial({
+                map: textureLoader.load(`${TEXTURES_PATH}` + "sunmap.jpg"),
+                transparent: false
+            })
+        }
+
+        update(t, dt) {
+            this._body.rotation.y += this._spin * dt * .1; // make it spin even slower for additional realism
+            const s =
+                1.22 +
+                0.035 * Math.sin(t * 0.02) +
+                0.015 * Math.sin(t * 0.037);
+            this._outerGlow.scale.setScalar(s);
+            this._outerGlow.material.uniforms.power.value =
+                4.0 + 0.3 * Math.sin(t * 0.015);
         }
 
         _createAtmosphereMaterial(depthTest=true, depthWrite=false, glowColor = 0xffff00, coef = 0.5, power = 2.0) {
@@ -448,7 +493,6 @@
     class Earth extends Planet {
         constructor(planetData) {
             super(planetData);
-            this._name = planetData.name;
             this._timescale = 1; // rotation period w.r.t. Earth
             this._clouds = new EarthClouds(this._geometry.parameters.radius);
             this.add(this._clouds);
@@ -629,34 +673,111 @@
         constructor() {
             const controls = new GUI({width: "100%", autoPlace: false});
             document.getElementById("solarSystemGui").appendChild(controls.domElement);
-            this._activeFocus = null;
+            this._zoomInOnObject = null;
+            this._label = null;
+            this._objectInFocus = null;
 
-
-            const settings = {
-                dt: 1
-            };
-
-            controls.add(settings, 'dt', 0.0, 5, 0.01).name("Time Step (dt)").onChange(value => {
-                dt = value;
-            });
+            const settings = { dt: 1 };
+            controls.add(settings, 'dt', 0.0, 5, 0.01).name("Time Step (dt)").onChange(value => dt = value);
         }
 
-        focusOnObject(object, {
-            distanceFactor = 2.5,
-            duration = 1.2
-        } = {}) {
-            const startTime = performance.now();
-            const startCamPos = planetCamera.position.clone();
-            const startTarget = controls.target.clone();
+        #formatScientific(value, unit = '') {
+            if (!value) return '—';
+            const [mantissa, exp] = value.toExponential(2).split('e');
+            return `${mantissa} x 10${toSuperscript(exp)} ${unit}`;
+        }
 
-            // Determine center and size
+        #formatBodyInfo(body) {
+            const name = capitalizeFirstLetter(body._name);
+            return `
+                ${name}
+                Mass: ${this.#formatScientific(body._mass, 'kg')}
+                Radius: ${(body._radius / 1000).toFixed(0)} km
+                `;
+        }
+
+        #createInfoLabel(text, {
+            font = 'bold 24px system-ui',
+            color = '#ffff00',
+            background = 'rgba(0, 0, 0, 0)',
+            padding = 80
+        } = {}) {
+
+            const lines = text.split('\n');
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+
+            context.font = font;
+            const lineHeight = 26;
+            const width = Math.max(...lines.map(line => context.measureText(line).width));
+
+            canvas.width  = width + padding * 2;
+            canvas.height = lines.length * lineHeight + padding * 2;
+            context.font = font;
+            context.fillStyle = background;
+            context.fillRect(0, 0, canvas.width, canvas.height);
+            context.fillStyle = color;
+            context.textBaseline = 'top';
+
+            lines.forEach((line, i) => context.fillText(line, padding, padding + i * lineHeight));
+
+            const texture = new CanvasTexture(canvas);
+            texture.colorSpace = SRGBColorSpace;
+
+            const material = new SpriteMaterial({
+                map: texture,
+                transparent: true,
+                depthTest: false
+            });
+
+            const sprite = new Sprite(material);
+            sprite.scale.set(canvas.width * 0.015, canvas.height * 0.015, 1);
+            return sprite;
+        }
+
+        #labelPositionFrom = (object) => object.position.clone()
+            .add(new Vector3(0, object.scaledRadius, object.scaledRadius).multiplyScalar(1.1));
+
+        #objectCenter = (object) => {
             const box = new Box3().setFromObject(object);
-            ThreeJsUtils.scaleBox3(box, 0.9);
+            ThreeJsUtils.scaleBox3(box, 0.7);
             const center = new Vector3();
             const size = new Vector3();
             box.getCenter(center);
             box.getSize(size);
+            return {size, center};
+        }
 
+        #createLabel(object) {
+            if (!object._name) return;
+            this.#removeLabel();
+            this._label = this.#createInfoLabel(this.#formatBodyInfo(object));
+            this._label.position.copy(this.#labelPositionFrom(object));
+            this._label.scale.setScalar(3 * object.scaledRadius);
+            planetaryScene.add(this._label);
+        }
+
+        #removeLabel() {
+            planetaryScene.remove(this._label);
+            this._label?.material.dispose();
+            this._label = null;
+        }
+
+        onReset() {
+            this._objectInFocus = null;
+            this.#removeLabel();
+        }
+
+        onSelect(object, {
+            distanceFactor = 2.5,
+            duration = 1.2
+        } = {}) {
+            this._objectInFocus = object;
+            const startTime = performance.now();
+            const startCamPos = planetCamera.position.clone();
+            const startTarget = controls.target.clone();
+
+            const {size, center} = this.#objectCenter(object);
             const radius = size.length() * 0.5;
             const currentViewDirection = new Vector3()
                 .subVectors(startCamPos, startTarget)
@@ -667,7 +788,8 @@
                 .add(currentViewDirection
                     .multiplyScalar(radius * distanceFactor));
 
-            this._activeFocus = () => {
+            this.#createLabel(object);
+            this._zoomInOnObject = () => {
                 const time = (performance.now() - startTime) / (duration * 1000);
                 const k = Math.min(time, 1);
                 const step = k * k * (3 - 2 * k); // smoothstep
@@ -676,12 +798,13 @@
                 controls.target.lerpVectors(startTarget, center, step);
                 controls.update();
 
-                if (k >= 1) this._activeFocus = null;
+                if (k >= 1) this._zoomInOnObject = null;
             };
         }
 
         render() {
-            if (this._activeFocus) this._activeFocus();
+            if (this._zoomInOnObject) this._zoomInOnObject();
+            if (this._label) this._label.position.copy(this.#labelPositionFrom(this._objectInFocus));
         }
     }
 
@@ -689,6 +812,7 @@
     planetaryScene.add(solarSystemGroup);
 
     const sun = new Sun({
+        "name": "sun",
         "radius": 696300000.0,
         "mass": 1.9885440000000002e+30,
         "spin": 3600 * 2.8653290845717256e-06,
@@ -798,7 +922,7 @@
 
     const luna = new Moon({
         "name": "luna",
-        "a": 384399 * 50.,
+        "a": 384399 * SCALE_MOON,
         "e": 0.0549,
         "inclination": (-23.4 + 5.145) * Math.PI / 180.,
         "right_ascension": -Math.PI / 2.,
@@ -812,12 +936,12 @@
     }, earth);
     const phobos = new Moon({
         "name": "phobos",
-        'a': 9376 * 1000,
+        'a': 9376 * SCALE_MOON * 2.5, // 2.5 = scale up for this tiny moon
         'e': 0.0151,
         'inclination': 0,
         'right_ascension': -Math.PI / 2,
         'mean_anomaly': 0.,
-        'radius': 11.2667 * 1E4,
+        'radius': 11.2667 * 1E4 * 2, // 2 = scale up for this tiny moon
         "mass": 1.06E16,
         'tilt': 0.,
         'spin': 0,
@@ -825,12 +949,12 @@
         'tidal_lock': 1}, mars);
     const deimos = new Moon({
         'name': "deimos",
-        'a': 23463.2 * 650.,
+        'a': 23463.2 * SCALE_MOON * 1.5, // 1.5 = scale up for this tiny moon
         'e': 0.00033,
         'inclination': 0,
         'right_ascension': -Math.PI / 2,
         'mean_anomaly': 0.,
-        'radius': 10. * 1E4,
+        'radius': 10. * 1E4 * 2, // 2 = scale up for this tiny moon
         "mass": 1.5E15,
         'tilt': 0.,
         'spin': 0,
@@ -904,8 +1028,8 @@
         'tidal_lock': 1
     }, saturn);
     const enceladus = new Moon({
+        'name': "enceladus",
         'a': 237948 * 3 * SCALE_MOON,
-        'planet_name': "saturn",
         'e': 0.0047,
         'inclination': 0,
         'right_ascension': -Math.PI / 2.,
@@ -951,37 +1075,37 @@
     const earthMoonSystem = new PlanetMoonSystem(earth, [luna]);
     solarSystemGroup.add(earthMoonSystem);
     earthMoonSystem.update(0, 1); // set initial position
-    earth.enableTrail({maxPoints: 450, color: 0x00bbff});
+    earth.enableTrail({maxPoints: 300, color: 0x00bbff, trailStep: 25});
 
     const noMoonsMercury = new PlanetMoonSystem(mercury);
     solarSystemGroup.add(noMoonsMercury);
     noMoonsMercury.update(0, 1);
-    mercury.enableTrail({maxPoints: 500, color: 0xaaff00});
+    mercury.enableTrail({maxPoints: 80, color: 0xaaff00, trailStep: 25});
 
     const noMoonsVenus = new PlanetMoonSystem(venus);
     solarSystemGroup.add(noMoonsVenus);
     noMoonsVenus.update(0, 1);
-    venus.enableTrail({maxPoints: 600, color: 0xff0000});
+    venus.enableTrail({maxPoints: 120, color: 0xff0000, trailStep: 50});
 
     const marsWithMoons = new PlanetMoonSystem(mars, [phobos, deimos]);
     solarSystemGroup.add(marsWithMoons);
     marsWithMoons.update(0, 1);
-    mars.enableTrail({maxPoints: 1600, color: 0xffaa00});
+    mars.enableTrail({maxPoints: 450, color: 0xffaa00, trailStep: 50});
 
     const jupiterWithMoons = new PlanetMoonSystem(jupiter, [callisto, europa, ganymede, io]);
     solarSystemGroup.add(jupiterWithMoons);
     jupiterWithMoons.update(0, 1);
-    jupiter.enableTrail({maxPoints: 1600, color: 0xdd00dd});
+    jupiter.enableTrail({maxPoints: 1600, color: 0xdd00dd, trailStep: 100});
 
     const saturnWithMoons = new PlanetMoonSystem(saturn, [dione, enceladus, tethys, titan]);
     solarSystemGroup.add(saturnWithMoons);
     saturnWithMoons.update(0, 1);
-    saturn.enableTrail({maxPoints: 1600, color: 0xffff00});
+    saturn.enableTrail({maxPoints: 1600, color: 0xffff00, trailStep: 100});
 
     const uranusWithMoons = new PlanetMoonSystem(uranus, []);
     solarSystemGroup.add(uranusWithMoons);
     uranusWithMoons.update(0, 1);
-    uranus.enableTrail({maxPoints: 1600, color: 0xaaaaaa});
+    uranus.enableTrail({maxPoints: 1600, color: 0xaaaaaa, trailStep: 100});
 
     const neptuneWithMoons = new PlanetMoonSystem(neptune, []);
     solarSystemGroup.add(neptuneWithMoons);
@@ -1004,30 +1128,44 @@
         .forEach(button => {
             button.addEventListener("click", () => {
                 const body = bodies[button.dataset.body];
-                if (body) controlsGui.focusOnObject(body);
+                if (body) controlsGui.onSelect(body);
             });
         });
 
     document.getElementById("resetCamera").addEventListener("click", () => {
         planetCamera.position.copy(cameraStart.position);
+        controlsGui.onReset();
         controls.target.copy(cameraStart.target);
         controls.update();
     });
 
+    document.getElementById("farField1").addEventListener("click", () => {
+        planetCamera.position.copy(new Vector3(580, 200, -195));
+        controlsGui.onReset();
+        controls.target.copy(cameraStart.target);
+        controls.update();
+    });
+
+    document.getElementById("farField2").addEventListener("click", () => {
+        planetCamera.position.copy(new Vector3(0, 700, 0));
+        controlsGui.onReset();
+        controls.target.copy(cameraStart.target);
+        controls.update();
+    });
 
     let lastTime = 0;
-    const frameRate = 40;
     let t = 0;
     function animate(time) {
         if (time - lastTime < 1000 / frameRate) return;
         lastTime = time;
 
         solarSystem.forEach(body => body.update(t, dt));
-        t += dt;
-
+        sun.update(t, dt);
         skyDome.update(time * .001, planetCamera);
         planetRenderer.render(planetaryScene, planetCamera);
         controlsGui.render();
+
+        t += dt;
     }
 
 </script>
