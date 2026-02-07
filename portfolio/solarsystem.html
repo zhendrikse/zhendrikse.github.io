@@ -45,7 +45,7 @@
         Scene, PerspectiveCamera, Vector3, WebGLRenderer, AmbientLight, PointLight, BackSide, AdditiveBlending,
         DoubleSide, Quaternion, BufferGeometry, BufferAttribute, SRGBColorSpace, ACESFilmicToneMapping,
         MeshBasicMaterial, LinearSRGBColorSpace, NoToneMapping, FrontSide, Sprite, SpriteMaterial, CanvasTexture,
-        LineDashedMaterial, LineBasicMaterial, LineLoop, Line} from "three";
+        LineDashedMaterial, LineBasicMaterial, LineLoop, Line, PlaneGeometry, RingGeometry} from "three";
     import { OrbitControls } from "three/addons/controls/OrbitControls.js";
     import { ThreeJsUtils, SkyDome, Trail } from 'https://www.hendrikse.name/science/js/three-js-extensions.js';
     import GUI from "https://cdn.jsdelivr.net/npm/lil-gui@0.18/+esm";
@@ -118,7 +118,7 @@
     planetaryScene.add(skyDome);
 
     class Orbit {
-        constructor(meanAnomaly, eccentricity, a, inclination, ascension, accuracy=1.e-2, nPoints=10000) {
+        constructor(meanAnomaly, eccentricity, a, inclination, ascension, accuracy=1.e-2, nPoints=50000) {
             // nPoints = number of orbit coordinates generated (affects temporal accuracy - dt(real)=365.25*86400/n (in seconds))
             const range = this._linSpace(meanAnomaly, 2 * Math.PI + meanAnomaly, nPoints);
 
@@ -520,18 +520,49 @@
         }
     }
 
+    class EarthEquatorialPlane extends Mesh {
+        constructor(earth, {
+            sizeFactor = 6,
+            opacity = 0.15,
+            color = 0x00ffff
+        } = {}) {
+
+            const geometry = new PlaneGeometry(earth.scaledRadius * sizeFactor, earth.scaledRadius * sizeFactor);
+            const material = new MeshBasicMaterial({
+                color,
+                transparent: true,
+                opacity,
+                side: DoubleSide,
+                depthWrite: false
+            });
+            super(geometry, material);
+
+            this.rotateX(Math.PI / 2);
+            const tiltQuat = new Quaternion().setFromAxisAngle(new Vector3(0, 1, 0), earth.tilt);
+            this.applyQuaternion(tiltQuat);
+        }
+    }
+
     class Earth extends Planet {
         constructor(planetData, clouds=true) {
             super(planetData);
             this._timescale = 1; // rotation period w.r.t. Earth
             this._clouds = clouds? new EarthClouds(this._geometry.parameters.radius) : null;
             if (clouds) this.add(this._clouds);
+            this._equatorialPlane = new EarthEquatorialPlane(this, {
+                innerRadiusFactor: 1.3,
+                outerRadiusFactor: 3.0,
+                opacity: 0.12
+            });
+            this._equatorialPlane.visible = false;
+            this.add(this._equatorialPlane);
         }
+
+        get equatorialPlane() { return this._equatorialPlane; }
 
         update(t, dt) {
             super.update(t, dt);
             this._clouds?.update(dt);
-            this._arrows?.update(sun.getWorldPosition(new Vector3()));
         }
 
         _material(bumpScale, identicalBumpMap) {
@@ -691,6 +722,39 @@
         }
     }
 
+    class LunarEclipseIndicator {
+        constructor(earth, moon, plane) {
+            this._earth = earth;
+            this._moon = moon;
+            this._plane = plane; // equatorial plane
+            this._threshold = earth.scaledRadius * 0.05; // ± 5% van straal
+            this._active = false;
+
+            // tiny ball as indicator
+            const geom = new SphereGeometry(this._threshold * 0.5, 16, 16);
+            const mat = new MeshBasicMaterial({ color: 0xff0000 });
+            this._indicator = new Mesh(geom, mat);
+            this._indicator.visible = false;
+            planetaryScene.add(this._indicator);
+        }
+
+        update() {
+            const moonPosLocal = this._earth.worldToLocal(this._moon.getWorldPosition(new Vector3()));
+            const distanceToPlane = Math.abs(moonPosLocal.y); // y = hoogte t.o.v. equator
+
+            if (distanceToPlane < this._threshold) {
+                this._indicator.visible = true;
+                this._indicator.position.copy(this._moon.position);
+                this._active = true;
+                this._plane.material.color.set(0xff0000); // plane tijdelijk rood
+            } else {
+                this._indicator.visible = false;
+                this._active = false;
+                this._plane.material.color.set(0x00ffff); // originele plane kleur
+            }
+        }
+    }
+
     class ControlsGui {
         constructor() {
             const controls = new GUI({width: "100%", autoPlace: false});
@@ -698,9 +762,18 @@
             this._zoomInOnObject = null;
             this._label = null;
             this._objectInFocus = null;
+            this._focusOffset = null;
 
-            const settings = { dt: 1 };
-            controls.add(settings, 'dt', 0.0, 5, 0.01).name("Time Step (dt)").onChange(value => dt = value);
+            const settings = { dt: 1, equatorialPlane: false, eclipticPlane: false };
+            controls.add(settings, 'dt', 0.0, 5, 0.01)
+                .name("Time Step (dt)")
+                .onChange(value => dt = value);
+            controls.add(settings, 'equatorialPlane')
+                .name("Equatorial plane")
+                .onChange(value => earth.equatorialPlane.visible = value);
+            controls.add(settings, 'eclipticPlane')
+                .name("Ecliptic plane")
+                .onChange(value => eclipticPlane.material.visible = value);
         }
 
         #formatScientific(value, unit = '') {
@@ -760,16 +833,6 @@
         #labelPositionFrom = (object) => object.position.clone()
             .add(new Vector3(0, object.scaledRadius, object.scaledRadius).multiplyScalar(1.1));
 
-        #objectCenter = (object) => {
-            const box = new Box3().setFromObject(object);
-            ThreeJsUtils.scaleBox3(box, 0.7);
-            const center = new Vector3();
-            const size = new Vector3();
-            box.getCenter(center);
-            box.getSize(size);
-            return {size, center};
-        }
-
         #createLabel(object) {
             if (!object._name) return;
             this.#removeLabel();
@@ -791,24 +854,18 @@
         }
 
         onSelect(object, {
-            distanceFactor = 2.5,
+            distanceFactor = 5,
             duration = 1.2
         } = {}) {
             this._objectInFocus = object;
+
             const startTime = performance.now();
-            const startCamPos = planetCamera.position.clone();
-            const startTarget = controls.target.clone();
-
-            const {size, center} = this.#objectCenter(object);
-            const radius = size.length() * 0.5;
-            const currentViewDirection = new Vector3()
-                .subVectors(startCamPos, startTarget)
-                .normalize();
-
-            const endCamPos = center
+            const startOffset = planetCamera.position
                 .clone()
-                .add(currentViewDirection
-                    .multiplyScalar(radius * distanceFactor));
+                .sub(controls.target);
+
+            const viewDirection = startOffset.clone().normalize();
+            const endOffset = viewDirection.multiplyScalar(object.scaledRadius * distanceFactor);
 
             this.#createLabel(object);
             this._zoomInOnObject = () => {
@@ -816,8 +873,13 @@
                 const k = Math.min(time, 1);
                 const step = k * k * (3 - 2 * k); // smoothstep
 
-                planetCamera.position.lerpVectors(startCamPos, endCamPos, step);
-                controls.target.lerpVectors(startTarget, center, step);
+                this._focusOffset = startOffset.clone().lerp(endOffset, step);
+
+                planetCamera.position
+                    .copy(object.position)
+                    .add(this._focusOffset);
+
+                controls.target.copy(object.position);
                 controls.update();
 
                 if (k >= 1) this._zoomInOnObject = null;
@@ -827,6 +889,15 @@
         render() {
             if (this._zoomInOnObject) this._zoomInOnObject();
             if (this._label) this._label.position.copy(this.#labelPositionFrom(this._objectInFocus));
+            if (this._objectInFocus) {
+                planetCamera.position
+                    .copy(this._objectInFocus.position)
+                    .add(this._focusOffset);
+
+                controls.target.copy(this._objectInFocus.position);
+                controls.update();
+            }
+
         }
     }
 
@@ -1121,8 +1192,8 @@
     const jupiterWithMoons = new PlanetMoonSystem(jupiter, [callisto, europa, ganymede, io]);
     solarSystemGroup.add(jupiterWithMoons);
     jupiterWithMoons.update(0, 1);
-    jupiter.enableTrail({maxPoints: 1600, color: 0xdd00dd, trailStep: 100});
-    solarSystemGroup.add(jupiter.renderedOrbit(0xdd00dd));
+    jupiter.enableTrail({maxPoints: 1600, color: 0x8b4513, trailStep: 100});
+    solarSystemGroup.add(jupiter.renderedOrbit(0x8b4513));
 
     const saturnWithMoons = new PlanetMoonSystem(saturn, [dione, enceladus, tethys, titan]);
     solarSystemGroup.add(saturnWithMoons);
@@ -1152,6 +1223,13 @@
         uranusWithMoons,
         neptuneWithMoons
     ];
+
+    const eclipticPlane = new Mesh(
+        new RingGeometry(sun.scaledRadius * 1.1, 100, 128),
+        new MeshBasicMaterial({color: 0xffaa00, transparent: true, opacity: 0.08, side: DoubleSide, depthWrite: false, visible: false })
+    )
+    eclipticPlane.rotation.x = Math.PI /2;
+    solarSystemGroup.add(eclipticPlane);
 
     const controlsGui = new ControlsGui();
     document.querySelectorAll("#planetControls button")
@@ -1185,12 +1263,14 @@
 
     let lastTime = 0;
     let t = 0;
+    const eclipseIndicator = new LunarEclipseIndicator(earth, luna, earth.equatorialPlane);
     function animate(time) {
         if (time - lastTime < 1000 / frameRate) return;
         lastTime = time;
 
         solarSystem.forEach(body => body.update(t, dt));
         sun.update(t, dt);
+        eclipseIndicator.update();
         skyDome.update(time * .001, planetCamera);
         planetRenderer.render(planetaryScene, planetCamera);
         controlsGui.render();
