@@ -62,7 +62,7 @@ section that belongs to my TDD repository, which in turn is packed with dozens o
 </div>
 <p style="clear: both;"></p>
 
-## Interactive 3D simulations & visualizations
+## [Interactive 3D simulations & visualizations](https://www.hendrikse.name/science/)
 <div style="border-top: 1px solid #999999"><br/></div>
 
 I maintain a site containing countless 
