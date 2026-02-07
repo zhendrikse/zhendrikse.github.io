@@ -69,18 +69,6 @@ I maintain a site containing countless
 [interactive simulations in physics and mathematics](https://www.hendrikse.name/science/).
 Some examples are reproduced below.
 
-### [3D visualization of some molecules](https://www.hendrikse.name/science/molecularphysics/molecules.html)
-<div style="border-top: 1px solid #ffcc00"><br/></div>
-
-🔧 This [black hole ray tracer](https://github.com/zhendrikse/science/blob/main/relativity/code/worker.js) Written in pure Javascript and [three.js](https://threejs.org/). <br/>
-👉 Code developed in collaboration with [MrBlankCoding](https://github.com/MrBlankCoding) in [this GitHub repo](https://github.com/MrBlankCoding/Molecule-3d-Visualisation).<br/>
-👉 Molecular data taken from [this code](https://glowscript.org/#/user/priisdk/folder/molecules). <br/>
-🔑 Hovering your mouse over each of the atoms displays additional information!
-
-{% include_relative portfolio/molecules.html %}
-<p style="clear: both;"></p>
-
-
 ### [Solar system](https://www.hendrikse.name/science/astrophysics/solar_system.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
@@ -126,4 +114,14 @@ is a port to JavaScript executed by a [web worker](https://en.wikipedia.org/wiki
 🔧 This [3D shapes renderer](https://github.com/zhendrikse/science/blob/main/mathematics/code/geometric_surfaces.html) is 100% JavaScript using [Three.js](https://threejs.org/).
 
 {% include_relative portfolio/3d_surfaces.html %}
+<p style="clear: both;"></p>
+
+### [3D visualization of some molecules](https://www.hendrikse.name/science/molecularphysics/molecules.html)
+
+🔧 Written in pure JavaScript and [three.js](https://threejs.org/). <br/>
+👉 Code developed in collaboration with [MrBlankCoding](https://github.com/MrBlankCoding) in [this GitHub repo](https://github.com/MrBlankCoding/Molecule-3d-Visualisation).<br/>
+👉 Molecular data taken from [this code](https://glowscript.org/#/user/priisdk/folder/molecules). <br/>
+🔑 Hovering your mouse over each of the atoms displays additional information!
+
+{% include_relative portfolio/molecules.html %}
 <p style="clear: both;"></p>
