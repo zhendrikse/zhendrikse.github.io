@@ -4,7 +4,7 @@
   </figure>
   <div style="float: left; width: 75%; vertical-align: top;">
    <div style="margin-bottom: 5px; margin-left: 10px;">
-    🔭 I’m looking for a job (freelance)!<br/>
+    🔭 I’m always open to discuss parttime jobs (freelance)!<br/>
    </div>
    <div style="margin-bottom: 5px; margin-left: 10px;">
     📝 My resume can be downloaded <a href="https://www.hendrikse.name/cvWeb.docx.pdf">here</a><br/>
