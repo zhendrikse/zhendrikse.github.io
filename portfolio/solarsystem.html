@@ -74,8 +74,7 @@
         return String(num).split('').map(c => map[c] || '').join('');
     }
 
-    let dt = 1; // dt = 1 equals to one hour per frame
-    const frameRate = 40;
+    let timeScale = 24; // 24 hours equal to one second simulation time
 
     const AU = 1.496 * 1E11;   // astronomical unit
     const EARTH_SEMI_MAJOR_AXIS = 149598261.;
@@ -102,6 +101,7 @@
     planetRenderer.toneMapping = ACESFilmicToneMapping;
     planetRenderer.toneMappingExposure = 1.5;
     planetRenderer.outputColorSpace = SRGBColorSpace;
+    planetRenderer.shadowMap.enabled = true;
 
     // Resizing for mobile devices
     ThreeJsUtils.resizeRendererToCanvas(planetRenderer, planetCamera);
@@ -118,35 +118,36 @@
     planetaryScene.add(skyDome);
 
     class Orbit {
-        constructor(meanAnomaly, eccentricity, a, inclination, ascension, accuracy=1.e-2, nPoints=50000) {
-            // nPoints = number of orbit coordinates generated (affects temporal accuracy - dt(real)=365.25*86400/n (in seconds))
+        constructor(meanAnomaly, eccentricity, semiMajorAxis, inclination, ascension, accuracy=1E2, nPoints=10000) {
+            this._nPoints = nPoints; // number of orbit coordinates generated
+            this._timescale = (semiMajorAxis / EARTH_SEMI_MAJOR_AXIS) ** 1.5; // rotation period w.r.t. Earth
             const range = this._linSpace(meanAnomaly, 2 * Math.PI + meanAnomaly, nPoints);
 
-            let eccAnom = range.slice();
-            let eccAnomOld = new Array(nPoints);
+            let eccentricAnomaly = range.slice();
+            let eccentricAnomalyOld = new Array(nPoints);
 
             let maxDiff = Infinity;
             while (maxDiff > accuracy) {
                 maxDiff = 0;
-                eccAnomOld = eccAnom.slice(); // copy array
+                eccentricAnomalyOld = eccentricAnomaly.slice(); // copy array
 
                 // Newton–Raphson step
                 for (let i = 0; i < nPoints; i++) {
-                    const f = eccAnomOld[i] - eccentricity * Math.sin(eccAnomOld[i]) - range[i];
-                    const fPrime = 1 - eccentricity * Math.cos(eccAnomOld[i]);
-                    eccAnom[i] = eccAnomOld[i] - f / fPrime;
-                    maxDiff = Math.max(maxDiff, Math.abs(eccAnom[i] - eccAnomOld[i]));
+                    const f = eccentricAnomalyOld[i] - eccentricity * Math.sin(eccentricAnomalyOld[i]) - range[i];
+                    const fPrime = 1 - eccentricity * Math.cos(eccentricAnomalyOld[i]);
+                    eccentricAnomaly[i] = eccentricAnomalyOld[i] - f / fPrime;
+                    maxDiff = Math.max(maxDiff, Math.abs(eccentricAnomaly[i] - eccentricAnomalyOld[i]));
                 }
             }
 
             this._points = [];
             for (let i = 0; i < nPoints; i++) {
                 const theta = 2 * Math.atan2(
-                    Math.sqrt(1 + eccentricity) * Math.sin(eccAnom[i] / 2),
-                    Math.sqrt(1 - eccentricity) * Math.cos(eccAnom[i] / 2)
+                    Math.sqrt(1 + eccentricity) * Math.sin(eccentricAnomaly[i] / 2),
+                    Math.sqrt(1 - eccentricity) * Math.cos(eccentricAnomaly[i] / 2)
                 );
 
-                const r = a * (1 - eccentricity * Math.cos(eccAnom[i]));
+                const r = semiMajorAxis * (1 - eccentricity * Math.cos(eccentricAnomaly[i]));
                 const thetaAsc = theta - ascension;
 
                 const x = (Math.cos(ascension) * Math.cos(thetaAsc) -
@@ -175,10 +176,16 @@
             return result;
         }
 
-        coordinatesAt(index) { return this._points[index]; }
 
-        get points() { return this._points; }
-        get count() { return this._points.length; }
+        _indexAtTime(tHours) {
+            const periodHours = 365.25 * this._timescale * 24;
+            const phase = (tHours % periodHours) / periodHours;
+            return Math.floor(phase * this._nPoints);
+        }
+
+        coordinatesAt(tHours) {
+            return this._points[this._indexAtTime(tHours)];
+        }
 
         draw({
                  color = 0x666666,
@@ -220,26 +227,24 @@
     const TEXTURES_PATH = "https://www.hendrikse.name/science/astrophysics/code/textures/";
     //const TEXTURES_PATH = "textures/";
     class CelestialBody extends Group {
-        constructor(bodyData, scale, {bumpScale=0.005, identicalBumpMap=false, orbitPointsCount=10000} = {}) {
+        constructor(bodyData, scale, {bumpScale=0.005, identicalBumpMap=false, resolution=32} = {}) {
             super();
-            this._orbitPointsCount = orbitPointsCount;
             this._name = bodyData.name;
             this._radius = bodyData.radius;
             this._mass = bodyData.mass;
             this._tilt = bodyData.tilt;
-            this._timescale = 1;
             this._spin = bodyData.spin;
             this._scaledRadius = bodyData.radius / scale;
 
             // Set the axis of rotation (Y-axis) equal to the tilt
             this.quaternion.setFromAxisAngle(new Vector3(0, 0, 1), bodyData.tilt);
 
-            this._geometry = new SphereGeometry(this._scaledRadius, 64, 64);
+            this._geometry = new SphereGeometry(this._scaledRadius, resolution, resolution);
             this._body = new Mesh(this._geometry, this._material(bumpScale, identicalBumpMap));
             this.add(this._body);
             this._body.castShadow = true;
             this._body.receiveShadow = false;
-            this._trail = new Trail(this);
+            this._trail = null;
         }
 
         get scaledRadius() { return this._scaledRadius; }
@@ -251,20 +256,20 @@
 
         _material(bumpScale, identicalBumpMap) { throw new Error("Abstract class: implement material!"); }
 
-        updateRotation(t) { this._body.rotation.y = this._spin * t; } // Spin the body along the axis with tilt
+        updateRotation(tHours) { this._body.rotation.y = this._spin * tHours; } // Spin the body along the axis with tilt
 
         enableTrail({ maxPoints=1000, color=0xffff00, lineWidth=1, trailStep=10 } = {}) {
+            this._trail = new Trail(this);
             this._trail.enable({maxPoints, color, lineWidth, trailStep });
         }
 
-        updateTrail(dt) { this._trail.update(dt); }
-        disposeTrail() { this._trail.dispose(); }
+        updateTrail(dt) { this._trail?.update(dt); }
+        disposeTrail() { this._trail?.dispose(); }
     }
 
     class Planet extends CelestialBody {
         constructor(planetData, {bumpScale=0.005, identicalBumpMap=false} = {}) {
             super(planetData, PLANET_SCALE, {bumpScale: bumpScale, identicalBumpMap: identicalBumpMap});
-            this._timescale = (planetData.a / EARTH_SEMI_MAJOR_AXIS) ** 1.5; // rotation period w.r.t. Earth
             this._body.castShadow = true;
             this._body.receiveShadow = false;
 
@@ -287,23 +292,22 @@
             });
         }
 
-        _orbitIndex(t) { return Math.floor(t / this._timescale) % this._orbit.count; }
-        coordinatesAt(t) { return this._orbit.coordinatesAt(this._orbitIndex(t)); }
+        coordinatesAt(t) { return this._orbit.coordinatesAt(t); }
         renderedOrbit(color) { return this._orbit.draw({
             color: color,
             opacity: 0.4,
             scale: 1000 / DISTANCE_SCALE
         }); }
 
-        update(t, dt) {
-            this.updateTrail(dt);
+        update(t) {
+            this.updateTrail();
             this.updateRotation(t);
         }
     }
 
     class Satellite extends CelestialBody {
         constructor(moonData, planet, scale) {
-            super(moonData, scale);
+            super(moonData, scale, {resolution: 32});
             this._planet = planet;
             this._angle = 0;
             this._a = moonData.a; // semi-major axis
@@ -321,22 +325,12 @@
                 planet.tilt +
                 moonData.inclination,
                 moonData.right_ascension);
-
-            this.#centerMoonsOrbitAroundOrigin();
         }
 
-        _orbitIndex(t) { return Math.floor(t / this._timescale) % this._orbit.count; }
-        coordinatesAt(t) { return this._orbit.coordinatesAt(this._orbitIndex(t)); }
+        coordinatesAt(t) { return this._orbit.coordinatesAt(t); }
 
-        #centerMoonsOrbitAroundOrigin() {
-            const center = new Vector3();
-            this._orbit.points.forEach(position => center.add(position));
-            center.divideScalar(this._orbit.count);
-            this._orbit.points.forEach(position => position.sub(center));
-        }
-
-        update(t, dt) {
-            this.updateTrail(dt);
+        update(t) {
+            this.updateTrail();
             if (this._lock) {
                 const planetWorldPos = this._planet.getWorldPosition(new Vector3());
                 this.lookAt(planetWorldPos);
@@ -364,7 +358,7 @@
             return M;
         }
 
-        update(t, dt) {
+        update(t) {
             // 1. barycentric position (sun-centric)
             const baryPosition = this._planet.coordinatesAt(t).clone();
 
@@ -384,15 +378,15 @@
                 moon.position.copy(toRenderUnits(baryPosition.clone().add(moon.coordinatesAt(t))));
 
             // 6. rotations
-            this._planet.update(t, dt);
+            this._planet.update(t);
             for (const moon of this._moons)
-                moon.update(t, dt);
+                moon.update(t);
         }
     }
 
     class Sun extends CelestialBody {
         constructor(bodyData) {
-            super(bodyData, SUN_SCALE);
+            super(bodyData, SUN_SCALE, {resolution: 64});
 
             this._body.castShadow = false;
             this._body.receiveShadow = false;
@@ -421,8 +415,8 @@
             })
         }
 
-        update(t, dt) {
-            this._body.rotation.y += this._spin * dt * .1; // make it spin even slower for additional realism
+        update(t) {
+            this._body.rotation.y = this._spin * t * .1; // make it spin even slower for additional realism
             const s =
                 1.22 +
                 0.035 * Math.sin(t * 0.02) +
@@ -488,9 +482,9 @@
     }
 
     class EarthClouds extends Mesh {
-        constructor(radius) {
+        constructor(radius, spin) {
 
-            const geometry = new SphereGeometry(radius * 1.01, 64, 64);
+            const geometry = new SphereGeometry(radius * 1.01, 32, 32);
 
             const material = new MeshPhongMaterial({
                 map: textureLoader.load(`${TEXTURES_PATH}earthcloudmap.jpg`),
@@ -510,13 +504,13 @@
 
             super(geometry, material);
 
+            this._spin = spin;
             this.castShadow = false;
             this.receiveShadow = false;
         }
 
         update(t) {
-            // Clouds rotate somewhat faster than the earth
-            this.rotation.y += .15 * t;
+            this.rotation.y = this._spin * t * 0.75;
         }
     }
 
@@ -544,11 +538,22 @@
     }
 
     class Earth extends Planet {
-        constructor(planetData, clouds=true) {
+        constructor(planetData={
+            "name": "earth",
+            "a": EARTH_SEMI_MAJOR_AXIS,
+            "e": 0.01671123,
+            "inclination": 0.,
+            "right_ascension": 0.,
+            "mean_anomaly": 6.2398515744,
+            "radius": 6371010, // meters
+            "mass": 5.97219e+24,
+            "spin": 2 * Math.PI / 24.,
+            "tilt": 23 * Math.PI / 180
+        }) {
             super(planetData);
             this._timescale = 1; // rotation period w.r.t. Earth
-            this._clouds = clouds? new EarthClouds(this._geometry.parameters.radius) : null;
-            if (clouds) this.add(this._clouds);
+            this._clouds = new EarthClouds(this._geometry.parameters.radius, this._spin);
+            this.add(this._clouds);
             this._equatorialPlane = new EarthEquatorialPlane(this, {
                 innerRadiusFactor: 1.3,
                 outerRadiusFactor: 3.0,
@@ -559,10 +564,11 @@
         }
 
         get equatorialPlane() { return this._equatorialPlane; }
+        get clouds() { return this._clouds; }
 
-        update(t, dt) {
-            super.update(t, dt);
-            this._clouds?.update(dt);
+        update(t) {
+            super.update(t);
+            this._clouds?.update(t);
         }
 
         _material(bumpScale, identicalBumpMap) {
@@ -667,7 +673,17 @@
     };
 
     class Saturn extends Planet {
-        constructor(planetData) {
+        constructor(planetData={
+            "name": "saturn",
+            'a': 1433449370.,
+            'e': 0.055723219,
+            'inclination': 2.49 * Math.PI / 180.,
+            'right_ascension': 1.98,
+            'mean_anomaly': 5.5911055356,
+            'radius': 60000. * 1e3,
+            "mass": 5.68319e+26,
+            'tilt': 27 * Math.PI / 180.,
+            'spin': 2 * Math.PI / 10.66 }) {
             super(planetData, {bumpScale: 0.05, identicalBumpMap: true});
 
             const innerRingRadius = 1.11 * planetData.radius;
@@ -696,7 +712,17 @@
     }
 
     class Uranus extends Planet {
-        constructor(planetData) {
+        constructor(planetData={
+            "name": "uranus",
+            'a': 2876679082.,
+            'e': 0.044405586,
+            'inclination': 0.77 * Math.PI / 180.,
+            'right_ascension': 1.2908891856,
+            'mean_anomaly': 2.4950479462,
+            'radius': 25600. * 1E3,
+            "mass": 8.68103E25,
+            'tilt': 98 * Math.PI / 180.,
+            'spin': -2 * Math.PI / 17.24}) {
             super(planetData, {identicalBumpMap: true, bumpScale: 0.05});
 
             const inner = 1.5 * planetData.radius / PLANET_SCALE;
@@ -764,13 +790,16 @@
             this._objectInFocus = null;
             this._focusOffset = null;
 
-            const settings = { dt: 1, equatorialPlane: false, eclipticPlane: false };
-            controls.add(settings, 'dt', 0.0, 5, 0.01)
-                .name("Time Step (dt)")
-                .onChange(value => dt = value);
+            const settings = { timeScale: 24, equatorialPlane: false, eclipticPlane: false, earthClouds: false };
+            controls.add(settings, 'timeScale', 0, 240, 1)
+                .name("Simulated hours per second")
+                .onChange(value => timeScale = value);
             controls.add(settings, 'equatorialPlane')
                 .name("Equatorial plane")
                 .onChange(value => earth.equatorialPlane.visible = value);
+            controls.add(settings, 'earthClouds')
+                .name("Earth clouds")
+                .onChange(value => earth.clouds.visible = value);
             controls.add(settings, 'eclipticPlane')
                 .name("Ecliptic plane")
                 .onChange(value => eclipticPlane.material.visible = value);
@@ -913,23 +942,14 @@
     });
     sun.position.set(0, 0, 0);
     solarSystemGroup.add(sun);
-    const sunLight = new PointLight(0xffffff, 1.5, 0, .1); // intense, no max distance
+    const sunLight = new PointLight(0xffffff, 2.0, 0, .1); // intense, no max distance
     sunLight.position.set(0, 0, 0);
+    sunLight.castShadow = true;
     planetaryScene.add(sunLight);
-    planetaryScene.add(new AmbientLight(0xffffff, 0.2));
+    planetaryScene.add(new AmbientLight(0xffffff, 0.1));
 
-    const earth = new Earth({
-        "name": "earth",
-        "a": EARTH_SEMI_MAJOR_AXIS,
-        "e": 0.01671123,
-        "inclination": 0.,
-        "right_ascension": 0.,
-        "mean_anomaly": 6.2398515744,
-        "radius": 6371010, // meters
-        "mass": 5.97219e+24,
-        "spin": 2 * Math.PI / 24.,
-        "tilt": 23 * Math.PI / 180
-    });
+    const earth = new Earth();
+    earth.clouds.visible = false;
     const mercury = new Planet({
         "name": "mercury",
         'a': 57909050.,
@@ -978,28 +998,8 @@
         'tilt': 3 * Math.PI / 180.,
         'spin': 2 * Math.PI / 9.93
     }, {bumpScale: 0.02, identicalBumpMap: true});
-    const saturn = new Saturn({
-        "name": "saturn",
-        'a': 1433449370.,
-        'e': 0.055723219,
-        'inclination': 2.49 * Math.PI / 180.,
-        'right_ascension': 1.98,
-        'mean_anomaly': 5.5911055356,
-        'radius': 60000. * 1e3,
-        "mass": 5.68319e+26,
-        'tilt': 27 * Math.PI / 180.,
-        'spin': 2 * Math.PI / 10.66 }, {identicalBumpMap: true, bumpScale: 0.05});
-    const uranus = new Uranus({
-        "name": "uranus",
-        'a': 2876679082.,
-        'e': 0.044405586,
-        'inclination': 0.77 * Math.PI / 180.,
-        'right_ascension': 1.2908891856,
-        'mean_anomaly': 2.4950479462,
-        'radius': 25600. * 1E3,
-        "mass": 8.68103E25,
-        'tilt': 98 * Math.PI / 180.,
-        'spin': -2 * Math.PI / 17.24});
+    const saturn = new Saturn();
+    const uranus = new Uranus();
     const neptune = new Planet({
         'name': "neptune",
         'a': 4503443661.,
@@ -1168,7 +1168,7 @@
     const earthMoonSystem = new PlanetMoonSystem(earth, [luna]);
     solarSystemGroup.add(earthMoonSystem);
     earthMoonSystem.update(0, 1); // set initial position
-    earth.enableTrail({maxPoints: 400, color: 0x00bbff, trailStep: 25});
+    earth.enableTrail({maxPoints: 400, color: 0x00bbff, trailStep: 125});
     solarSystemGroup.add(earth.renderedOrbit(0x00bbff));
 
     const noMoonsMercury = new PlanetMoonSystem(mercury);
@@ -1180,37 +1180,37 @@
     const noMoonsVenus = new PlanetMoonSystem(venus);
     solarSystemGroup.add(noMoonsVenus);
     noMoonsVenus.update(0, 1);
-    venus.enableTrail({maxPoints: 120, color: 0xff0000, trailStep: 50});
+    venus.enableTrail({maxPoints: 120, color: 0xff0000, trailStep: 100});
     solarSystemGroup.add(venus.renderedOrbit(0xff0000));
 
     const marsWithMoons = new PlanetMoonSystem(mars, [phobos, deimos]);
     solarSystemGroup.add(marsWithMoons);
     marsWithMoons.update(0, 1);
-    mars.enableTrail({maxPoints: 550, color: 0xffaa00, trailStep: 50});
+    mars.enableTrail({maxPoints: 550, color: 0xffaa00, trailStep: 250});
     solarSystemGroup.add(mars.renderedOrbit(0xffaa00));
 
     const jupiterWithMoons = new PlanetMoonSystem(jupiter, [callisto, europa, ganymede, io]);
     solarSystemGroup.add(jupiterWithMoons);
     jupiterWithMoons.update(0, 1);
-    jupiter.enableTrail({maxPoints: 1600, color: 0x8b4513, trailStep: 100});
+    jupiter.enableTrail({maxPoints: 1600, color: 0x8b4513, trailStep: 500});
     solarSystemGroup.add(jupiter.renderedOrbit(0x8b4513));
 
     const saturnWithMoons = new PlanetMoonSystem(saturn, [dione, enceladus, tethys, titan]);
     solarSystemGroup.add(saturnWithMoons);
     saturnWithMoons.update(0, 1);
-    saturn.enableTrail({maxPoints: 1600, color: 0xffff00, trailStep: 100});
+    saturn.enableTrail({maxPoints: 1600, color: 0xffff00, trailStep: 500});
     solarSystemGroup.add(saturn.renderedOrbit(0xffff00));
 
     const uranusWithMoons = new PlanetMoonSystem(uranus, []);
     solarSystemGroup.add(uranusWithMoons);
     uranusWithMoons.update(0, 1);
-    uranus.enableTrail({maxPoints: 1600, color: 0xaaaaaa, trailStep: 100});
+    uranus.enableTrail({maxPoints: 1600, color: 0xaaaaaa, trailStep: 500});
     solarSystemGroup.add(uranus.renderedOrbit(0xaaaaaa));
 
     const neptuneWithMoons = new PlanetMoonSystem(neptune, []);
     solarSystemGroup.add(neptuneWithMoons);
     neptuneWithMoons.update(0, 1);
-    neptune.enableTrail({maxPoints: 1600, color: 0x0000ff});
+    neptune.enableTrail({maxPoints: 1600, color: 0x0000ff, trailStep: 500});
     solarSystemGroup.add(neptune.renderedOrbit(0x0000ff));
 
     const solarSystem = [
@@ -1261,21 +1261,21 @@
         controls.update();
     });
 
-    let lastTime = 0;
-    let t = 0;
+    let tPhys = 0;
     const eclipseIndicator = new LunarEclipseIndicator(earth, luna, earth.equatorialPlane);
-    function animate(time) {
-        if (time - lastTime < 1000 / frameRate) return;
-        lastTime = time;
+    let lastTime = performance.now() * .001;
+    function animate(now) {
+        const deltaSeconds = (now - lastTime) * .001;
+        lastTime = now;
 
-        solarSystem.forEach(body => body.update(t, dt));
-        sun.update(t, dt);
+        const dtHours = deltaSeconds * timeScale;
+        tPhys += dtHours;
+        solarSystem.forEach(body => body.update(tPhys));
+        sun.update(tPhys);
         eclipseIndicator.update();
-        skyDome.update(time * .001, planetCamera);
+        skyDome.update(now * .001, planetCamera);
         planetRenderer.render(planetaryScene, planetCamera);
         controlsGui.render();
-
-        t += dt;
     }
 
 </script>
