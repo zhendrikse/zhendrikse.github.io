@@ -120,12 +120,9 @@ is a port to JavaScript executed by a [web worker](https://en.wikipedia.org/wiki
 {% include_relative portfolio/3d_surfaces.html %}
 <p style="clear: both;"></p>
 
-### [3D visualization of some molecules](https://www.hendrikse.name/science/molecularphysics/molecules.html)
+### [Equipartition of energy](https://www.hendrikse.name/science/thermodynamics/energy_equipartition.html)
 
-🔧 Written in pure JavaScript and [three.js](https://threejs.org/). <br/>
-👉 Code developed in collaboration with [MrBlankCoding](https://github.com/MrBlankCoding) in [this GitHub repo](https://github.com/MrBlankCoding/Molecule-3d-Visualisation).<br/>
-👉 Molecular data taken from [this code](https://glowscript.org/#/user/priisdk/folder/molecules). <br/>
-🔑 Hovering your mouse over each of the atoms displays additional information!
+🔧 This [energy_equipartition.html](https://github.com/zhendrikse/science/blob/main/thermodynamics/code/energy_equipartition.html) is 100% JavaScript using [Three.js](https://threejs.org/).
 
 {% include_relative portfolio/molecules.html %}
 <p style="clear: both;"></p>

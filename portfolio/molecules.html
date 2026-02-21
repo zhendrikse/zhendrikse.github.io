@@ -1,65 +1,3 @@
-<style>
-    body {
-        margin: 0;
-        font-family: sans-serif;
-        color: white;
-    }
-    canvas {
-        display: block;
-        width: 100%;
-        max-width: 800px;
-        aspect-ratio: 4 / 3;
-        margin: auto;
-    }
-    #controls {
-        margin: 10px auto;
-        width: 100%;
-        max-width: 600px;
-    }
-    #controls label, #controls button {
-        margin: 4px;
-    }
-    .tooltip {
-        position: fixed;
-        background: rgba(0,0,0,0.8);
-        color: white;
-        padding: 5px 10px;
-        border-radius: 4px;
-        font-size: 12px;
-        pointer-events: none;
-        display: none;
-        z-index: 100;
-    }
-    #atomicRadiusSlider {
-        vertical-align: middle;
-    }
-</style>
-
-<canvas id="moleculesCanvas"></canvas>
-<div class="tooltip"></div>
-
-<div id="controls">
-    <div id="moleculeSelectors" style="margin-top:10px; text-align:center;">
-        <label><input type="radio" name="molecule" data-molecule="Baking soda">Baking soda</label>
-        <label><input type="radio" name="molecule" data-molecule="Lactate">Lactate</label>
-        <label><input type="radio" name="molecule" data-molecule="Ethanol">Ethanol</label>
-        <label><input type="radio" name="molecule" data-molecule="Methane">Methane</label>
-        <label><input type="radio" name="molecule" data-molecule="Water">Water</label>
-        <label><input type="radio" name="molecule" data-molecule="Ammonia">Ammonia</label>
-    </div>
-    <div style="margin-top:10px;">
-        <label><input type="checkbox" id="toggleRotate" checked>Rotate</label>
-        &nbsp;&nbsp;&nbsp;
-        <label>Atomic radius scaling</label>
-        <input type="range" min="50" max="200" id="atomicRadiusSlider" value="80">
-    </div>
-    <div style="margin-top:10px;">
-        <button id="resetView">🔄 Reset View</button>
-        <button id="ballStickBtn">Ball & stick</button>
-        <button id="wireframeBtn">Wireframe</button>
-    </div>
-</div>
-
 <script type="importmap">
     {
       "imports": {
@@ -69,608 +7,204 @@
     }
 </script>
 
+<link href="https://unpkg.com/uplot/dist/uPlot.min.css" rel="stylesheet">
+<script src="https://unpkg.com/uplot/dist/uPlot.iife.min.js"></script>
+
+
+<canvas class="applicationCanvas" id="simulationCanvas"></canvas><br/>
+<p style="clear: both;"></p>
+<div class="buttonRow">
+    <button id="pauseButton">&nbsp;Pause&nbsp;</button>
+    <button id="bondTypeButton">Bonds as springs</button>
+</div>
+<p style="clear: both;"></p>
+<!--div class="buttonRow">
+    <label for="temperatureSlider">Temperature (K): </label>
+    <input type="range" id="temperatureSlider" min="10" max="1000" value="298" step="1">
+    <span id="temperatureValue">298</span> K
+</div>
+<p style="clear: both;"></p-->
+<div id="energyPlot" style="margin:auto;"></div>
+
 <script type="module">
-    import * as THREE from "three";
+    import { Group, Scene, Vector3, PerspectiveCamera, WebGLRenderer, DirectionalLight, AmbientLight,
+        MeshStandardMaterial, Mesh, BoxGeometry, Color, EdgesGeometry, LineBasicMaterial, LineSegments
+    }  from "three";
+    import { CarbonMonoxide, Bond, Aquarium } from "https://www.hendrikse.name/science/js/three-js-extensions.js";
     import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
-    const color = THREE.Color;
-    const vector = THREE.Vector3;
+    // Simulation constants
+    const SCALE = 1e10; // For display
+    const MOLECULES_COUNT = 80;
+    const one_third = 1. / 3.;
+    const L = ((24.4E-3 / 6E23) * MOLECULES_COUNT) ** one_third / 50; // 2L is the length of the cubic container box
 
-    const moleculeCanvas = document.getElementById('moleculesCanvas');
-    moleculeCanvas.focus();
+    console.clear( );
+    const scene = new Scene();
+    const vector = Vector3;
 
-    let isRotating = true;
-    let viewMode = 'ball-stick';
-    const moleculeScene = new THREE.Scene();
+    const canvas = document.getElementById('simulationCanvas');
+    canvas.focus();
+    const canvasWidth = canvas.clientWidth;
+    const canvasHeight = canvas.clientHeight;
 
-    const moleculeCamera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
-    let zoomLevel = 1; // 1 = default
-    const cameraBase = new vector(0, 0, 8);
+    const camera = new PerspectiveCamera(60, canvasWidth/canvasHeight, 0.1, 1000);
+    camera.position.set(4.25, 1.25, 7.25);
+    camera.updateProjectionMatrix();
 
-    function updateCameraPosition() {
-        moleculeCamera.position.set(
-            cameraBase.x * zoomLevel,
-            cameraBase.y * zoomLevel,
-            Math.max(4, Math.min(cameraBase.z * zoomLevel, 20))
-        );
-    }
-    updateCameraPosition();
+    const renderer = new WebGLRenderer( {antialias: true, canvas: canvas, alpha: true} );
+    renderer.setSize( canvasWidth, canvasHeight );
+    renderer.setAnimationLoop( animationLoop );
 
-    const moleculeRenderer = new THREE.WebGLRenderer({
-        antialias: true,
-        alpha: true,
-        canvas: moleculeCanvas
-    });
-    moleculeRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    moleculeRenderer.shadowMap.enabled = true;
-    moleculeRenderer.setAnimationLoop( animate );
-    resizeRendererToCanvas(moleculeRenderer, moleculeCamera);
+    const controls = new OrbitControls( camera, canvas );
+    controls.enableDamping = true;
 
-    const moleculeControls = new OrbitControls(moleculeCamera, moleculeRenderer.domElement);
-    moleculeControls.enableDamping = true;
-    moleculeControls.dampingFactor = 0.05;
-    moleculeControls.enablePan = true;
-    moleculeControls.enableZoom = true;
-    moleculeControls.autoRotate = true;
-    moleculeControls.autoRotateSpeed = 2;
+    const light = new DirectionalLight(0xffffff, 1);
+    light.position.set(0, 4 * L * SCALE, 0);
+    scene.add(light);
+    scene.add(new AmbientLight(0xffffff, .5));
+    new Aquarium(scene, {size: 2 * L * SCALE});
 
-    // Lightning
-    moleculeScene.add(new THREE.AmbientLight(0xffffff, 0.25));
-
-    const keyLight = new THREE.DirectionalLight(0xffffff, 0.9);
-    keyLight.position.set(4, 6, 8);
-    moleculeScene.add(keyLight);
-
-    const rimLight = new THREE.DirectionalLight(0xffffff, 0.4);
-    rimLight.position.set(-6, -4, -6);
-    moleculeScene.add(rimLight);
-
-    // Raycaster for interaction
-    const raycaster = new THREE.Raycaster();
-    const mouse = new THREE.Vector2();
-    const tooltip = document.querySelector('.tooltip');
-
-    class Atom {
-        constructor(position, color, radius, metallic = true, name = '', properties = {}) {
-            const geometry = new THREE.SphereGeometry(radius, 32, 32);
-            const material = new THREE.MeshPhysicalMaterial({
-                color: color,
-                metalness: metallic ? 0.8 : 0.1,
-                roughness: metallic ? 0.2 : 0.7,
-                clearcoat: metallic ? 0.8 : 0.3,
-                clearcoatRoughness: 0.2,
-                envMapIntensity: 1.0,
-                wireframe: false
-            });
-
-            this.atom = new THREE.Mesh(geometry, material);
-            this.atom.castShadow = true;
-            this.atom.receiveShadow = true;
-            this.atom.userData = {
-                ...properties,
-                name,
-                type: 'atom',
-                originalRadius: radius,
-                originalEmissive: material.emissive.clone()
-            };
-            this.atom.position.set(position.x, position.y, position.z);
-        }
-
-        getThreeJsHandle() {
-            return this.atom;
-        }
-
-        radius() {
-            return this.atom.userData.originalRadius;
-        }
-
-        position() {
-            return this.atom.position;
-        }
-    }
-
-    class Bond {
-        static StartColor = new THREE.Color(0x666666);
-        static EndColor = new THREE.Color(0x444444);
-
-        constructor(atom1, atom2, isDouble=false) {
-            const start = atom1.position(),
-                end = atom2.position() ,
-                direction = new vector().subVectors(end, start),
-                length = direction.length();
-
-            const bonds = isDouble ?
-                Bond.createDoubleBond(length, start, end, direction):
-                Bond.createSingleBond(length, start, end, direction);
-
-            this.bondGroup = new THREE.Group();
-            bonds.forEach((bond) => {this.bondGroup.add(bond);});
-            this.bondGroup.castShadow = true;
-            this.bondGroup.receiveShadow = true;
-        }
-
-        getThreeJsHandle() {
-            return this.bondGroup;
-        }
-
-        static bondGeometry(radius, length) {
-            const geometry = new THREE.CylinderGeometry(radius, radius, length, 16, 8);
-            const positions = geometry.attributes.position.array;
-            const colors = new Float32Array(geometry.attributes.position.count * 3);
-            for (let i = 0; i < geometry.attributes.position.count; i++) {
-                const y = positions[i * 3 + 1];
-                const colour = new color().lerpColors(Bond.StartColor, Bond.EndColor, (y + length / 2) / length);
-                colors[i * 3] = colour.r;
-                colors[i * 3 + 1] = colour.g;
-                colors[i * 3 + 2] = colour.b;
-            }
-            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-            return geometry
-        }
-
-        static bondMaterial() {
-            return new THREE.MeshPhysicalMaterial({
-                vertexColors: true,
-                metalness: 0.1,
-                roughness: 0.5,
-                clearcoat: 0.3,
-                wireframe: false
-            });
-        }
-
-        static createDoubleBond(length, start, end, direction) {
-            const offset = 0.12;
-            const perpendicular = new vector(direction.y, -direction.x, 0).normalize().multiplyScalar(offset);
-
-            const geometry = Bond.bondGeometry(0.04, length);
-
-            const bond1 = new THREE.Mesh(geometry, Bond.bondMaterial());
-            const bond2 = new THREE.Mesh(geometry.clone(), Bond.bondMaterial());
-
-            bond1.position.copy(start).add(perpendicular);
-            bond2.position.copy(start).sub(perpendicular);
-
-            bond1.position.lerp(end.clone().add(perpendicular), 0.5);
-            bond2.position.lerp(end.clone().sub(perpendicular), 0.5);
-
-            bond1.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction.normalize());
-            bond2.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction.normalize());
-
-            return [bond1, bond2];
-        }
-
-        static createSingleBond(length, start, end, direction) {
-            const geometry = Bond.bondGeometry(0.06, length);
-            const bond = new THREE.Mesh(geometry, Bond.bondMaterial());
-            bond.position.copy(start).lerp(end, 0.5);
-            bond.quaternion.setFromUnitVectors(new vector(0, 1, 0), direction.normalize());
-            return [bond];
-        }
-    }
-
-    class Molecule {
-        constructor() {
-            this.molecule = new THREE.Group();
-            this.atoms = [];
-            this.bonds = [];
-            moleculeScene.add(this.molecule);
-        }
-
-        hide() {
-            for (let i = 0, n = this.bonds.length; i < n; i++)
-                this.bonds[i].visible = false;
-            for (let i = 0, n = this.atoms.length; i < n; i++)
-                this.atoms[i].visible = false;
-        }
-
-        show() {
-            for (let i = 0, n = this.bonds.length; i < n; i++)
-                this.bonds[i].visible = true;
-            for (let i = 0, n = this.atoms.length; i < n; i++)
-                this.atoms[i].visible = true;
-        }
-
-        addBond(bond) {
-            this.molecule.add(bond.getThreeJsHandle());
-            this.bonds.push(bond.getThreeJsHandle());
-        }
-
-        rotate(x, y, z) {
-            this.molecule.rotation.set(x, y, z);
-        }
-
-        rotateX(delta) {
-            this.molecule.rotation.x += delta;
-        }
-
-        rotateY(delta) {
-            this.molecule.rotation.y += delta;
-        }
-
-        addAtom(atom) {
-            this.molecule.add(atom.getThreeJsHandle());
-            this.atoms.push(atom.getThreeJsHandle());
-        }
-
-        scaleAtomicRadiusBy(scale) {
-            //const radius = this.atoms[i].userData.originalRadius;
-            for (let i = 0, n = this.atoms.length; i < n; i++)
-                this.atoms[i].scale.setScalar(scale);
-        }
-
-        // Toggle between solid and wireframe rendering of atoms
-        setViewModeTo(mode) {
-            viewMode = mode;
-            this.atoms.forEach(atom => { atom.material.wireframe = mode === "wireframe"; });
-
-            this.bonds.forEach(bondGroup => {
-                bondGroup.children.forEach(bond => {
-                    bond.material.wireframe = (mode === 'wireframe');
-                    // Adjust bond visibility in wireframe mode
-                    bond.material.opacity = mode === 'wireframe' ? 0.7 : 1;
-                    bond.material.transparent = mode === 'wireframe';
-                });
-            });
-        }
-
-        onMouseMove(event) {
-            const rect = moleculeCanvas.getBoundingClientRect();
-            mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-            mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-
-            raycaster.setFromCamera(mouse, moleculeCamera);
-            const intersects = raycaster.intersectObjects(this.atoms);
-
-            if (intersects.length > 0) {
-                const atom = intersects[0].object;
-                const userData = atom.userData;
-
-                tooltip.style.display = 'block';
-                tooltip.style.left = event.clientX + 10 + 'px';
-                tooltip.style.top = event.clientY + 10 + 'px';
-                tooltip.innerHTML = `
-                             ${userData.fullName} (${userData.name})<br>
-                             Atomic Number: ${userData.atomicNumber}<br>
-                             Atomic Weight: ${userData.atomicWeight}<br>
-                             Charge: ${userData.charge}
-                         `;
-
-                // Highlight atom
-                atom.material.emissive.setRGB(0.25, 0.25, 0.25);
-            } else {
-                tooltip.style.display = 'none';
-                this.atoms.forEach(atom => {
-                    atom.material.emissive.copy(atom.userData.originalEmissive);
-                });
+    class CarbonMonoxideGas extends Group {
+        constructor(moleculeCount=MOLECULES_COUNT, temperature=298, boxSize=L) {
+            super();
+            this._molecules = [];
+            this._boxSize = boxSize;
+            this._temperature = temperature;
+            const mass = 14E-3 / 6E23; // Average mass of Oxygen and Carbon
+            const k = 1.38E-23; // Boltzmann constant
+            for (let i = 0; i < moleculeCount; i++) {
+                const pos = new vector(Math.random() -.5, Math.random() -.5, Math.random() -.5).multiplyScalar(boxSize);
+                const molecule = new CarbonMonoxide(pos, Math.sqrt(3 * k * temperature / mass), SCALE);
+                this._molecules.push(molecule);
+                this.add(molecule);
             }
         }
-    }
 
-    class Sodium extends Atom {
-        constructor(position, charge='+1') {
-            super(position, 0x9933FF, 1.02, true, 'Na⁺', {
-                fullName: 'Sodium',
-                charge: charge,
-                atomicNumber: 11,
-                atomicWeight: '22.99 g/mol'
-            });
-        }
-    }
-
-    class Carbon extends Atom {
-        constructor(position, charge='0') {
-            super(position, 0x808080, 0.70, false, 'C', {
-                fullName: 'Carbon',
-                charge: charge,
-                atomicNumber: 6,
-                atomicWeight: '12.01 g/mol'
-            });
-        }
-    }
-
-    class Oxygen extends Atom {
-        constructor(position, charge='0') {
-            super(position, 0xFF0000, 0.60, false, 'O', {
-                fullName: 'Oxygen',
-                charge: charge,
-                atomicNumber: 8,
-                atomicWeight: '16.00 g/mol'
-            });
-        }
-    }
-
-    class Hydrogen extends Atom {
-        constructor(position, charge='0') {
-            super(position, 0xFFFFFF, 0.25, false, 'H', {
-                fullName: 'Hydrogen',
-                charge: charge,
-                atomicNumber: 1,
-                atomicWeight: '1.008 g/mol'
-            });
-        }
-    }
-
-    class Nitrogen extends Atom {
-        constructor(position, charge='0') {
-            super(position, 0x00FF00, 0.70, false, 'N', {
-                fullName: 'Nitrogen',
-                charge: charge,
-                atomicNumber: 7,
-                atomicWeight: '14.0067 g/mol'
-            });
-        }
-    }
-
-    class Methane extends Molecule {
-        constructor() {
-            super();
-            const sin_phi = 1 / 3,
-                cos_phi = 2 * Math.sqrt(2) / 3;
-
-            const positions = [new vector(0, 1, 0).multiplyScalar(1.5)];
-            const atoms = []
-            positions.push(new vector(cos_phi, -sin_phi, 0).multiplyScalar(1.5));
-            positions.push(new vector(-cos_phi / 2, -sin_phi,  Math.sqrt(3) / 2 * cos_phi).multiplyScalar(1.5));
-            positions.push(new vector(-cos_phi / 2, -sin_phi, -Math.sqrt(3) / 2 * cos_phi).multiplyScalar(1.5));
-            for (let index = 0; index < positions.length; index++)
-                atoms.push(new Hydrogen(positions[index]));
-
-            const carbonAtom = new Carbon(new vector(0, 0, 0));
-            for (let index = 0, n = atoms.length; index < n; index++) {
-                this.addBond(new Bond(atoms[index], carbonAtom));
-                this.addAtom(atoms[index]);
-            }
-            this.addAtom(carbonAtom);
-        }
-    }
-
-    class Water extends Molecule {
-        constructor() {
-            super();
-            const phi_hydrogen = (Math.PI * 104.5 / 180) / 2,
-                sin_phi = Math.sin(phi_hydrogen),
-                cos_phi = Math.cos(phi_hydrogen);
-
-            const atoms = [];
-            atoms.push(new Hydrogen(new vector(0, cos_phi, sin_phi).multiplyScalar(1.5)));
-            atoms.push(new Hydrogen(new vector(0, cos_phi, -sin_phi).multiplyScalar(1.5)));
-            atoms.push(new Oxygen(new vector(0, 0, 0)));
-            atoms.forEach(atom => {this.addAtom(atom);});
-
-            this.addBond(new Bond(atoms[2], atoms[0]));
-            this.addBond(new Bond(atoms[2], atoms[1]));
-        }
-    }
-
-    class SodiumBicarbonate extends Molecule {
-        constructor() {
-            super();
-            const sodium = new Sodium(new vector(-3.0, -0.675, 0));
-            const carbon = new Carbon(new vector(0, 0, 0));
-            const oxygen1 = new Oxygen(new vector(0, 1.23, 0));
-            const oxygen2 = new Oxygen(new vector(-1.17, -0.675, 0), '-1');
-            const oxygen3 = new Oxygen(new vector(1.17, -0.675, 0));
-            const hydrogen = new Hydrogen(new vector(1.8, -1.1, 0));
-
-            const atoms = [sodium, carbon, oxygen1, oxygen2, oxygen3, hydrogen];
-            atoms.forEach(atom => this.addAtom(atom));
-
-            const bonds = [
-                new Bond(carbon, oxygen1, true),
-                new Bond(carbon, oxygen2),
-                new Bond(carbon, oxygen3),
-                new Bond(oxygen3, hydrogen),
-                new Bond(sodium, oxygen2)
-            ];
-            bonds.forEach(bond => this.addBond(bond));
-        }
-    }
-
-    class Ethanol extends Molecule {
-        constructor() {
-            super();
-
-            const atoms = [];
-            const hydrogen_positions = [
-                new vector(1, -.5, -.5).multiplyScalar(1.5),
-                new vector(1, -.5, .5).multiplyScalar(1.5),
-                new vector(-1.25, .5, -.5).multiplyScalar(1.5),
-                new vector(-1.25, .5, .5).multiplyScalar(1.5),
-                new vector(-1.1, -.5, 0).multiplyScalar(1.5),
-                new vector(1.75, 0.75, 0).multiplyScalar(1.5)];
-            for (let index = 0; index < hydrogen_positions.length; index++)
-                atoms.push(new Hydrogen(hydrogen_positions[index]));
-
-            const carbonAtom1 = new Carbon(new vector( .5, 0, 0).multiplyScalar(1.5));
-            const carbonAtom2 = new Carbon(new vector(-.5, 0, 0).multiplyScalar(1.5));
-            atoms.push(carbonAtom1);
-            atoms.push(carbonAtom2);
-            this.addBond(new Bond(carbonAtom1, carbonAtom2));
-
-            for (let index = 0; index < hydrogen_positions.length - 1; index++) {
-                const carbonAtom = (index === 0 || index === 1) ? carbonAtom1 : carbonAtom2;
-                this.addBond(new Bond(carbonAtom, atoms[index]));
+        update(dt) {
+            for (let molecule of this._molecules) {
+                molecule.timelapse(dt);
+                molecule.checkBoxBounce(this._boxSize * 2);
             }
 
-            const oxygenAtom = new Oxygen(new vector(1, 1, 0).multiplyScalar(1.5));
-            atoms.push(oxygenAtom);
-
-            this.addBond(new Bond(atoms[5], oxygenAtom));
-            this.addBond(new Bond(carbonAtom1, oxygenAtom));
-
-            atoms.forEach(atom => {this.addAtom(atom);});
+            for (let i = 0; i < this._molecules.length; i++)
+                for (let j = i + 1; j < this._molecules.length; j++)
+                    this._molecules[i].resolveCollisionWith(this._molecules[j]);
         }
-    }
 
-    class Lactate extends Molecule {
-        constructor() {
-            super();
-            const sqrt3 = Math.sqrt(3),
-                sqrt3h = sqrt3 / 2,
-                sin_phi = 1 / 3,
-                cos_phi = 2 * Math.sqrt(2) / 3,
-                carbonPositions = [
-                    new vector(-1, 0, 0).multiplyScalar(1.5),
-                    new vector(0 ,0, 0),
-                    new vector(sin_phi, -cos_phi / 2, -sqrt3h * cos_phi).multiplyScalar(1.5)],
-                carbonAtoms = [];
-
-            for (let index = 0; index < carbonPositions.length; index++)
-                carbonAtoms.push(new Carbon(carbonPositions[index]));
-
-            const hydrogenPositions = [
-                new vector(-1 - sin_phi, -cos_phi, 0).multiplyScalar(1.5),
-                new vector(-1 - sin_phi, cos_phi / 2,  sqrt3h * cos_phi).multiplyScalar(1.5),
-                new vector(-1 - sin_phi, cos_phi / 2, -sqrt3h * cos_phi).multiplyScalar(1.5),
-                new vector(sin_phi, -cos_phi / 2, 0 + sqrt3h * cos_phi).multiplyScalar(1.5),
-                new vector(1.25 + sin_phi,-0.5 - cos_phi / 2, -1.25 - sqrt3h * cos_phi).multiplyScalar(1.5),
-                new vector(0.75 - sin_phi, 1 + cos_phi / 2, +sqrt3h * cos_phi).multiplyScalar(1.5)];
-
-            const hydrogenAtoms = [];
-            for (let index = 0; index < hydrogenPositions.length; index++)
-                hydrogenAtoms.push(new Hydrogen(hydrogenPositions[index]));
-
-            const oxygenPositions = [new vector(0.75, 1, 0).multiplyScalar(1.5)];
-            oxygenPositions.push(new vector(1.25, -0.5, -1.25).multiplyScalar(1.5));
-            oxygenPositions.push(new vector(0.25, -1.25, -1.25).multiplyScalar(1.5)); // Double bond is located here
-            const oxygenAtoms = [];
-            for (let index = 0; index < oxygenPositions.length; index++)
-                oxygenAtoms.push(new Oxygen(oxygenPositions[index]));
-
-            this.addBond(new Bond(carbonAtoms[1], hydrogenAtoms[3]));
-            this.addBond(new Bond(carbonAtoms[1], oxygenAtoms[0]));
-            this.addBond(new Bond(carbonAtoms[2], oxygenAtoms[1]));
-            this.addBond(new Bond(carbonAtoms[2], oxygenAtoms[2], true));
-            this.addBond(new Bond(oxygenAtoms[1], hydrogenAtoms[4]));
-            this.addBond(new Bond(carbonAtoms[2], oxygenAtoms[1]));
-            this.addBond(new Bond(hydrogenAtoms[5], oxygenAtoms[0]));
-            this.addBond(new Bond(carbonAtoms[0], hydrogenAtoms[0]));
-            this.addBond(new Bond(carbonAtoms[0], hydrogenAtoms[1]));
-            this.addBond(new Bond(carbonAtoms[0], hydrogenAtoms[2]));
-            this.addBond(new Bond(carbonAtoms[0], carbonAtoms[1]));
-            this.addBond(new Bond(carbonAtoms[1], carbonAtoms[2]));
-
-            for (let index = 0; index < oxygenAtoms.length; index++)
-                this.addAtom(oxygenAtoms[index]);
-            for (let index = 0; index < hydrogenAtoms.length; index++)
-                this.addAtom(hydrogenAtoms[index]);
-            for (let index = 0; index < carbonAtoms.length; index++)
-                this.addAtom(carbonAtoms[index]);
+        updateToNewTemperature(newTemperature) {
+            // Modify the speed of all molecules according to equipartition: v ~ sqrt(T)
+            const scaleFactor = Math.sqrt(newTemperature / this._temperature); // ratio new temp / old temp
+            for (let molecule of this._molecules)
+                molecule.scaleVelocity(scaleFactor);
+            this._temperature = newTemperature;
         }
-    }
 
-    class Ammonia extends Molecule {
-        constructor() {
-            super();
-            const r0 = 2,
-                phi = 107 * Math.PI / 180,
-                zN = Math.sqrt((1 + 2 * Math.cos(phi)) / (1 - Math.cos(phi)) / 2) * r0;
-
-            const atoms = [];
-            const positions = [
-                new vector(r0 / 2, 0, -zN / 4).multiplyScalar(1.5),
-                new vector(-r0 / 4, Math.sqrt(3) * r0 / 4, -zN / 4).multiplyScalar(1.5),
-                new vector(-r0 / 4, -Math.sqrt(3) * r0 / 4, -zN / 4).multiplyScalar(1.5)];
-            for (let index = 0; index < positions.length; index++)
-                atoms.push(new Hydrogen(positions[index]));
-
-            const nitrogenAtom = new Nitrogen(new vector(0, 0, zN / 4).multiplyScalar(1.5));
-            for (let index = 0, n = atoms.length; index < n; index++)
-                this.addBond(new Bond(atoms[index], nitrogenAtom));
-            atoms.push(nitrogenAtom);
-
-            atoms.forEach((atom) => {this.addAtom(atom);});
+        changeBondType(type) {
+            for (let molecule of this._molecules)
+                molecule.changeBondType(type);
+            this.update(0);
         }
+
+        translationalKE() { return this._molecules.reduce((sum, m) => sum + m.translationalKE(), 0); }
+        vibrationalKE() { return this._molecules.reduce((sum, m) => sum + m.vibrationalKE(), 0); }
+        vibrationalPE() { return this._molecules.reduce((sum, m) => sum + m.vibrationalPE(), 0); }
+        rotationalKE() { return this._molecules.reduce((sum, m) => sum + m.rotationalKE(), 0); }
     }
 
-    const slider = document.getElementById("atomicRadiusSlider");
-    const molecules = [new SodiumBicarbonate(), new Ethanol(), new Lactate(), new Methane(), new Water(), new Ammonia()];
-    slider.defaultValue = 80;
-    molecules.forEach((molecule) => {molecule.hide(); molecule.scaleAtomicRadiusBy(.8)});
-
-    const buttons = new Map();
-    buttons.set("Ethanol", 1);
-    buttons.set("Methane", 3);
-    buttons.set("Lactate", 2);
-    buttons.set("Baking soda", 0);
-    buttons.set("Water", 4);
-    buttons.set("Ammonia", 5);
-    let currentSelectedMolecule = molecules[2]
-    setMolecule("Lactate");
-    document.querySelectorAll('input[type=radio][name=molecule]').forEach(radio => {
-        radio.addEventListener('change', () => {
-            setMolecule(radio.dataset.molecule);
-        });
-    });
-
-    function setMolecule(moleculeName) {
-        molecules.forEach(mol => mol.hide());
-        currentSelectedMolecule = molecules[buttons.get(moleculeName)];
-        currentSelectedMolecule.show();
-
-        // Switch off all radio buttons
-        document.querySelectorAll('input[type=radio][name=molecule]').forEach(radio => { radio.checked = false; });
-
-        const selectedRadio = document.querySelector(`input[type=radio][data-molecule='${moleculeName}']`);
-        if (selectedRadio) selectedRadio.checked = true;
-    }
-
-    function onMouseMove(event) {
-        currentSelectedMolecule.onMouseMove(event);
-    }
-
-    function setViewMode(mode) {
-        molecules.forEach((molecule) => {molecule.setViewModeTo(mode)});
-    }
-
-    function toggleRotation() {
-        isRotating = !isRotating;
-    }
-
-    // --- View mode buttons ---
-    document.getElementById('ballStickBtn').addEventListener('click', () => setViewMode('ball-stick'));
-    document.getElementById('wireframeBtn').addEventListener('click', () => setViewMode('wireframe'));
-    document.getElementById('toggleRotate').addEventListener('change', (e) => {
-        isRotating = e.target.checked;
-        controls.autoRotate = isRotating;
-    });
-    document.getElementById('resetView').addEventListener('click', () => {
-        zoomLevel = 1;
-        molecules.forEach((molecule) => molecule.setViewModeTo("ball-stick"));
-        molecules.forEach((molecule) => molecule.scaleAtomicRadiusBy(.8));
-
-        moleculeCamera.position.set(0, 0, 8);
-        moleculeControls.target.set(0, 0, 0); // reset focus punt
-        moleculeControls.update();
-    });
-
-    slider.oninput = () => {
-        const scale = slider.value / 100;
-        molecules.forEach(mol => mol.scaleAtomicRadiusBy(scale));
+    const opts = {
+        title: "Kinetic Energy vs Time",
+        width: canvas.clientWidth,
+        height: canvas.clientHeight * .75,
+        bg: "transparent",
+        scales: { x: { auto: true }, y: { auto: true } },
+        axes: [
+            {
+                stroke: "#ff0",
+                font: "12px Arial",
+                grid: {stroke: "rgba(255, 255, 255, 0.2)", width: 1},
+                label: "Time [ps]", values: (u, values) => values.map(value=> value.toFixed(2))
+            },
+            {
+                stroke: "#ff0",
+                font: "12px Arial",
+                grid: {stroke: "rgba(255, 255, 255, 0.2)", width: 1},
+                label: "KE [J]", values: (u, values) => values.map(value => value.toExponential(2))
+            }
+        ],
+        series: [
+            { label: "t" },
+            { label: "Translational KE", stroke: "green" },
+            { label: "Vibrational PE", stroke: "red" },
+            { label: "Vibrational KE", stroke: "cyan" },
+            { label: "Rotational KE", stroke: "yellow" }
+        ]
     };
 
-    moleculeCanvas.addEventListener('mousemove', onMouseMove);
+    const gas = new CarbonMonoxideGas();
+    scene.add(gas);
+    const energyData = { time: [], translational: [], vPE: [], vKE: [], rotational: [] };
+    const uplotChart = new uPlot(opts, [energyData.time, energyData.translational, energyData.vPE, energyData.vKE, energyData.rotational], document.getElementById("energyPlot"));
 
-    function resizeRendererToCanvas(moleculeRenderer, moleculeCamera) {
-        const w = moleculeCanvas.clientWidth;
-        const h = moleculeCanvas.clientHeight;
+    // UI
+    // const tempSlider = document.getElementById("temperatureSlider");
+    // const tempValueLabel = document.getElementById("temperatureValue");
+    //tempSlider.addEventListener("input", () => {
+    //    const newTemperature = parseFloat(tempSlider.value) + "";
+    //    tempValueLabel.textContent = newTemperature;
+    //    gas.updateToNewTemperature(newTemperature);
+    //});
+    let running = true;
+    const toggleButton = document.getElementById("pauseButton");
+    toggleButton.onclick = () => {
+        running = !running;
+        toggleButton.innerHTML = running ? "&nbsp;Pause&nbsp;" : "Resume";
+    }
+    let bondType = Bond.Type.CYLINDER;
+    const bondTypeButton = document.getElementById("bondTypeButton");
+    bondTypeButton.onclick = () => {
+        bondType = bondType === Bond.Type.CYLINDER ? Bond.Type.SPRING : Bond.Type.CYLINDER;
+        bondTypeButton.innerHTML = bondType === Bond.Type.SPRING ? "&nbsp;Bonds as rods&nbsp;" : "Bonds as springs";
+        gas.changeBondType(bondType);
+    }
 
-        if (w === 0 || h === 0) return;
+    const dt = 5e-16;
+    let t = 0,
+        steps = 0,
+        totalTranslational = 0,
+        totalVibrationalKE = 0,
+        totalVibrationalPE = 0,
+        totalRotational = 0;
 
-        if (moleculeCanvas.width !== w || moleculeCanvas.height !== h) {
-            moleculeRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            moleculeRenderer.setSize(w, h, false);
-            moleculeCamera.aspect = w / h;
-            moleculeCamera.updateProjectionMatrix();
+    function iterate() {
+        for (let i = 0; i < 15; i++) {
+            gas.update(dt);
+            t += dt;
+
+            totalTranslational += gas.translationalKE();
+            totalVibrationalKE += gas.vibrationalKE();
+            totalVibrationalPE += gas.vibrationalPE();
+            totalRotational += gas.rotationalKE();
+            steps++;
+        }
+
+
+        if (steps % 150 === 0) {
+            energyData.time.push(t * SCALE);
+            energyData.translational.push(totalTranslational / steps);
+            energyData.vPE.push(totalVibrationalPE / steps);
+            energyData.vKE.push(totalVibrationalKE / steps);
+            energyData.rotational.push(totalRotational / steps);
+            uplotChart.setData([energyData.time, energyData.translational, energyData.vPE, energyData.vKE, energyData.rotational]);
         }
     }
 
-    function animate() {
-        moleculeControls.autoRotate = isRotating;
-        moleculeControls.update();
-        moleculeRenderer.render(moleculeScene, moleculeCamera);
+    function animationLoop() {
+        renderer.render(scene, camera);
+        controls.update();
 
-        resizeRendererToCanvas(moleculeRenderer, moleculeCamera)
-        moleculeRenderer.render(moleculeScene, moleculeCamera);
+        if (running) iterate();
     }
+
+
 </script>
