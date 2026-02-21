@@ -121,8 +121,10 @@ is a port to JavaScript executed by a [web worker](https://en.wikipedia.org/wiki
 <p style="clear: both;"></p>
 
 ### [Equipartition of energy](https://www.hendrikse.name/science/thermodynamics/energy_equipartition.html)
+<div style="border-top: 1px solid #ffcc00"><br/></div>
 
 🔧 This [energy_equipartition.html](https://github.com/zhendrikse/science/blob/main/thermodynamics/code/energy_equipartition.html) is 100% JavaScript using [Three.js](https://threejs.org/).
 
 {% include_relative portfolio/molecules.html %}
 <p style="clear: both;"></p>
+
