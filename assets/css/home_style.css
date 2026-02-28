@@ -1,21 +1,3 @@
-table, tr, th, td {
-  border: none !important;
-}
-
-table {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  border-collapse: collapse;
-  table-layout: fixed;
-}
-
-td {
-  max-width: 100%;
-  text-align: center;
-}
-
-
 label {
   color: white;
   padding: 7px 7px;

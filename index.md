@@ -62,7 +62,7 @@ section that belongs to my TDD repository, which in turn is packed with dozens o
 </div>
 <p style="clear: both;"></p>
 
-## [Interactive 3D simulations & visualizations](https://www.hendrikse.name/science/)
+## [Interactive simulations & visualizations](https://www.hendrikse.name/science/)
 <div style="border-top: 1px solid #999999"><br/></div>
 
 I maintain a site containing countless 
@@ -79,7 +79,27 @@ Some examples are reproduced below.
 🔑 Includes tilt, spin and tidal locking of applicable moons e.g. Earth’s moon<br/>
 🚀 Features advanced techniques for rendering earth clouds &amp; subtle corona breathing driven by magnetic turbulence
 
-{% include_relative portfolio/solarsystem.html %}
+<div id="planetControls">
+  <div class="buttonRow">
+    <button data-body="sun">🔅 Sun</button>
+    <button data-body="mercury">Mercury</button>
+    <button data-body="venus">Venus</button>
+    <button data-body="earth">🌍 Earth</button>
+    <button data-body="mars">Mars</button>
+    <button id="farField1">🔭</button>
+  </div>
+  <canvas class="applicationCanvas" id="planetsCanvas" style="background: black; aspect-ratio: 19 / 12;"></canvas>
+  <div class="buttonRow">
+    <button id="farField2">💫</button>
+    <button data-body="jupiter">Jupiter</button>
+    <button data-body="saturn">🪐 Saturn</button>
+    <button data-body="uranus">Uranus</button>
+    <button data-body="neptune">🔱 Neptune</button>
+    <button id="zoomIn">🔎</button>
+  </div>
+</div>
+<div class="guiContainer" id="solarSystemGui"></div>
+<script type="module" src="https://www.hendrikse.name/science/astrophysics/solar_system.js"></script>
 <p style="clear: both;"></p>
 
 ### [Spiral galaxy simulation](https://www.hendrikse.name/science/astrophysics/spiral_galaxy.html)
