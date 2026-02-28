@@ -108,8 +108,9 @@ Some examples are reproduced below.
 🔧 Written in JavaScript and [Three.js](https://threejs.org/), extended with coloring and fading<br/>
 👉 Based on an original idea and [article](https://towardsdatascience.com/create-3-d-galactic-art-with-matplotlib-a7534148a319/) by [Lee Vaughan](https://towardsdatascience.com/author/lee_vaughan/).
 
-{% include_relative portfolio/spiral_galaxy.html %}
-<p style="clear: both;"></p>
+<canvas class="applicationCanvas" id="galaxyCanvas" style="aspect-ratio: 19 / 12"></canvas>
+<script type="module" src="https://www.hendrikse.name/science/astrophysics/spiral_galaxy.js"></script>
+<p style="clear:both;"></p>
 
 ### [Black hole ray tracer](https://www.hendrikse.name/science/relativity/black_hole_raytracer.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
@@ -129,7 +130,9 @@ is a port to JavaScript executed by a [web worker](https://en.wikipedia.org/wiki
 🔧 Ported to JavaScript and [Three.js](https://threejs.org/) by [Zeger Hendrikse](https://github.com/zhendrikse/), see [raindrop_waves.html](https://github.com/zhendrikse/science/blob/main/nature/code/raindrop_waves.html)<br/>
 👉 Based on [this example](https://beltoforion.de/de/unterhaltungsmathematik/2d-wellengleichung.php) from [Recreational Mathematics with Python](https://github.com/beltoforion/recreational_mathematics_with_python)
 
-{% include_relative portfolio/raindrops.html %}
+<canvas class="applicationCanvas" id="raindropCanvas" style="aspect-ratio: 4 / 3;"></canvas>
+<div class="guiContainer" id="raindropsGui"></div>
+<script type="module" src="https://www.hendrikse.name/science/nature/raindrop_waves.js"></script>
 <p style="clear: both;"></p>
 
 ### [3D shapes](https://www.hendrikse.name/science/mathematics/geometric_surfaces.html)
@@ -137,7 +140,17 @@ is a port to JavaScript executed by a [web worker](https://en.wikipedia.org/wiki
 
 🔧 This [3D shapes renderer](https://github.com/zhendrikse/science/blob/main/mathematics/code/geometric_surfaces.html) is 100% JavaScript using [Three.js](https://threejs.org/).
 
-{% include_relative portfolio/3d_surfaces.html %}
+
+<script src="https://cdn.jsdelivr.net/npm/mathjs@11.11.0/lib/browser/math.js" type="text/javascript"></script>
+
+<div class="titleDiv" id="surface-title"></div>
+<div class="equationDiv" id="surface-equation"></div>
+<div class="canvasWrapper" id="surface-canvas-container">
+    <canvas class="applicationCanvas" id="surfaceCanvas"></canvas>
+</div>
+<canvas class="applicationCanvas" id="ringCanvas" style="aspect-ratio: 4 / 1;"></canvas>
+<div class="guiContainer" id="gui-container"></div>
+<script type="module" src="https://www.hendrikse.name/science/mathematics/parametric_surfaces.js"></script>
 <p style="clear: both;"></p>
 
 ### [Equipartition of energy](https://www.hendrikse.name/science/thermodynamics/energy_equipartition.html)
@@ -145,6 +158,15 @@ is a port to JavaScript executed by a [web worker](https://en.wikipedia.org/wiki
 
 🔧 This [energy_equipartition.html](https://github.com/zhendrikse/science/blob/main/thermodynamics/code/energy_equipartition.html) is 100% JavaScript using [Three.js](https://threejs.org/).
 
-{% include_relative portfolio/molecules.html %}
+<link href="https://unpkg.com/uplot/dist/uPlot.min.css" rel="stylesheet">
+<script src="https://unpkg.com/uplot/dist/uPlot.iife.min.js"></script>
+<canvas class="applicationCanvas" id="simulationCanvas"></canvas><br/>
 <p style="clear: both;"></p>
+<div class="buttonRow">
+    <button id="pauseButton">&nbsp;Pause&nbsp;</button>
+    <button id="bondTypeButton">Bonds as springs</button>
+</div>
+<p style="clear: both;"></p>
+<div id="energyPlot" style="margin:auto;"></div>
+<script type="module" src="https://www.hendrikse.name/science/thermodynamics/energy_equipartition.js"></script>
 
