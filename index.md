@@ -127,10 +127,11 @@ is a port to JavaScript executed by a [web worker](https://en.wikipedia.org/wiki
 ### [Falling raindrops](https://www.hendrikse.name/science/nature/raindrop_waves.html)
 <div style="border-top: 1px solid #ffcc00"><br/></div>
 
-🔧 Ported to JavaScript and [Three.js](https://threejs.org/) by [Zeger Hendrikse](https://github.com/zhendrikse/), see [raindrop_waves.html](https://github.com/zhendrikse/science/blob/main/nature/code/raindrop_waves.html)<br/>
-👉 Based on [this example](https://beltoforion.de/de/unterhaltungsmathematik/2d-wellengleichung.php) from [Recreational Mathematics with Python](https://github.com/beltoforion/recreational_mathematics_with_python)
+⭐ Inspired by [this example](https://beltoforion.de/de/unterhaltungsmathematik/2d-wellengleichung.php) from [Recreational Mathematics with Python](https://github.com/beltoforion/recreational_mathematics_with_python)<br/>
+🔧 Rewritten in JavaScript and [three.js](https://threejs.org/) by [Zeger Hendrikse](https://github.com/zhendrikse/), see 
+  [raindrop_waves.js](https://github.com/zhendrikse/science/blob/main/nature/raindrop_waves.js)<br/>
 
-<canvas class="applicationCanvas" id="raindropCanvas" style="aspect-ratio: 4 / 3;"></canvas>
+<canvas class="applicationCanvas" id="raindropsCanvas" style="aspect-ratio: 2 / 1;"></canvas>
 <div class="guiContainer" id="raindropsGui"></div>
 <script type="module" src="https://www.hendrikse.name/science/nature/raindrop_waves.js"></script>
 <p style="clear: both;"></p>
