@@ -106,16 +106,6 @@ Some examples are reproduced below.
 <script type="module" src="https://www.hendrikse.name/science/astrophysics/solar_system.js"></script>
 <p style="clear: both;"></p>
 
-### [Spiral galaxy simulation](https://www.hendrikse.name/science/astrophysics/spiral_galaxy.html)
-<div style="border-top: 1px solid #ffcc00"><br/></div>
-
-🔧 Written in JavaScript and [Three.js](https://threejs.org/), extended with coloring and fading<br/>
-👉 Based on an original idea and [article](https://towardsdatascience.com/create-3-d-galactic-art-with-matplotlib-a7534148a319/) by [Lee Vaughan](https://towardsdatascience.com/author/lee_vaughan/).
-
-<canvas class="applicationCanvas" id="galaxyCanvas" style="aspect-ratio: 19 / 12"></canvas>
-<script type="module" src="https://www.hendrikse.name/science/astrophysics/spiral_galaxy.js"></script>
-<p style="clear:both;"></p>
-
 ### [Black hole GPU ray tracing](https://www.hendrikse.name/science/relativity/black_hole_raytracing.html)
 <div style="border-top: 1px solid #999999"><br/></div>
 
