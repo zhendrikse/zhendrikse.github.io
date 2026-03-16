@@ -65,6 +65,10 @@ section that belongs to my TDD repository, which in turn is packed with dozens o
 ## [Interactive simulations & visualizations](https://www.hendrikse.name/science/)
 <div style="border-top: 1px solid #999999"><br/></div>
 
+[![JavaScript](https://img.shields.io/badge/JavaScript-007ACC?logo=javascript&logoColor=white)](https://en.wikipedia.org/wiki/JavaScript)&nbsp;&nbsp;
+[![Three.js](https://img.shields.io/badge/Three.js-000000?logo=three.js&logoColor=white)](https://threejs.org/)&nbsp;&nbsp;
+[![WebGL](https://img.shields.io/badge/WebGL-990000?logo=webgl&logoColor=white)](https://www.khronos.org/webgl/)
+
 I maintain a site containing countless 
 [interactive simulations in physics and mathematics](https://www.hendrikse.name/science/).
 Some examples are reproduced below.
@@ -112,16 +116,14 @@ Some examples are reproduced below.
 <script type="module" src="https://www.hendrikse.name/science/astrophysics/spiral_galaxy.js"></script>
 <p style="clear:both;"></p>
 
-### [Black hole ray tracer](https://www.hendrikse.name/science/relativity/black_hole_raytracer.html)
-<div style="border-top: 1px solid #ffcc00"><br/></div>
+### [Black hole GPU ray tracing](https://www.hendrikse.name/science/relativity/black_hole_raytracing.html)
+<div style="border-top: 1px solid #999999"><br/></div>
 
-🔧 This [black hole ray tracer](https://github.com/zhendrikse/science/blob/main/relativity/code/worker.js)
-is a port to JavaScript executed by a [web worker](https://en.wikipedia.org/wiki/Web_worker).<br/>
-👉 Refactored and extended with realistic colour coding!<br/>
-👉 Based on the [blackhole_raytracer](https://github.com/silvaan/blackhole_raytracer/tree/master) project by Arman T, Casper Y, Lulu W.<br/>
-👉 See their accompanying [GitHub pages](https://cyang2020.github.io/BlackHoleRayTracer/) and [video](https://www.youtube.com/watch?v=VTodu1YTURY), where they explain the code.
+⭐ Based on [NASA-BlackHole](https://github.com/cadenmarinozzi/NASA-BlackHole) by [Caden Marinozzi](https://medium.com/@cadenmarinozzi)<br/>
+👉 Extended with realistic accretion disk coloring<br/>
 
-{% include_relative portfolio/black_hole.html %}
+<canvas class="applicationCanvas" id="glslBlackHoleCanvas" style="background: black; aspect-ratio: 16/9"></canvas>
+<script type='module' src="https://www.hendrikse.name/science/relativity/black_hole_raytracer_glsl.js"></script>
 <p style="clear: both;"></p>
 
 ### [Falling raindrops](https://www.hendrikse.name/science/nature/raindrop_waves.html)
