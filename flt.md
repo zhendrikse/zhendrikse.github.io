@@ -59,10 +59,16 @@ $$
 
 ### Matrix: Operations
 
-- **Addition**: $(A+B)_{ij}=A_{ij}+B_{ij}$
-- **Scalar multiplication**: $(cA)_{ij} = c \cdot A_{ij}$
+- **Addition**:
+
+$$(A + B)_{ij} = A_{ij} + B_{ij}$$
+
+- **Scalar multiplication**:
+
+$$(cA)_{ij} = c \cdot A_{ij}$$
+
 - **Matrix multiplication**: If $A$ is $m \times n$ and B is $n \times p$,
-  their product $AB$ is an $m \times p$ matrix with entries:
+  their product $AB$ is an $m \times p$ matrix with entries:  
 
 $$
 (AB)_{ij} = \sum^n_{k=1}A_{ik}B_{kj}
@@ -72,7 +78,7 @@ $$
 
 ### Some examples
 
-#### Example 1: addtition
+#### Example 1: addition
 
 $$
 \begin{pmatrix}
@@ -91,3 +97,52 @@ $$
 \end{pmatrix}
 $$ 
 
+#### Example 2: subtraction
+
+$$
+\begin{pmatrix}
+1 && 3 \\
+7 && 4
+\end{pmatrix}
+-
+\begin{pmatrix}
+-3 && 2 \\
+0 && 7
+\end{pmatrix}
+=
+\begin{pmatrix}
+4 && 1 \\
+7 && -3
+\end{pmatrix}
+$$ 
+
+#### Example 3: scalar multiplication
+
+$$
+(-3) \cdot
+\begin{pmatrix}
+1 && 2 && 3 \\
+4 && 5 && 8
+\end{pmatrix}
+=
+\begin{pmatrix}
+-3 && -6 && -9 \\
+-12 && -15 && -24
+\end{pmatrix}
+$$ 
+
+
+#### Example 4: scalar multiplication
+
+$$
+(7) \cdot
+\begin{pmatrix}
+1 && 7 \\
+9 && -8
+\end{pmatrix}
+=
+\begin{pmatrix}
+7 && 49 \\
+63 && -56
+\end{pmatrix}
+$$ 
