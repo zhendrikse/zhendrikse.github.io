@@ -1,9 +1,9 @@
-## Linear algebra
+# Linear algebra
 
 Mathematics is also about structure. Linear algebra is where we build the
 foundation of that structure.
 
-### Matrix: Definition
+## Matrix: Definition
 
 - A **matrix** is a rectangular array of scalars from a field $F$.
 - An $m \times n$ matrix a has $m$ rows and $n$ columns. The entry in the $i$-th row and $j$-th column is noted $A_{ij}$.
@@ -21,11 +21,11 @@ where we take the scalars from. More strictly, it is an algebraic structure wher
 addition, subtraction, multiplication, and division (for non-zero elements) are defined.
 
 Going forward, $F$ will mostly consider matrices were $F$ is either
-$\mathbf{R}$ or $\mathbf{C}$.
+$\mathbb{R}$ or $\mathbb{C}$.
 
-#### Some examples
+### Some examples
 
-##### Example 1: a $2$ by $2$ matrix
+#### Example 1: a $2$ by $2$ matrix
 
 Example of a $2$ by $2$ matrix, also denoted as $2 \times 2$ matrix,
 which has $2$ rows and $2$ columns
@@ -37,7 +37,7 @@ $$
 \end{pmatrix}
 $$
 
-##### Example 2: a $3$ by $2$ matrix
+#### Example 2: a $3$ by $2$ matrix
 
 $$
 A = \begin{pmatrix}
@@ -48,7 +48,7 @@ $$
 
 So $A_{12} = 2$, $A_{23} = -6$, $A_{13} = 4$. Note that for example $A_{32}$ does not exist!
 
-##### Example 3: a matrix over $\mathbf{C}
+#### Example 3: a matrix over $\mathbf{C}$
 
 $$
 A = \begin{pmatrix}
@@ -60,12 +60,34 @@ $$
 ### Matrix: Operations
 
 - **Addition**: $(A+B)_{ij}=A_{ij}+B_{ij}$
-- **Scalar multiplication**: (cA)_{ij} = c \cdot A_{ij}$
+- **Scalar multiplication**: $(cA)_{ij} = c \cdot A_{ij}$
 - **Matrix multiplication**: If $A$ is $m \times n$ and B is $n \times p$,
-  their product AB is an $m \times p$ matrix with entries:
+  their product $AB$ is an $m \times p$ matrix with entries:
 
 $$
 (AB)_{ij} = \sum^n_{k=1}A_{ik}B_{kj}
 $$
 
 - It is **associative**, $(AB)C = A(BC)$, but not **commutative** in general, $AB\neq BA$
+
+### Some examples
+
+#### Example 1: addtition
+
+$$
+\begin{pmatrix}
+2 && 3 \\
+4 && 1
+\end{pmatrix}
++
+\begin{pmatrix}
+1 && 2 \\
+3 && 4
+\end{pmatrix}
+=
+\begin{pmatrix}
+3 && 7 \\
+5 && 7
+\end{pmatrix}
+$$ 
+
