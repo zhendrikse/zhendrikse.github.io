@@ -69,8 +69,9 @@ that belongs to my TDD repository, which in turn is packed with dozens of
 
 I am currently working on a _browser-native_ framework for interactive 
 mathematics and physics called [Helion](https://www.hendrikse.name/helion/).
+It uses your browser as if it were a virtual laboratory. 
 Its API is designed to express scientific ideas as directly as possible by 
-offering a scientific domain-specific language embedded in JavaScript.
+offering a scientific domain-specific language embedded in JavaScript
 
 ### Mathematics
 <div style="border-top: 1px solid #999999"><br/></div>
