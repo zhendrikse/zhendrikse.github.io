@@ -2,7 +2,7 @@ markdown: kramdown
 
 remote_theme: pages-themes/midnight@v0.2.0
 title: Zeger Hendrikse
-description: TDD, physics, and mathematics
+description: Physics / Mathematics / Simulations / TDD
 show_downloads: false
 
 url: "https://www.hendrikse.name/science" # the base hostname & protocol for your site
