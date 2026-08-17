@@ -94,7 +94,7 @@ offering a scientific domain-specific language embedded in JavaScript
             </figure>
             <figure class="right_image">
                 <a href="https://www.hendrikse.name/helion/mathematics/fractals_3d/">
-                    <img alt="Three-dimensional fractals" src="./images/thumbnails/fractal_terrain_surface.png" title="Menger sponge and Sierpínski pyramid"/>
+                    <img alt="Three-dimensional fractals" src="./images/thumbnails/menger_sponge.png" title="Menger sponge and Sierpínski pyramid"/>
                 </a>
             </figure>
         </div>
@@ -146,12 +146,12 @@ finest that music and poetry can deliver. &mdash;
     </div>
     <div class="double_image">
       <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/nature/raindrops/">
+        <a href="https://www.hendrikse.name/helion/nature/water_sprinkler/">
           <img alt="Water sprinkler" src="./images/thumbnails/water_sprinkler.png" title="Animated water sprinkler"/>
         </a>
       </figure>
       <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/nature/water_sprinkler/">
+        <a href="https://www.hendrikse.name/helion/nature/raindrops/">
           <img alt="Raindrops falling in a pond" src="./images/thumbnails/raindrop_waves.png" title="Waves in a pond caused by falling raindrops"/>
         </a>
       </figure>

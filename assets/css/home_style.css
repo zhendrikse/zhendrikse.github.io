@@ -2,6 +2,49 @@ header {
   display: none;
 }
 
+figure {
+  border: none;
+  padding: 4px;
+  margin: auto;
+}
+
+figcaption {
+  color: white;
+  font-style: italic;
+  padding: 2px;
+  text-align: center;
+}
+
+/*
+.equationDiv .mjx-chtml {
+    font-size: clamp(12px, 3.5vw, 10px);
+    display: block;                 / * make MathJax fill the div * /
+    max-width: 100%;
+    margin: 0 auto;
+}
+*/
+
+.header_line {
+  border-top: 2px solid
+}
+
+.double_image {
+  display: flex;
+  align-items: flex-end;
+}
+
+.left_image {
+  float: left;
+  width: 50%;
+  text-align: center
+}
+
+.right_image {
+  float: right;
+  width: 50%;
+  text-align: center
+}
+
 .subsection_header_line {
   border-top: 1px solid #999999;
 }
@@ -26,25 +69,4 @@ header {
   content: "";
   display: table;
   clear: both;
-}
-
-.header_line {
-  border-top: 2px solid
-}
-
-.double_image {
-  display: flex;
-  align-items: flex-end;
-}
-
-.left_image {
-  float: left;
-  width: 50%;
-  text-align: center
-}
-
-.right_image {
-  float: right;
-  width: 50%;
-  text-align: center
 }
