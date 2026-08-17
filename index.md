@@ -10,7 +10,7 @@
     📝 My resume can be downloaded <a href="https://www.hendrikse.name/cvWeb.docx.pdf">here</a><br/>
    </div>
    <div style="margin-bottom: 5px; margin-left: 10px;">
-    👯 I’m currently working on my ✨<a href="https://www.hendrikse.name/science/">science &amp; mathematics website</a>✨<br/>
+    👯 I’m currently working on my ✨<a href="https://github.com/zhendrikse/helion/">Helion</a>✨ simulation library<br/>
    </div>
    <div style="margin-bottom: 5px; margin-left: 10px;">
     🌱 I’m relearning the stuff I did as a student theoretical physics<br/>
@@ -64,7 +64,7 @@ that belongs to my TDD repository, which in turn is packed with dozens of
 </div>
 <p style="clear: both;"></p>
 
-# [Helion: Interactive simulations & visualizations](https://www.hendrikse.name/helion/)
+# [Helion: Interactive simulations & visualizations](https://github.com/zhendrikse/helion/)
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
 I am currently working on a _browser-native_ framework for interactive 
