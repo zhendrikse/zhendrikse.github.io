@@ -113,6 +113,7 @@ offering a scientific domain-specific language embedded in JavaScript
         </div>
     </div>
 </div>
+<p style="clear:both"></p>
 
 ## Physics
 <div style="border-top: 1px solid #999999"><br/></div>
