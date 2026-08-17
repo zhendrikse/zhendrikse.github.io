@@ -35,6 +35,13 @@
 # My portfolio
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
+## Fermat's last theorem
+
+I created [a site](https://www.hendrikse.name/fermat) dedicated to the question:
+
+> **Is Fermat's Last Theorem genuinely mathematically interesting, or is it famous just 
+> because of the hype and the extraordinary story surrounding it?**
+
 ## Test-driven development
 <div style="border-top: 1px solid #999999"><br/></div>
 
@@ -62,104 +69,51 @@ section that belongs to my TDD repository, which in turn is packed with dozens o
 </div>
 <p style="clear: both;"></p>
 
-## [Interactive simulations & visualizations](https://www.hendrikse.name/science/)
+## [Helion: Interactive simulations & visualizations](https://www.hendrikse.name/helion/)
 <div style="border-top: 1px solid #999999"><br/></div>
 
-[![JavaScript](https://img.shields.io/badge/JavaScript-007ACC?logo=javascript&logoColor=white)](https://en.wikipedia.org/wiki/JavaScript)&nbsp;&nbsp;
-[![Three.js](https://img.shields.io/badge/Three.js-000000?logo=three.js&logoColor=white)](https://threejs.org/)&nbsp;&nbsp;
-[![WebGL](https://img.shields.io/badge/WebGL-990000?logo=webgl&logoColor=white)](https://www.khronos.org/webgl/)
+I am currently working on a _browser-native_ framework for interactive 
+mathematics and physics called [Helion](https://www.hendrikse.name/helion/).
+Its API is designed to express scientific ideas as
+directly as possible by offering a scientific domain-specific language
+embedded in JavaScript.
 
-I maintain a site containing countless 
-[interactive simulations in physics and mathematics](https://www.hendrikse.name/science/).
-Some examples are reproduced below.
+<blockquote>
+    Mathematics directs the flow of the universe, lurks behind its shapes and curves,
+    holds the reins of everything from tiny atoms to the biggest stars. &mdash;
+    <a href="https://en.wikipedia.org/wiki/Edward_Frenkel">Edward Frenkel</a>
+</blockquote>
+<p style="clear:both"></p>
 
-### [Solar system](https://www.hendrikse.name/science/astrophysics/solar_system.html)
-<div style="border-top: 1px solid #ffcc00"><br/></div>
-
-🔧 This [solar_system.html](https://github.com/zhendrikse/science/blob/main/astrophysics/code/solar_system.html) uses JavaScript &amp; [Three.js](https://threejs.org/) <br/>
-🧠 [Newton-Raphson method](https://en.wikipedia.org/wiki/Newton%27s_method) for realistic (elliptic) orbits<br/>
-👉 Inspired on [solar-system](https://github.com/lukekulik/solar-system) by [Luke Kulik](https://github.com/lukekulik/), [threex.planets](https://github.com/jeromeetienne/threex.planets) by [Jemore Etienne](https://github.com/jeromeetienne/), and
-[solarsystem](https://github.com/pint-drinker/solarsystem) by [Dana Wensberg](https://github.com/pint-drinker/)<br/>
-🔑 Includes tilt, spin and tidal locking of applicable moons e.g. Earth’s moon<br/>
-🚀 Features advanced techniques for rendering earth clouds &amp; subtle corona breathing driven by magnetic turbulence
-
-<div id="planetControls">
-  <div class="buttonRow">
-    <button data-body="sun">🔅 Sun</button>
-    <button data-body="mercury">Mercury</button>
-    <button data-body="venus">Venus</button>
-    <button data-body="earth">🌍 Earth</button>
-    <button data-body="mars">Mars</button>
-    <button id="farField1">🔭</button>
-  </div>
-  <canvas class="applicationCanvas" id="planetsCanvas" style="background: black; aspect-ratio: 19 / 12;"></canvas>
-  <div class="buttonRow">
-    <button id="farField2">💫</button>
-    <button data-body="jupiter">Jupiter</button>
-    <button data-body="saturn">🪐 Saturn</button>
-    <button data-body="uranus">Uranus</button>
-    <button data-body="neptune">🔱 Neptune</button>
-    <button id="zoomIn">🔎</button>
-  </div>
+<div class="row">
+    <div class="column" style="background-color:#004444;">
+        <h3>Fractals &amp; fractal terrain</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/fractals/">
+                    <img alt="Two-dimensional fractals" src="./mathematics/images/chaos_game.png" title="Fractals generated with turtle graphics and the chaos game"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <a href="https://www.hendrikse.name/helion/nature/fractal_terrain/">
+                    <img alt="Fractal terrains" src="./mathematics/images/fractal_terrain_surface.png" title="Fractal terrains"/>
+                </a>
+            </figure>
+        </div>
+    </div>
+    <div class="column" style="background-color:#004444;">
+        <h3><a href="mathematics/index.html#3d_fractals">3D fractals</a></h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="mathematics/sierpinski.html">
+                    <img alt="Sierpinski pyramid" src="./mathematics/images/sierpinski.png" title="Click to animate"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <a href="mathematics/menger_sponge.html">
+                    <img alt="Menger sponge" src="./mathematics/images/menger_sponge.png" title="Click to animate"/>
+                </a>
+            </figure>
+        </div>
+    </div>
 </div>
-<div class="guiContainer" id="solarSystemGui"></div>
-<script type="module" src="https://www.hendrikse.name/science/astrophysics/solar_system.js"></script>
-<p style="clear: both;"></p>
-
-### [Black hole GPU ray tracing](https://www.hendrikse.name/science/relativity/black_hole_raytracing.html)
-<div style="border-top: 1px solid #999999"><br/></div>
-
-⭐ Based on [NASA-BlackHole](https://github.com/cadenmarinozzi/NASA-BlackHole) by [Caden Marinozzi](https://medium.com/@cadenmarinozzi)<br/>
-👉 Extended with realistic accretion disk coloring<br/>
-
-<canvas class="applicationCanvas" id="glslBlackHoleCanvas" style="background: black; aspect-ratio: 16/9"></canvas>
-<script type='module' src="https://www.hendrikse.name/science/relativity/black_hole_raytracer_glsl.js"></script>
-<p style="clear: both;"></p>
-
-### [Falling raindrops](https://www.hendrikse.name/science/nature/raindrop_waves.html)
-<div style="border-top: 1px solid #ffcc00"><br/></div>
-
-⭐ Inspired by [this example](https://beltoforion.de/de/unterhaltungsmathematik/2d-wellengleichung.php) from [Recreational Mathematics with Python](https://github.com/beltoforion/recreational_mathematics_with_python)<br/>
-🔧 Rewritten in JavaScript and [three.js](https://threejs.org/) by [Zeger Hendrikse](https://github.com/zhendrikse/), see 
-  [raindrop_waves.js](https://github.com/zhendrikse/science/blob/main/nature/raindrop_waves.js)<br/>
-
-<canvas class="applicationCanvas" id="raindropsCanvas" style="aspect-ratio: 2 / 1;"></canvas>
-<div class="guiContainer" id="raindropsGui"></div>
-<script type="module" src="https://www.hendrikse.name/science/nature/raindrop_waves.js"></script>
-<p style="clear: both;"></p>
-
-### [3D shapes](https://www.hendrikse.name/science/mathematics/geometric_surfaces.html)
-<div style="border-top: 1px solid #ffcc00"><br/></div>
-
-🔧 This [3D shapes renderer](https://github.com/zhendrikse/science/blob/main/mathematics/code/geometric_surfaces.html) is 100% JavaScript using [Three.js](https://threejs.org/).
-
-
-<script src="https://cdn.jsdelivr.net/npm/mathjs@11.11.0/lib/browser/math.js" type="text/javascript"></script>
-
-<div class="titleDiv" id="surface-title"></div>
-<div class="equationDiv" id="surface-equation"></div>
-<div class="canvasWrapper" id="surface-canvas-container">
-    <canvas class="applicationCanvas" id="surfaceCanvas"></canvas>
-</div>
-<canvas class="applicationCanvas" id="ringCanvas" style="aspect-ratio: 4 / 1;"></canvas>
-<div class="guiContainer" id="gui-container"></div>
-<script type="module" src="https://www.hendrikse.name/science/mathematics/parametric_surfaces.js"></script>
-<p style="clear: both;"></p>
-
-### [Equipartition of energy](https://www.hendrikse.name/science/thermodynamics/energy_equipartition.html)
-<div style="border-top: 1px solid #ffcc00"><br/></div>
-
-🔧 This [energy_equipartition.html](https://github.com/zhendrikse/science/blob/main/thermodynamics/code/energy_equipartition.html) is 100% JavaScript using [Three.js](https://threejs.org/).
-
-<link href="https://unpkg.com/uplot/dist/uPlot.min.css" rel="stylesheet">
-<script src="https://unpkg.com/uplot/dist/uPlot.iife.min.js"></script>
-<canvas class="applicationCanvas" id="simulationCanvas"></canvas><br/>
-<p style="clear: both;"></p>
-<div class="buttonRow">
-    <button id="pauseButton">&nbsp;Pause&nbsp;</button>
-    <button id="bondTypeButton">Bonds as springs</button>
-</div>
-<p style="clear: both;"></p>
-<div id="energyPlot" style="margin:auto;"></div>
-<script type="module" src="https://www.hendrikse.name/science/thermodynamics/energy_equipartition.js"></script>
-
