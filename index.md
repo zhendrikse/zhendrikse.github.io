@@ -31,7 +31,7 @@
 </div>
 <p style="clear: both;"></p>
 
-## [Fermat's last theorem](https://www.hendrikse.name/fermat-last-theorem/)
+# [Fermat's last theorem](https://www.hendrikse.name/fermat-last-theorem/)
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
 I created [a website](https://www.hendrikse.name/fermat-last-theorem/) dedicated to the question:
@@ -40,8 +40,8 @@ I created [a website](https://www.hendrikse.name/fermat-last-theorem/) dedicated
 > because of the hype and the extraordinary story surrounding it?**
 <p style="clear: both;"></p>
 
-## [Test-driven development](https://www.hendrikse.name/tdd/)
-<div style="border-top: 1px solid #999999"><br/></div>
+# [Test-driven development](https://www.hendrikse.name/tdd/)
+<div style="border-top: 2px solid #cccccc"><br/></div>
 
 I love training people in becoming more fluent with test-driven development.
 Please take a look at [my TDD pages](https://www.hendrikse.name/tdd/), the GitHub pages site 
@@ -64,8 +64,8 @@ that belongs to my TDD repository, which in turn is packed with dozens of
 </div>
 <p style="clear: both;"></p>
 
-## [Helion: Interactive simulations & visualizations](https://www.hendrikse.name/helion/)
-<div style="border-top: 1px solid #999999"><br/></div>
+# [Helion: Interactive simulations & visualizations](https://www.hendrikse.name/helion/)
+<div style="border-top: 2px solid #cccccc"><br/></div>
 
 I am currently working on a _browser-native_ framework for interactive 
 mathematics and physics called [Helion](https://www.hendrikse.name/helion/).
@@ -73,7 +73,7 @@ It uses your browser as if it were a virtual laboratory.
 Its API is designed to express scientific ideas as directly as possible by 
 offering a scientific domain-specific language embedded in JavaScript
 
-### Mathematics
+## Mathematics
 <div style="border-top: 1px solid #999999"><br/></div>
 
 <blockquote>
@@ -114,7 +114,7 @@ offering a scientific domain-specific language embedded in JavaScript
     </div>
 </div>
 
-### Physics
+## Physics
 <div style="border-top: 1px solid #999999"><br/></div>
 
 <blockquote>

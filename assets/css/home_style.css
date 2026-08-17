@@ -1,103 +1,9 @@
-label {
-  color: white;
-  padding: 7px 7px;
-  cursor: pointer;
-  transition: all 0.3s;
-  margin: 2px;
+header {
+  display: none;
 }
 
-button {
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 0, 0.2);
-  color: white;
-  padding: 5px 5px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s;
-  margin: 2px;
-  line-height: 1;
-}
-
-button:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-input[type="range"] {
-  max-width: 100%;
-}
-
-figure {
-  border: none;
-  padding: 4px;
-  margin: auto;
-}
-
-figcaption {
-  color: white;
-  font-style: italic;
-  padding: 2px;
-  text-align: center;
-}
-
-.buttonRow {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2px;
-  max-width: 800px;
-  padding: 0 4px; /* space between the borders */
-  margin: 10px auto 10px auto;
-}
-
-.buttonRow button {
-  flex: 0 1 auto;
-  white-space: nowrap;
-}
-
-.applicationCanvas {
-  display: block;
-  background-color: transparent;
-  width: 100%;
-  max-width: 800px;
-  aspect-ratio: 1 / 1;
-  margin: 0;
-}
-
-.canvasWrapper {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  aspect-ratio: 1 / 1;
-}
-
-.guiContainer {
-  margin-top: 0;
-  background: transparent;
-}
-
-.titleDiv {
-  text-align: center;
-  font-size: clamp(16px, 4vw, 24px);
-  font-family: sans-serif;
-  color: yellow;
-  padding: 10px;
-  font-weight: bold;
-  text-shadow: 0 0 8px black;
-  margin: 0;
-  background: transparent;
-}
-
-.equationDiv {
-  margin: 0;
-  width: 100%;
-  max-width: 100%;
-  font-size: 13px;
-  color: yellow;
-  text-align: center;
-  z-index: 10;
-  background: transparent;
-  padding: 5px;
+.subsection_header_line {
+  border-top: 1px solid #999999;
 }
 
 * {
@@ -120,4 +26,25 @@ figcaption {
   content: "";
   display: table;
   clear: both;
+}
+
+.header_line {
+  border-top: 2px solid
+}
+
+.double_image {
+  display: flex;
+  align-items: flex-end;
+}
+
+.left_image {
+  float: left;
+  width: 50%;
+  text-align: center
+}
+
+.right_image {
+  float: right;
+  width: 50%;
+  text-align: center
 }
