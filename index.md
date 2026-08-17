@@ -31,27 +31,22 @@
 </div>
 <p style="clear: both;"></p>
 
-
-# My portfolio
+## [Fermat's last theorem](https://www.hendrikse.name/fermat-last-theorem/)
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
-## Fermat's last theorem
-
-I created [a site](https://www.hendrikse.name/fermat) dedicated to the question:
+I created [a website](https://www.hendrikse.name/fermat-last-theorem/) dedicated to the question:
 
 > **Is Fermat's Last Theorem genuinely mathematically interesting, or is it famous just 
 > because of the hype and the extraordinary story surrounding it?**
+<p style="clear: both;"></p>
 
-## Test-driven development
+## [Test-driven development](https://www.hendrikse.name/tdd/)
 <div style="border-top: 1px solid #999999"><br/></div>
 
-I love teaching people more about [TDD](https://www.hendrikse.name/tdd/).
-Strongly recommended: take a look at [my TDD pages](https://www.hendrikse.name/tdd/) 
-section that belongs to my TDD repository, which in turn is packed with dozens of 
-[coding kata&apos;s](https://www.hendrikse.name/tdd/katas/index.html).
-
-### My [coding dojos](https://www.hendrikse.name/tdd/dojo/index.html)
-<div style="border-top: 1px solid #999999"><br/></div>
+I love training people in becoming more fluent with test-driven development.
+Please take a look at [my TDD pages](https://www.hendrikse.name/tdd/), the GitHub pages site 
+that belongs to my TDD repository, which in turn is packed with dozens of 
+[coding kata&apos;s](https://www.hendrikse.name/tdd/katas/index.html) that I use for my [coding dojos](https://www.hendrikse.name/tdd/dojo/index.html).
 
 <div style="display: flex; align-items: flex-end;">
 <figure style="float: left; width: 55%; text-align: center">
@@ -78,6 +73,9 @@ Its API is designed to express scientific ideas as
 directly as possible by offering a scientific domain-specific language
 embedded in JavaScript.
 
+### Mathematics
+<div style="border-top: 1px solid #999999"><br/></div>
+
 <blockquote>
     Mathematics directs the flow of the universe, lurks behind its shapes and curves,
     holds the reins of everything from tiny atoms to the biggest stars. &mdash;
@@ -87,33 +85,103 @@ embedded in JavaScript.
 
 <div class="row">
     <div class="column" style="background-color:#004444;">
-        <h3>Fractals &amp; fractal terrain</h3>
+        <h3>Fractals</h3>
         <div class="double_image">
             <figure class="left_image">
                 <a href="https://www.hendrikse.name/helion/mathematics/fractals/">
-                    <img alt="Two-dimensional fractals" src="./mathematics/images/chaos_game.png" title="Fractals generated with turtle graphics and the chaos game"/>
+                    <img alt="Two-dimensional fractals" src="./images/thumbnails/chaos_game.png" title="Fractals generated with turtle graphics and the chaos game"/>
                 </a>
             </figure>
             <figure class="right_image">
-                <a href="https://www.hendrikse.name/helion/nature/fractal_terrain/">
-                    <img alt="Fractal terrains" src="./mathematics/images/fractal_terrain_surface.png" title="Fractal terrains"/>
+                <a href="https://www.hendrikse.name/helion/mathematics/fractals_3d/">
+                    <img alt="Three-dimensional fractals" src="./images/thumbnails/fractal_terrain_surface.png" title="Menger sponge and Sierpínski pyramid"/>
                 </a>
             </figure>
         </div>
     </div>
     <div class="column" style="background-color:#004444;">
-        <h3><a href="mathematics/index.html#3d_fractals">3D fractals</a></h3>
+        <h3>Strange attractors</h3>
         <div class="double_image">
             <figure class="left_image">
-                <a href="mathematics/sierpinski.html">
-                    <img alt="Sierpinski pyramid" src="./mathematics/images/sierpinski.png" title="Click to animate"/>
+                <a href="https://www.hendrikse.name/helion/mathematics/strange_attractors/">
+                    <img alt="Strange attractors" src="./images/thumbnails/lorenz_attractor.png" title="Strange attractors"/>
                 </a>
             </figure>
             <figure class="right_image">
-                <a href="mathematics/menger_sponge.html">
-                    <img alt="Menger sponge" src="./mathematics/images/menger_sponge.png" title="Click to animate"/>
-                </a>
+                <!-- SPACE RESERVED FOR FUTURE APPLICATION -->            
             </figure>
         </div>
     </div>
+</div>
+
+### Physics
+<div style="border-top: 1px solid #999999"><br/></div>
+
+<blockquote>
+The feeling of awed wonder that science can give us is one of the highest experiences
+of which the human psyche is capable. It is a deep aesthetic passion to rank with the
+finest that music and poetry can deliver. &mdash;
+<a href="https://en.wikipedia.org/wiki/Richard_Dawkins">Richard Dawkins</a> in
+<a href="https://en.wikipedia.org/wiki/Unweaving_the_Rainbow">Unweaving the Rainbow</a>, 1998.
+</blockquote>
+<p style="clear:both"></p>
+
+<!--                                 -->
+<!-- Our daily environment and waves -->
+<!--                                 -->
+<div class="row">
+  <div class="column" style="background-color:#444400;">
+    <h3>Our daily environment</h3>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/nature/flocking_birds/">
+          <img alt="Flocking birds" src="./images/thumbnails/flocking_birds.png" title="Flocking birds in the sky"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/nature/seashells/">
+          <img alt="Conchoidal" src="./images/thumbnails/conchoid.png" title="Mathematical seashell"/>
+        </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/nature/raindrops/">
+          <img alt="Water sprinkler" src="./images/thumbnails/water_sprinkler.png" title="Animated water sprinkler"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/nature/water_sprinkler/">
+          <img alt="Raindrops falling in a pond" src="./images/thumbnails/raindrop_waves.png" title="Waves in a pond caused by falling raindrops"/>
+        </a>
+      </figure>
+    </div>
+  </div>
+  <div class="column" style="background-color:#444400;">
+    <h3>Waves &amp; vibrations</h3>
+    <div class="double_image">
+      <figure class="left_image">
+       <a href="https://www.hendrikse.name/helion/waves/travelling_wave/">
+         <img alt="Traveling wave" src="./images/thumbnails/traveling_wave.png" title="Traveling wave"/>
+       </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/waves/suspendend_spring/">
+          <img alt="Suspended spring" src="./images/thumbnails/suspended_spring.png" title="Suspended spring"/>
+        </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/waves/n_body_oscillator/">
+          <img alt="N-body oscillator" src="./images/thumbnails/n_body_coupled_oscillator.png" title="N-body oscillator"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/waves/pendulum_wave/">
+          <img alt="Pendulum wave" src="./images/thumbnails/pendulum_wave.png" title="Pendulum wave"/>
+        </a>
+      </figure>
+    </div>
+  </div>
 </div>
