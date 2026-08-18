@@ -38,6 +38,10 @@ I created [a website](https://www.hendrikse.name/fermat-last-theorem/) dedicated
 
 > **Is Fermat's Last Theorem genuinely mathematically interesting, or is it famous just 
 > because of the hype and the extraordinary story surrounding it?**
+
+It contains illustrations and interactive visualizations that have been
+created with the [Helion library](https://www.hendrikse.name/helion/).
+
 <p style="clear: both;"></p>
 
 # [Test-driven development](https://www.hendrikse.name/tdd/)
