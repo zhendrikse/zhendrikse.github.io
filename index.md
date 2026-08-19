@@ -132,11 +132,95 @@ finest that music and poetry can deliver. &mdash;
 <p style="clear:both"></p>
 
 <!--                                 -->
+<!-- Electromagnetism and kinematics -->
+<!--                                 -->
+
+<div class="row">
+  <div class="column" style="background-color:#444400;">
+    <h3><a href="https://www.hendrikse.name/helion/electromagnetism/">Electromagnetism</a></h3>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/electromagnetism/electric_fields/">
+          <img alt="Static electric fields" src="./images/thumbnails/solenoid.png" title="Static electric fields"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/electromagnetism/electromagnetic_fields/">
+          <img alt="Electromagnetic fields" src="./images/thumbnails/electromagnetic_wave_quiver.png" title="Electromagnetic fields"/>
+        </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/electromagnetism/particle_electric_field/">
+          <img alt="Particles in electric fields" src="./images/thumbnails/charged_ring.png" title="particle in electric fields"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/electromagnetism/particle_magnetic_field/">
+          <img alt="Particles in magnetic fields" src="./images/thumbnails/proton_in_magnetic_field.png" title="Particles in magnetic fields"/>
+        </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/electromagnetism/antenna/">
+          <img alt="Waves emanating from an antenna" src="./images/thumbnails/antenna.png" title="Waves emanating from an antenna"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <!-- RESERVED FOR FUTURE APPLICATION
+          -->
+      </figure>
+    </div>
+  </div>
+  <div class="column" style="background-color:#444400;">
+    <h3><a href="https://www.hendrikse.name/helion/kinematics/">Classical mechanics</a></h3>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/kinematics/bouncing_balls/">
+          <img alt="Bouncing balls" src="./images/thumbnails/bouncing_ball.png" title="Bouncing balls"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/kinematics/three_body/">
+          <img alt="The three-body problem" src="./images/thumbnails/three_body.png" title="The three-body problem"/>
+        </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/kinematics/slinky_drop/">
+          <img alt="Slinky spring drop" src="./images/thumbnails/slinky_drop.png" title="Slinky spring drop"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/kinematics/chain_drop/">
+          <img alt="Chain drop" src="./images/thumbnails/chain_drop.png" title="Chain drop"/>
+        </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/kinematics/floating_block/">
+          <img alt="Floating block" src="./images/thumbnails/floating_block.png" title="Floating block"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <!-- RESERVED FOR FUTURE APPLICATION
+          -->
+      </figure>
+    </div>
+  </div>
+</div>
+
+
+<!--                                 -->
 <!-- Our daily environment and waves -->
 <!--                                 -->
 <div class="row">
   <div class="column" style="background-color:#444400;">
-    <h3>Our daily environment</h3>
+    <h3><a href="https://www.hendrikse.name/helion/nature/">Our daily environment</a></h3>
     <div class="double_image">
       <figure class="left_image">
         <a href="https://www.hendrikse.name/helion/nature/flocking_birds/">
@@ -161,9 +245,21 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
     </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/nature/fractal_terrain/">
+          <img alt="Fractal terrains" src="./images/thumbnails/fractal_terrain_surface.png" title="Fractal terrain surfaces"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/nature/coral_growth/">
+          <img alt="Coral growth simulation using DLA" src="./images/thumbnails/coral_2d.png" title="Diffusion limited aggregation"/>
+        </a>
+      </figure>
+    </div>
   </div>
   <div class="column" style="background-color:#444400;">
-    <h3>Waves &amp; vibrations</h3>
+    <h3><a href="https://www.hendrikse.name/helion/waves/">Waves &amp; vibrations</a></h3>
     <div class="double_image">
       <figure class="left_image">
        <a href="https://www.hendrikse.name/helion/waves/travelling_wave/">
@@ -185,6 +281,18 @@ finest that music and poetry can deliver. &mdash;
       <figure class="right_image">
         <a href="https://www.hendrikse.name/helion/waves/pendulum_wave/">
           <img alt="Pendulum wave" src="./images/thumbnails/pendulum_wave.png" title="Pendulum wave"/>
+        </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/waves/wave_scattering/">
+          <img alt="Scattering of waves" src="./images/thumbnails/double_slit_interference.png" title="Wave scattering"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/waves/vibrating_membrane/">
+          <img alt="Normal modes of a vibrating membrane" src="./images/thumbnails/vibrating_membrane.png" title="Normal modes of a vibrating membrane"/>
         </a>
       </figure>
     </div>
