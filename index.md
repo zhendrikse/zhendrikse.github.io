@@ -89,22 +89,7 @@ offering a scientific domain-specific language embedded in JavaScript
 
 <div class="row">
     <div class="column" style="background-color:#004444;">
-        <h3>Fractals</h3>
-        <div class="double_image">
-            <figure class="left_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/fractals/">
-                    <img alt="Two-dimensional fractals" src="./images/thumbnails/chaos_game.png" title="Fractals generated with turtle graphics and the chaos game"/>
-                </a>
-            </figure>
-            <figure class="right_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/fractals_3d/">
-                    <img alt="Three-dimensional fractals" src="./images/thumbnails/menger_sponge.png" title="Menger sponge and Sierpínski pyramid"/>
-                </a>
-            </figure>
-        </div>
-    </div>
-    <div class="column" style="background-color:#004444;">
-        <h3>Strange attractors</h3>
+        <h3>Chaos</h3>
         <div class="double_image">
             <figure class="left_image">
                 <a href="https://www.hendrikse.name/helion/mathematics/strange_attractors/">
@@ -112,7 +97,52 @@ offering a scientific domain-specific language embedded in JavaScript
                 </a>
             </figure>
             <figure class="right_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/fractals/">
+                    <img alt="Fractals" src="./images/thumbnails/menger_sponge.png" title="Two- and three-dimensional fractals"/>
+                </a>
+            </figure>
+        </div>
+    </div>
+    <div class="column" style="background-color:#004444;">
+        <h3>Linear algebra</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/matrix_transformation/">
+                    <img alt="Matrix transformations" src="./images/thumbnails/matrix_transformation.png" title="Matrix transformations"/>
+                </a>
+            </figure>
+            <figure class="right_image">
                 <!-- SPACE RESERVED FOR FUTURE APPLICATION -->            
+            </figure>
+        </div>
+    </div>
+    <div class="column" style="background-color:#004444;">
+        <h3>Fourier and Taylor expansions</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/fourier_transform/">
+                    <img alt="Fourier transformations" src="./images/thumbnails/fourier_transform.png" title="Fourier transformations"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/taylor_expansion/">
+                    <img alt="Taylor expansion" src="./images/thumbnails/taylor_expansion.png" title="Taylor expansion"/>
+                </a>
+            </figure>
+        </div>
+    </div>
+    <div class="column" style="background-color:#004444;">
+        <h3>$\phi: \mathbb{R}^2 \rightarrow \mathbb{R}^3$ and $\phi: \mathbb{C} \rightarrow \mathbb{C}$</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/real_surfaces/">
+                    <img alt="Real surfaces" src="./images/thumbnails/real_surfaces.png" title="Real surfaces"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/parametric_surfaces/">
+                    <img alt="Parametric surfaces" src="./images/thumbnails/bow_curve.png" title="Parametric surfaces"/>
+                </a>
             </figure>
         </div>
     </div>
