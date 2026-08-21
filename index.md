@@ -103,6 +103,8 @@ offering a scientific domain-specific language embedded in JavaScript
             </figure>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="column" style="background-color:#004444;">
         <h3>Linear algebra</h3>
         <div class="double_image">
@@ -116,8 +118,10 @@ offering a scientific domain-specific language embedded in JavaScript
             </figure>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="column" style="background-color:#004444;">
-        <h3>Fourier and Taylor expansions</h3>
+        <h3>Fourier &amp; Taylor expansions</h3>
         <div class="double_image">
             <figure class="left_image">
                 <a href="https://www.hendrikse.name/helion/mathematics/fourier_transform/">
