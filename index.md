@@ -89,7 +89,7 @@ offering a scientific domain-specific language embedded in JavaScript
 
 <div class="row">
     <div class="column" style="background-color:#004444;">
-        <h3>Chaos</h3>
+        <h3>Chaos &amp; fractals</h3>
         <div class="double_image">
             <figure class="left_image">
                 <a href="https://www.hendrikse.name/helion/mathematics/strange_attractors/">
@@ -103,8 +103,6 @@ offering a scientific domain-specific language embedded in JavaScript
             </figure>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="column" style="background-color:#004444;">
         <h3>Linear algebra</h3>
         <div class="double_image">
@@ -146,6 +144,38 @@ offering a scientific domain-specific language embedded in JavaScript
             <figure class="right_image">
                 <a href="https://www.hendrikse.name/helion/mathematics/parametric_surfaces/">
                     <img alt="Parametric surfaces" src="./images/thumbnails/bow_curve.png" title="Parametric surfaces"/>
+                </a>
+            </figure>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="column" style="background-color:#004444;">
+        <h3>Calculus</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/roots_of_unity/">
+                    <img alt="Roots of unity" src="./images/thumbnails/roots_of_unity.png" title="Roots of unity"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/polar_coordinates_integration/">
+                    <img alt="Numeric integration" src="./images/thumbnails/polar_coordinates_integration.png" title="Numeric integration"/>
+                </a>
+            </figure>
+        </div>
+    </div>
+    <div class="column" style="background-color:#004444;">
+        <h3>Miscellaneous</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/harmonograph/">
+                    <img alt="Harmonograph" src="./images/thumbnails/harmonograph.png" title="Harmonograph"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/pythagoras/">
+                    <img alt="Pythagorean theorem" src="./images/thumbnails/pythagoras.png" title="Pythagorean theorem"/>
                 </a>
             </figure>
         </div>
