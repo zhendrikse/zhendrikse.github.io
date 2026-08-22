@@ -271,16 +271,71 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
       <figure class="right_image">
-        <!-- RESERVED FOR FUTURE APPLICATION
-          -->
+        <!-- RESERVED FOR FUTURE APPLICATION -->
       </figure>
     </div>
   </div>
 </div>
 
 
+<!--                                               -->
+<!-- Astrophysics and Atomic and Molecular physics -->
+<!--                                               -->
+<div class="row">
+  <div class="column" style="background-color:#444400;">
+    <h3><a href="https://www.hendrikse.name/helion/astrophysics/">Astrophysics</a></h3>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/astrophysics/spiral_galaxy/">
+          <img alt="Spiral galaxy" src="./images/thumbnails/spiral_galaxy.png" title="Spiral galaxy"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/astrophysics/star_cluster/">c
+          <img alt="Star cluster" src="./images/thumbnails/star_cluster.png" title="Star cluster"/>
+        </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/astrophysics/black_hole_ray_tracer/">
+          <img alt="Black hole ray tracing" src="./images/thumbnails/black_hole_raytracer.png" title="Black hole ray tracing"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <!-- RESERVED FOR FUTURE APPLICATION -->
+      </figure>
+    </div>
+  </div>
+  <div class="column" style="background-color:#444400;">
+    <h3><a href="https://www.hendrikse.name/helion/molecularphysics/">Atomic &amp; molecular physics</a></h3>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/molecularphysics/molecule_resonance/">
+          <img alt="Molecule resonance frequencies" src="./images/thumbnails/water_molecule.png" title="Molecule resonance frequencies"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/molecularphysics/rutherford_scattering/">c
+          <img alt="Rutherford scattering" src="./images/thumbnails/rutherford_scattering.png" title="Rutherford scattering"/>
+        </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/molecularphysics/cubic_lattice/">
+          <img alt="Lattice vibrations" src="./images/thumbnails/cubic_lattice.png" title="Lattice vibrations"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <!-- RESERVED FOR FUTURE APPLICATION -->
+      </figure>
+    </div>
+  </div>
+</div>
+
 <!--                                 -->
-<!-- Our daily environment and waves -->
+<!-- Our daily environment and Waves -->
 <!--                                 -->
 <div class="row">
   <div class="column" style="background-color:#444400;">
