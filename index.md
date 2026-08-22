@@ -426,12 +426,12 @@ finest that music and poetry can deliver. &mdash;
     <h3><a href="https://www.hendrikse.name/helion/quantumphysics/">Quantum physics</a></h3>
     <div class="double_image">
       <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/astrophysics/double_slit/">
+        <a href="https://www.hendrikse.name/helion/quantumphysics/double_slit/">
           <img alt="Double slit experiment" src="./images/thumbnails/double_slit.png" title="Double slit experiment"/>
         </a>
       </figure>
       <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/astrophysics/wave_packet_scattering/">
+        <a href="https://www.hendrikse.name/helion/quantumphysics/wave_packet_scattering/">
           <img alt="Wave packet scattering" src="./images/thumbnails/wave_packet_scattering.png" title="Wave packet scattering"/>
         </a>
       </figure>
