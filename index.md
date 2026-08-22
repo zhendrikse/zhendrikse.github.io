@@ -291,7 +291,7 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
       <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/astrophysics/star_cluster/">c
+        <a href="https://www.hendrikse.name/helion/astrophysics/star_cluster/">
           <img alt="Star cluster" src="./images/thumbnails/star_cluster.png" title="Star cluster"/>
         </a>
       </figure>
@@ -316,7 +316,7 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
       <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/molecularphysics/rutherford_scattering/">c
+        <a href="https://www.hendrikse.name/helion/molecularphysics/rutherford_scattering/">
           <img alt="Rutherford scattering" src="./images/thumbnails/rutherford_scattering.png" title="Rutherford scattering"/>
         </a>
       </figure>
@@ -412,6 +412,42 @@ finest that music and poetry can deliver. &mdash;
       <figure class="right_image">
         <a href="https://www.hendrikse.name/helion/waves/vibrating_membrane/">
           <img alt="Normal modes of a vibrating membrane" src="./images/thumbnails/vibrating_membrane.png" title="Normal modes of a vibrating membrane"/>
+        </a>
+      </figure>
+    </div>
+  </div>
+</div>
+
+<!--                                -->
+<!-- Quantum physics and relativity -->
+<!--                                -->
+<div class="row">
+  <div class="column" style="background-color:#444400;">
+    <h3><a href="https://www.hendrikse.name/helion/quantumphysics/">Quantum physics</a></h3>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/astrophysics/double_slit/">
+          <img alt="Double slit experiment" src="./images/thumbnails/double_slit.png" title="Double slit experiment"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/astrophysics/wave_packet_scattering/">
+          <img alt="Wave packet scattering" src="./images/thumbnails/wave_packet_scattering.png" title="Wave packet scattering"/>
+        </a>
+      </figure>
+    </div>
+  </div>
+  <div class="column" style="background-color:#444400;">
+    <h3><a href="https://www.hendrikse.name/helion/relativity/">Relativity</a></h3>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/relativity/schwarzschild_space_time/">
+          <img alt="Schwarzschild space-time" src="./images/thumbnails/schwarzschild_space_time.png" title="Schwarzschild space-time"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/relativity/spaghettification/">
+          <img alt="Spaghettification" src="./images/thumbnails/spaghettification.png" title="Spaghettification"/>
         </a>
       </figure>
     </div>
