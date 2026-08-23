@@ -436,6 +436,18 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
     </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/quantumphysics/infinite_square_well/">
+          <img alt="Particle in a box" src="./images/thumbnails/2d_infinite_square_well.png" title="Particle in a box"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/quantumphysics/plane_wave/">
+          <img alt="Complex plane wave" src="./images/thumbnails/plane_wave.png" title="Complex plane wave"/>
+        </a>
+      </figure>
+    </div>
   </div>
   <div class="column" style="background-color:#444400;">
     <h3><a href="https://www.hendrikse.name/helion/relativity/">Relativity</a></h3>
@@ -449,6 +461,16 @@ finest that music and poetry can deliver. &mdash;
         <a href="https://www.hendrikse.name/helion/relativity/spaghettification/">
           <img alt="Spaghettification" src="./images/thumbnails/spaghettification.png" title="Spaghettification"/>
         </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/relativity/black_hole_space_time/">
+          <img alt="Black hole space-time" src="./images/thumbnails/black_hole_space_time.png" title="Black hole space-time"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <!-- RESERVED FOR FUTURE APPLICATION -->
       </figure>
     </div>
   </div>
