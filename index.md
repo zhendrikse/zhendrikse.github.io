@@ -1,3 +1,4 @@
+B
 <div style="display: flex;">
   <figure style="float: left; width: 25%; ">
     <img src="images/zeger-teaching-1.png" alt="Zeger" />
@@ -228,8 +229,8 @@ finest that music and poetry can deliver. &mdash;
     </div>
     <div class="double_image">
       <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/electromagnetism/antenna/">
-          <img alt="Waves emanating from an antenna" src="./images/thumbnails/antenna.png" title="Waves emanating from an antenna"/>
+        <a href="https://www.hendrikse.name/helion/electromagnetism/faradays_law/">
+          <img alt="Faradays law" src="./images/thumbnails/faradays_law.png" title="Faradays law"/>
         </a>
       </figure>
       <figure class="right_image">
