@@ -40,9 +40,13 @@ I created [a website](https://www.hendrikse.name/fermat-last-theorem/) dedicated
 > **Is Fermat's Last Theorem genuinely mathematically interesting, or is it famous just 
 > because of the hype and the extraordinary story surrounding it?**
 
-It contains illustrations and interactive visualizations that have been
-created with the [Helion library](https://www.hendrikse.name/helion/).
+New mathematical concepts are illustrated with interactive visualizations 
+that have been created with the [Helion library](https://www.hendrikse.name/helion/). For example, 
+the Rubik's cube is ued to illustrate abstract 
+[group theoretical concepts](https://www.hendrikse.name/fermat-last-theorem/chapter-3/groups.html):
 
+<div id="rubiksCubeContainer"></div>
+<script type="module" src="https://www.hendrikse.name/helion/examples/rubiks_cube.js"></script>
 <p style="clear: both;"></p>
 
 # [Test-driven development](https://www.hendrikse.name/tdd/)
