@@ -45,8 +45,8 @@ that have been created with the [Helion library](https://www.hendrikse.name/heli
 the Rubik's cube is ued to illustrate abstract 
 [group theoretical concepts](https://www.hendrikse.name/fermat-last-theorem/chapter-3/groups.html):
 
-<div id="rubiksCubeContainer"></div>
-<script type="module" src="https://www.hendrikse.name/helion/examples/rubiks_cube.js"></script>
+<div id="pythagorasContainer"></div>
+<script type="module" src="https://www.hendrikse.name/helion/examples/pythagoras.js"></script>
 <p style="clear: both;"></p>
 
 # [Test-driven development](https://www.hendrikse.name/tdd/)
@@ -147,9 +147,37 @@ offering a scientific domain-specific language embedded in JavaScript
                 </a>
             </figure>
             <figure class="right_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/complex_surfaces/">
+                    <img alt="Complex surfaces" src="./images/thumbnails/complex_surfaces.png" title="Complex surfaces"/>
+                </a>
+            </figure>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="column" style="background-color:#004444;">
+        <h3>Parametric surfaces</h3>
+        <div class="double_image">
+            <figure class="left_image">
                 <a href="https://www.hendrikse.name/helion/mathematics/parametric_surfaces/">
                     <img alt="Parametric surfaces" src="./images/thumbnails/bow_curve.png" title="Parametric surfaces"/>
                 </a>
+            </figure>
+            <figure class="right_image">
+                <!-- SPACE RESERVED FOR FUTURE APPLICATION -->
+            </figure>
+        </div>
+    </div>
+    <div class="column" style="background-color:#004444;">
+        <h3>Games</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/rubiks_cube/">
+                    <img alt="Rubik's cube" src="./images/thumbnails/rubiks_cube.png" title="Rubik's cube"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <!-- SPACE RESERVED FOR FUTURE APPLICATION -->
             </figure>
         </div>
     </div>
