@@ -41,9 +41,7 @@ I created [a website](https://www.hendrikse.name/fermat-last-theorem/) dedicated
 > because of the hype and the extraordinary story surrounding it?**
 
 New mathematical concepts are illustrated with interactive visualizations 
-that have been created with the [Helion library](https://www.hendrikse.name/helion/). For example, 
-the Rubik's cube is ued to illustrate abstract 
-[group theoretical concepts](https://www.hendrikse.name/fermat-last-theorem/chapter-3/groups.html):
+that have been created with the [Helion library](https://www.hendrikse.name/helion/).
 
 <div id="pythagorasContainer"></div>
 <script type="module" src="https://www.hendrikse.name/helion/examples/pythagoras.js"></script>
