@@ -71,7 +71,7 @@ that belongs to my TDD repository, which in turn is packed with dozens of
 </div>
 <p style="clear: both;"></p>
 
-# [Helion: Interactive simulations & visualizations](https://github.com/zhendrikse/helion/)
+# [Helion: Interactive simulations & visualizations](https://www.hendrikse.name/helion/)
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
 I am currently working on a _browser-native_ framework for interactive 
@@ -167,11 +167,11 @@ offering a scientific domain-specific language embedded in JavaScript
         </div>
     </div>
     <div class="column" style="background-color:#004444;">
-        <h3>Games</h3>
+        <h3>Vector fields $\phi: \mathbb{R}^3 \rightarrow \mathbb{R}^3$</h3>
         <div class="double_image">
             <figure class="left_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/rubiks_cube/">
-                    <img alt="Rubik's cube" src="./images/thumbnails/rubiks_cube.png" title="Rubik's cube"/>
+                <a href="https://www.hendrikse.name/helion/mathematics/vector_fields/">
+                    <img alt="Vector fields" src="./images/thumbnails/vector_field.png" title="Vector fields"/>
                 </a>
             </figure>
             <figure class="right_image">
@@ -308,6 +308,37 @@ finest that music and poetry can deliver. &mdash;
   </div>
 </div>
 
+<!--                          -->
+<!-- Thermodynamics and games -->
+<!--                          -->
+<div class="row">
+    <div class="column" style="background-color:#004444;">
+        <h3>Parametric surfaces</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/thermodynamics/energy_equipartition/">
+                    <img alt="Equipartition of energy" src="./images/thumbnails/energy_equipartition.png" title="Equipartition of energy"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <!-- SPACE RESERVED FOR FUTURE APPLICATION -->
+            </figure>
+        </div>
+    </div>
+    <div class="column" style="background-color:#004444;">
+        <h3>Games</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/games/rubiks_cube/">
+                    <img alt="Rubik's cube" src="./images/thumbnails/rubiks_cube.png" title="Rubik's cube"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <!-- SPACE RESERVED FOR FUTURE APPLICATION -->
+            </figure>
+        </div>
+    </div>
+</div>
 
 <!--                                               -->
 <!-- Astrophysics and Atomic and Molecular physics -->
