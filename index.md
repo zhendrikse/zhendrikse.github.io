@@ -162,7 +162,9 @@ offering a scientific domain-specific language embedded in JavaScript
                 </a>
             </figure>
             <figure class="right_image">
-                <!-- SPACE RESERVED FOR FUTURE APPLICATION -->
+                <a href="https://www.hendrikse.name/helion/mathematics/spherical_harmonics/">
+                    <img alt="Spherical harmonics" src="./images/thumbnails/spherical_harmonic_1.png" title="Spherical harmonics"/>
+                </a>
             </figure>
         </div>
     </div>
@@ -191,7 +193,7 @@ offering a scientific domain-specific language embedded in JavaScript
             </figure>
             <figure class="right_image">
                 <a href="https://www.hendrikse.name/helion/mathematics/polar_coordinates_integration/">
-                    <img alt="Numeric integration" src="./images/thumbnails/polar_coordinates_integration.png" title="Numeric integration"/>
+                    <img alt="Polar coordinates" src="./images/thumbnails/polar_coordinates.png" title="Polar coordinates"/>
                 </a>
             </figure>
         </div>
