@@ -194,7 +194,7 @@ offering a scientific domain-specific language embedded in JavaScript
                 </a>
             </figure>
             <figure class="right_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/polar_coordinates_integration/">
+                <a href="https://www.hendrikse.name/helion/mathematics/polar_coordinates/">
                     <img alt="Polar coordinates" src="./images/thumbnails/polar_coordinates.png" title="Polar coordinates"/>
                 </a>
             </figure>
