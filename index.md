@@ -162,7 +162,7 @@ offering a scientific domain-specific language embedded in JavaScript
                 </a>
             </figure>
             <figure class="right_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/spherical_harmonics/">
+                <a href="https://www.hendrikse.name/helion/mathematics/parametric_surfaces/">
                     <img alt="Spherical harmonics" src="./images/thumbnails/spherical_harmonic_1.png" title="Spherical harmonics"/>
                 </a>
             </figure>
@@ -172,12 +172,14 @@ offering a scientific domain-specific language embedded in JavaScript
         <h3>Vector fields $\phi: \mathbb{R}^3 \rightarrow \mathbb{R}^3$</h3>
         <div class="double_image">
             <figure class="left_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/vector_fields/">
+                <a href="[https://www.hendrikse.name/helion/mathematics/vector_fields](https://www.hendrikse.name/helion/mathematics/vector_fields/#quiver-plot)/">
                     <img alt="Vector fields" src="./images/thumbnails/vector_field.png" title="Vector fields"/>
                 </a>
             </figure>
             <figure class="right_image">
-                <!-- SPACE RESERVED FOR FUTURE APPLICATION -->
+                <a href="https://www.hendrikse.name/helion/mathematics/vector_fields/#divergence--curl/">
+                    <img alt="Divergence and curl" src="./images/thumbnails/div_curl_demo.png" title="Divergence and curl"/>
+                </a>
             </figure>
         </div>
     </div>
@@ -440,6 +442,16 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
     </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/nature/fire/">
+          <img alt="Fire simulation" src="./images/thumbnails/fire.png" title="Fire simulation"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <!-- SPACE RESERVED FOR FUTURE APPLICATION -->
+      </figure>
+    </div>
   </div>
   <div class="column" style="background-color:#444400;">
     <h3><a href="https://www.hendrikse.name/helion/waves/">Waves &amp; vibrations</a></h3>
@@ -477,6 +489,16 @@ finest that music and poetry can deliver. &mdash;
         <a href="https://www.hendrikse.name/helion/waves/vibrating_membrane/">
           <img alt="Normal modes of a vibrating membrane" src="./images/thumbnails/vibrating_membrane.png" title="Normal modes of a vibrating membrane"/>
         </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/waves/pool/">
+          <img alt="Moving obstacle in pool" src="./images/thumbnails/pool_with_obstacle.png" title="Moving obstacle in pool"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <!-- SPACE RESERVED FOR FUTURE APPLICATION -->
       </figure>
     </div>
   </div>
