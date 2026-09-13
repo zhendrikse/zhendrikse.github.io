@@ -369,7 +369,9 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
       <figure class="right_image">
-        <!-- RESERVED FOR FUTURE APPLICATION -->
+        <a href="https://www.hendrikse.name/helion/astrophysics/keplers_law/">
+          <img alt="Kepler&apos;s law" src="./images/thumbnails/keplers_law.png" title="Kepler&apos;s law"/>
+        </a>
       </figure>
     </div>
   </div>
