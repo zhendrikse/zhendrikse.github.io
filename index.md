@@ -100,8 +100,8 @@ offering a scientific domain-specific language embedded in JavaScript
                 </a>
             </figure>
             <figure class="right_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/fractals/">
-                    <img alt="Fractals" src="./images/thumbnails/menger_sponge.png" title="Two- and three-dimensional fractals"/>
+                <a href="https://www.hendrikse.name/helion/mathematics/chaos_game/">
+                    <img alt="Chaos game" src="./images/thumbnails/chaos_game.png" title="Chaos game"/>
                 </a>
             </figure>
         </div>
@@ -216,6 +216,38 @@ offering a scientific domain-specific language embedded in JavaScript
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="column" style="background-color:#004444;">
+        <h3>Fractals</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/fractals/">
+                    <img alt="Fractals" src="./images/thumbnails/dragon_curve.png" title="Fractals"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/fractals_3d/">
+                    <img alt="3D fractals" src="./images/thumbnails/menger_sponge.png" title="3D fractals"/>
+                </a>
+            </figure>
+        </div>
+    </div>
+    <div class="column" style="background-color:#444400;">
+        <h3>Games</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/games/rubiks_cube/">
+                    <img alt="Rubik's cube" src="./images/thumbnails/rubiks_cube.png" title="Rubik's cube"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/harmonograph/">
+                    <img alt="Harmonograph" src="./images/thumbnails/harmonograph.png" title="Harmonograph"/>
+                </a>
+            </figure>
+        </div>
+    </div>
+</div>
 <p style="clear:both"></p>
 
 ## Physics
@@ -312,9 +344,9 @@ finest that music and poetry can deliver. &mdash;
   </div>
 </div>
 
-<!--                          -->
-<!-- Thermodynamics and games -->
-<!--                          -->
+<!--                           -->
+<!-- Thermodynamics and optics -->
+<!--                           -->
 <div class="row">
     <div class="column" style="background-color:#444400;">
         <h3>Thermodynamics</h3>
@@ -330,15 +362,17 @@ finest that music and poetry can deliver. &mdash;
         </div>
     </div>
     <div class="column" style="background-color:#444400;">
-        <h3>Games</h3>
+        <h3>Optics</h3>
         <div class="double_image">
             <figure class="left_image">
-                <a href="https://www.hendrikse.name/helion/games/rubiks_cube/">
-                    <img alt="Rubik's cube" src="./images/thumbnails/rubiks_cube.png" title="Rubik's cube"/>
+                <a href="https://www.hendrikse.name/helion/optics/fraunhofer_diffraction/">
+                    <img alt="Refraction" src="./images/thumbnails/circular_aperture.png" title="Refraction"/>
                 </a>
             </figure>
             <figure class="right_image">
-                <!-- SPACE RESERVED FOR FUTURE APPLICATION -->
+                <a href="https://www.hendrikse.name/helion/optics/refraction/">
+                    <img alt="Refraction" src="./images/thumbnails/refraction.png" title="Refraction"/>
+                </a>
             </figure>
         </div>
     </div>
