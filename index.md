@@ -232,7 +232,7 @@ offering a scientific domain-specific language embedded in JavaScript
             </figure>
         </div>
     </div>
-    <div class="column" style="background-color:#444400;">
+    <div class="column" style="background-color:#004444;">
         <h3>Games</h3>
         <div class="double_image">
             <figure class="left_image">
@@ -357,7 +357,9 @@ finest that music and poetry can deliver. &mdash;
                 </a>
             </figure>
             <figure class="right_image">
-                <!-- SPACE RESERVED FOR FUTURE APPLICATION -->
+                <a href="https://www.hendrikse.name/helion/thermodynamics/ideal_gas/">
+                    <img alt="Ideal gas" src="./images/thumbnails/hard_sphere_gas.png" title="Ideal gas"/>
+                </a>
             </figure>
         </div>
     </div>
