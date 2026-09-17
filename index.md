@@ -487,7 +487,9 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
       <figure class="right_image">
-        <!-- SPACE RESERVED FOR FUTURE APPLICATION -->
+        <a href="https://www.hendrikse.name/helion/nature/phyllotaxis/">
+          <img alt="Phyllotaxis simulation" src="./images/thumbnails/phyllotaxis.png" title="Phyllotaxis simulation"/>
+        </a>
       </figure>
     </div>
   </div>
@@ -572,6 +574,16 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
     </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/quantumphysics/orbitals/">
+          <img alt="Atomic orbitals" src="./images/thumbnails/orbitals.png" title="Atomic orbitals"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <!-- RESERVED FOR FUTURE APPLICATION -->
+      </figure>
+    </div>
   </div>
   <div class="column" style="background-color:#444400;">
     <h3><a href="https://www.hendrikse.name/helion/relativity/">Relativity</a></h3>
@@ -591,6 +603,16 @@ finest that music and poetry can deliver. &mdash;
       <figure class="left_image">
         <a href="https://www.hendrikse.name/helion/relativity/black_hole_space_time/">
           <img alt="Black hole space-time" src="./images/thumbnails/black_hole_space_time.png" title="Black hole space-time"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <!-- RESERVED FOR FUTURE APPLICATION -->
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/relativity/em_field_transform/">
+          <img alt="Lorentz transformation of an electromagnetic field" src="./images/thumbnails/em_field_transform.png" title="Lorentz transformation of an electromagnetic field"/>
         </a>
       </figure>
       <figure class="right_image">
