@@ -349,7 +349,7 @@ finest that music and poetry can deliver. &mdash;
 <!--                           -->
 <div class="row">
     <div class="column" style="background-color:#444400;">
-        <h3>Thermodynamics</h3>
+        <h3><a href="https://www.hendrikse.name/helion/thermodynamics/">Thermodynamics</a></h3>
         <div class="double_image">
             <figure class="left_image">
                 <a href="https://www.hendrikse.name/helion/thermodynamics/energy_equipartition/">
@@ -364,7 +364,7 @@ finest that music and poetry can deliver. &mdash;
         </div>
     </div>
     <div class="column" style="background-color:#444400;">
-        <h3>Optics</h3>
+        <h3><a href="https://www.hendrikse.name/helion/optics/">Optics</a></h3>
         <div class="double_image">
             <figure class="left_image">
                 <a href="https://www.hendrikse.name/helion/optics/fraunhofer_diffraction/">
@@ -581,7 +581,9 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
       <figure class="right_image">
-        <!-- RESERVED FOR FUTURE APPLICATION -->
+        <a href="https://www.hendrikse.name/helion/quantumphysics/stationary_eigenstates/">
+          <img alt="Stationary eigenstates" src="./images/thumbnails/stationary_eigenstates.png" title="Stationary eigenstates"/>
+        </a>
       </figure>
     </div>
   </div>
