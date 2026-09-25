@@ -432,7 +432,9 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
       <figure class="right_image">
-        <!-- RESERVED FOR FUTURE APPLICATION -->
+        <a href="https://www.hendrikse.name/helion/quantumphysics/orbitals/">
+          <img alt="Atomic orbitals" src="./images/thumbnails/orbitals.png" title="Atomic orbitals"/>
+        </a>
       </figure>
     </div>
   </div>
@@ -576,14 +578,12 @@ finest that music and poetry can deliver. &mdash;
     </div>
     <div class="double_image">
       <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/quantumphysics/orbitals/">
-          <img alt="Atomic orbitals" src="./images/thumbnails/orbitals.png" title="Atomic orbitals"/>
+        <a href="https://www.hendrikse.name/helion/quantumphysics/hamiltonian_eigenstates/">
+          <img alt="Stationary eigenstates" src="./images/thumbnails/stationary_eigenstates.png" title="Stationary eigenstates"/>
         </a>
       </figure>
       <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/quantumphysics/stationary_eigenstates/">
-          <img alt="Stationary eigenstates" src="./images/thumbnails/stationary_eigenstates.png" title="Stationary eigenstates"/>
-        </a>
+        <!-- RESERVED FOR FUTURE APPLICATION -->
       </figure>
     </div>
   </div>
