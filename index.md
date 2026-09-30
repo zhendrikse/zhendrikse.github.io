@@ -528,7 +528,7 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
       <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/waves/vibrating_membrane/">
+        <a href="https://www.hendrikse.name/helion/waves/vibrating_membranes/">
           <img alt="Normal modes of a vibrating membrane" src="./images/thumbnails/vibrating_membrane.png" title="Normal modes of a vibrating membrane"/>
         </a>
       </figure>
