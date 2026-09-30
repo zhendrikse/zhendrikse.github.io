@@ -580,8 +580,8 @@ finest that music and poetry can deliver. &mdash;
     </div>
     <div class="double_image">
       <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/quantumphysics/hamiltonian_eigenstates/">
-          <img alt="Stationary eigenstates" src="./images/thumbnails/stationary_eigenstates.png" title="Stationary eigenstates"/>
+        <a href="https://www.hendrikse.name/helion/quantumphysics/quantum_particle_2d/">
+          <img alt="2D quantum particle" src="./images/thumbnails/stationary_eigenstates.png" title="2D quantum particle"/>
         </a>
       </figure>
       <figure class="right_image">
