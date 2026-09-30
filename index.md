@@ -540,7 +540,9 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
       <figure class="right_image">
-        <!-- SPACE RESERVED FOR FUTURE APPLICATION -->
+        <a href="https://www.hendrikse.name/helion/waves/two_source_interference/">
+          <img alt="Two source interference" src="./images/thumbnails/two_source_interference.png" title="Two source interference"/>
+        </a>
       </figure>
     </div>
   </div>
