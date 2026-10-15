@@ -1,4 +1,3 @@
-B
 <div style="display: flex;">
   <figure style="float: left; width: 25%; ">
     <img src="images/zeger-teaching-1.png" alt="Zeger" />
