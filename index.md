@@ -484,7 +484,7 @@ finest that music and poetry can deliver. &mdash;
     </div>
     <div class="double_image">
       <figure class="left_image">
-       <a href="https://www.hendrikse.name/helion/fluiddynamics/travelling_wave/">
+       <a href="https://www.hendrikse.name/helion/fluiddynamics/particle_hydrodynamics/">
          <img alt="Smoothed particle hydrodynamics" src="./images/thumbnails/sph.png" title="Smoothed particle hydrodynamics"/>
        </a>
       </figure>
