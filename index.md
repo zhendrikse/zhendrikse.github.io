@@ -443,7 +443,7 @@ finest that music and poetry can deliver. &mdash;
 <!--                           -->
 <div class="row">
   <div class="column" style="background-color:#444400;">
-    <h3><a href="https://www.hendrikse.name/helion/nature/">Our daily environment</a></h3>
+    <h3><a href="https://www.hendrikse.name/helion/nature/">Nature</a></h3>
     <div class="double_image">
       <figure class="left_image">
         <a href="https://www.hendrikse.name/helion/nature/flocking_birds/">
@@ -501,7 +501,7 @@ finest that music and poetry can deliver. &mdash;
 <!--                                      -->
 <div class="row">
   <div class="column" style="background-color:#444400;">
-    <h3><a href="https://www.hendrikse.name/helion/nature/">Our daily environment</a></h3>
+    <h3><a href="https://www.hendrikse.name/helion/nature/">Daily environment</a></h3>
     <div class="double_image">
       <figure class="left_image">
         <a href="https://www.hendrikse.name/helion/nature/water_sprinkler/">
