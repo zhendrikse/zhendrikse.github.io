@@ -432,17 +432,15 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
       <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/quantumphysics/orbitals/">
-          <img alt="Atomic orbitals" src="./images/thumbnails/orbitals.png" title="Atomic orbitals"/>
-        </a>
+        <!-- SPACE RESERVED FOR FUTURE APPLICATION -->
       </figure>
     </div>
   </div>
 </div>
 
-<!--                                 -->
-<!-- Our daily environment and Waves -->
-<!--                                 -->
+<!--                           -->
+<!-- Nature and Fluid dynamics -->
+<!--                           -->
 <div class="row">
   <div class="column" style="background-color:#444400;">
     <h3><a href="https://www.hendrikse.name/helion/nature/">Our daily environment</a></h3>
@@ -458,6 +456,52 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
     </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/nature/phyllotaxis/">
+          <img alt="Phyllotaxis simulation" src="./images/thumbnails/phyllotaxis.png" title="Phyllotaxis simulation"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/nature/coral_growth/">
+          <img alt="Coral growth simulation using DLA" src="./images/thumbnails/coral_2d.png" title="Diffusion limited aggregation"/>
+        </a>
+      </figure>
+    </div>
+  </div>
+  <div class="column" style="background-color:#444400;">
+    <h3><a href="https://www.hendrikse.name/helion/fluiddynamics/">Fluid dynamics</a></h3>
+    <div class="double_image">
+      <figure class="left_image">
+       <a href="https://www.hendrikse.name/helion/fluiddynamics/euler_fluid/">
+         <img alt="Euler fluid" src="./images/thumbnails/euler_fluid.png" title="Euler fluid"/>
+       </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/fluiddynamics/lattice_boltzmann/">
+          <img alt="Suspended spring" src="./images/thumbnails/lattice_boltzmann.png" title="Suspended spring"/>
+        </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+       <a href="https://www.hendrikse.name/helion/fluiddynamics/travelling_wave/">
+         <img alt="Smoothed particle hydrodynamics" src="./images/thumbnails/sph.png" title="Smoothed particle hydrodynamics"/>
+       </a>
+      </figure>
+      <figure class="right_image">
+        <!-- RESERVED FOR FUTURE APPLICATION -->
+      </figure>
+    </div>
+  </div>
+</div>
+
+<!--                                      -->
+<!-- Our daily environment and Relativity -->
+<!--                                      -->
+<div class="row">
+  <div class="column" style="background-color:#444400;">
+    <h3><a href="https://www.hendrikse.name/helion/nature/">Our daily environment</a></h3>
     <div class="double_image">
       <figure class="left_image">
         <a href="https://www.hendrikse.name/helion/nature/water_sprinkler/">
@@ -477,21 +521,91 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
       <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/nature/coral_growth/">
-          <img alt="Coral growth simulation using DLA" src="./images/thumbnails/coral_2d.png" title="Diffusion limited aggregation"/>
+        <a href="https://www.hendrikse.name/helion/nature/fire/">
+          <img alt="Fire simulation" src="./images/thumbnails/fire.png" title="Fire simulation"/>
+        </a>
+      </figure>
+    </div>
+  </div>
+  <div class="column" style="background-color:#444400;">
+    <h3><a href="https://www.hendrikse.name/helion/relativity/">Relativity</a></h3>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/relativity/schwarzschild_space_time/">
+          <img alt="Schwarzschild space-time" src="./images/thumbnails/schwarzschild_space_time.png" title="Schwarzschild space-time"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/relativity/spaghettification/">
+          <img alt="Spaghettification" src="./images/thumbnails/spaghettification.png" title="Spaghettification"/>
         </a>
       </figure>
     </div>
     <div class="double_image">
       <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/nature/fire/">
-          <img alt="Fire simulation" src="./images/thumbnails/fire.png" title="Fire simulation"/>
+        <a href="https://www.hendrikse.name/helion/relativity/black_hole_space_time/">
+          <img alt="Black hole space-time" src="./images/thumbnails/black_hole_space_time.png" title="Black hole space-time"/>
         </a>
       </figure>
       <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/nature/phyllotaxis/">
-          <img alt="Phyllotaxis simulation" src="./images/thumbnails/phyllotaxis.png" title="Phyllotaxis simulation"/>
+        <a href="https://www.hendrikse.name/helion/relativity/em_field_transform/">
+          <img alt="Lorentz transformation of an electromagnetic field" src="./images/thumbnails/em_field_transform.png" title="Lorentz transformation of an electromagnetic field"/>
         </a>
+      </figure>
+    </div>
+  </div>
+</div>
+
+<!--                           -->
+<!-- Quantum physics and Waves -->
+<!--                           -->
+<div class="row">
+  <div class="column" style="background-color:#444400;">
+    <h3><a href="https://www.hendrikse.name/helion/quantumphysics/">Quantum physics</a></h3>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/quantumphysics/double_slit/">
+          <img alt="Double slit experiment" src="./images/thumbnails/double_slit.png" title="Double slit experiment"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/quantumphysics/wave_packet_scattering/">
+          <img alt="Wave packet scattering" src="./images/thumbnails/wave_packet_scattering.png" title="Wave packet scattering"/>
+        </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/quantumphysics/infinite_square_well/">
+          <img alt="Particle in a box" src="./images/thumbnails/2d_infinite_square_well.png" title="Particle in a box"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/quantumphysics/plane_wave/">
+          <img alt="Complex plane wave" src="./images/thumbnails/plane_wave.png" title="Complex plane wave"/>
+        </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/quantumphysics/quantum_particle_2d/">
+          <img alt="2D quantum particle" src="./images/thumbnails/stationary_eigenstates.png" title="2D quantum particle"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/quantumphysics/orbitals/">
+          <img alt="Atomic orbitals" src="./images/thumbnails/orbitals.png" title="Atomic orbitals"/>
+        </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/quantumphysics/harmonic_oscillator/">
+          <img alt="Simple harmonic oscillator" src="./images/thumbnails/quantum_harmonic_oscillator.png" title="Simple harmonic oscillator"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <!-- RESERVED FOR FUTURE APPLICATION -->
       </figure>
     </div>
   </div>
@@ -543,84 +657,6 @@ finest that music and poetry can deliver. &mdash;
         <a href="https://www.hendrikse.name/helion/waves/two_source_interference/">
           <img alt="Two source interference" src="./images/thumbnails/two_source_interference.png" title="Two source interference"/>
         </a>
-      </figure>
-    </div>
-  </div>
-</div>
-
-<!--                                -->
-<!-- Quantum physics and relativity -->
-<!--                                -->
-<div class="row">
-  <div class="column" style="background-color:#444400;">
-    <h3><a href="https://www.hendrikse.name/helion/quantumphysics/">Quantum physics</a></h3>
-    <div class="double_image">
-      <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/quantumphysics/double_slit/">
-          <img alt="Double slit experiment" src="./images/thumbnails/double_slit.png" title="Double slit experiment"/>
-        </a>
-      </figure>
-      <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/quantumphysics/wave_packet_scattering/">
-          <img alt="Wave packet scattering" src="./images/thumbnails/wave_packet_scattering.png" title="Wave packet scattering"/>
-        </a>
-      </figure>
-    </div>
-    <div class="double_image">
-      <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/quantumphysics/infinite_square_well/">
-          <img alt="Particle in a box" src="./images/thumbnails/2d_infinite_square_well.png" title="Particle in a box"/>
-        </a>
-      </figure>
-      <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/quantumphysics/plane_wave/">
-          <img alt="Complex plane wave" src="./images/thumbnails/plane_wave.png" title="Complex plane wave"/>
-        </a>
-      </figure>
-    </div>
-    <div class="double_image">
-      <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/quantumphysics/quantum_particle_2d/">
-          <img alt="2D quantum particle" src="./images/thumbnails/stationary_eigenstates.png" title="2D quantum particle"/>
-        </a>
-      </figure>
-      <figure class="right_image">
-        <!-- RESERVED FOR FUTURE APPLICATION -->
-      </figure>
-    </div>
-  </div>
-  <div class="column" style="background-color:#444400;">
-    <h3><a href="https://www.hendrikse.name/helion/relativity/">Relativity</a></h3>
-    <div class="double_image">
-      <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/relativity/schwarzschild_space_time/">
-          <img alt="Schwarzschild space-time" src="./images/thumbnails/schwarzschild_space_time.png" title="Schwarzschild space-time"/>
-        </a>
-      </figure>
-      <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/relativity/spaghettification/">
-          <img alt="Spaghettification" src="./images/thumbnails/spaghettification.png" title="Spaghettification"/>
-        </a>
-      </figure>
-    </div>
-    <div class="double_image">
-      <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/relativity/black_hole_space_time/">
-          <img alt="Black hole space-time" src="./images/thumbnails/black_hole_space_time.png" title="Black hole space-time"/>
-        </a>
-      </figure>
-      <figure class="right_image">
-        <!-- RESERVED FOR FUTURE APPLICATION -->
-      </figure>
-    </div>
-    <div class="double_image">
-      <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/relativity/em_field_transform/">
-          <img alt="Lorentz transformation of an electromagnetic field" src="./images/thumbnails/em_field_transform.png" title="Lorentz transformation of an electromagnetic field"/>
-        </a>
-      </figure>
-      <figure class="right_image">
-        <!-- RESERVED FOR FUTURE APPLICATION -->
       </figure>
     </div>
   </div>
