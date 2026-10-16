@@ -37,13 +37,21 @@
 <div class="row">
     <div class="column">
 
-I created [a website](https://www.hendrikse.name/fermat-last-theorem/) dedicated to the question:
+<p>
+I created <a href="https://www.hendrikse.name/fermat-last-theorem/">a website]</a> 
+dedicated to the question:
+</p>
 
-> **Is Fermat's Last Theorem genuinely mathematically interesting, or is it famous just
-> because of the hype and the extraordinary story surrounding it?**
+<blockquote>
+Is Fermat's Last Theorem genuinely mathematically interesting, or is it famous just
+because of the hype and the extraordinary story surrounding it?
+</blockquote>
 
+<p>
 New mathematical concepts are illustrated with interactive visualizations
-that have been created with the [Helion library](https://www.hendrikse.name/helion/).
+that have been created with the <a href="https://www.hendrikse.name/helion/">Helion library</a>.
+</p>
+
     </div>
     <div class="column">
         <div id="pythagorasContainer"></div>
