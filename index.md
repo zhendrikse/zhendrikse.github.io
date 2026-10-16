@@ -34,17 +34,22 @@
 # [Fermat's last theorem](https://www.hendrikse.name/fermat-last-theorem/)
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
+<div class="row">
+    <div class="column">
+
 I created [a website](https://www.hendrikse.name/fermat-last-theorem/) dedicated to the question:
 
-> **Is Fermat's Last Theorem genuinely mathematically interesting, or is it famous just 
+> **Is Fermat's Last Theorem genuinely mathematically interesting, or is it famous just
 > because of the hype and the extraordinary story surrounding it?**
 
-New mathematical concepts are illustrated with interactive visualizations 
+New mathematical concepts are illustrated with interactive visualizations
 that have been created with the [Helion library](https://www.hendrikse.name/helion/).
-
-<div id="pythagorasContainer"></div>
-<script type="module" src="https://www.hendrikse.name/helion/examples/pythagoras.js"></script>
-<p style="clear: both;"></p>
+    </div>
+    <div class="column">
+        <div id="pythagorasContainer"></div>
+        <script type="module" src="https://www.hendrikse.name/helion/examples/pythagoras.js"></script>
+    </div>
+</div>
 
 # [Test-driven development](https://www.hendrikse.name/tdd/)
 <div style="border-top: 2px solid #cccccc"><br/></div>
