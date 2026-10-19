@@ -54,8 +54,8 @@ that have been created with the <a href="https://www.hendrikse.name/helion/">Hel
 
     </div>
     <div class="column">
-        <div id="pythagorasContainer"></div>
-        <script type="module" src="https://www.hendrikse.name/helion/examples/pythagoras.js"></script>
+        <div id="pythagorasTreeContainer"></div>
+        <script type="module" src="https://www.hendrikse.name/helion/examples/pythagoras_tree.js"></script>
     </div>
 </div>
 
