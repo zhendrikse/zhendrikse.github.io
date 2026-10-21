@@ -216,8 +216,8 @@ offering a scientific domain-specific language embedded in JavaScript
         <h3>Miscellaneous</h3>
         <div class="double_image">
             <figure class="left_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/harmonograph/">
-                    <img alt="Harmonograph" src="./images/thumbnails/harmonograph.png" title="Harmonograph"/>
+                <a href="https://www.hendrikse.name/helion/mathematics/fractals/#pythagoras-tree-">
+                    <img alt="Pythagoras tree" src="./images/thumbnails/pythagoras_tree.png" title="Pythagoras tree"/>
                 </a>
             </figure>
             <figure class="right_image">
