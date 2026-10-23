@@ -239,7 +239,32 @@ offering a scientific domain-specific language embedded in JavaScript
         </div>
     </div>
     <div class="column" style="background-color:#004444;">
-        <h3>Games</h3>
+        <h3>Statistics</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/binomial_distribution/">
+                    <img alt="Galton board" src="./images/thumbnails/galton_board.png" title="Galton board"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <!-- RESERVED FOR FUTURE APPLICATION -->
+            </figure>
+        </div>
+    </div>
+</div>
+<p style="clear:both"></p>
+
+## Fun &amp; games
+<div style="border-top: 1px solid #999999"><br/></div>
+
+<blockquote>
+All work and no play makes Jack a dull boy. &mdash; <a href="https://en.wikipedia.org/wiki/Proverb">old proverb</a>
+</blockquote>
+<p style="clear:both"></p>
+
+<div class="row">
+  <div class="column" style="background-color:#4c3340;">
+    <h3>Games</h3>
         <div class="double_image">
             <figure class="left_image">
                 <a href="https://www.hendrikse.name/helion/games/rubiks_cube/">
@@ -247,14 +272,24 @@ offering a scientific domain-specific language embedded in JavaScript
                 </a>
             </figure>
             <figure class="right_image">
+                <!-- RESERVED FOR FUTURE APPLICATION -->
+            </figure>
+        </div>
+    </div>
+    <div class="column" style="background-color:#444400;">
+        <h3>Fun</h3>
+        <div class="double_image">
+            <figure class="left_image">
                 <a href="https://www.hendrikse.name/helion/mathematics/harmonograph/">
                     <img alt="Harmonograph" src="./images/thumbnails/harmonograph.png" title="Harmonograph"/>
                 </a>
             </figure>
+            <figure class="right_image">
+                <!-- RESERVED FOR FUTURE APPLICATION -->
+            </figure>
         </div>
     </div>
 </div>
-<p style="clear:both"></p>
 
 ## Physics
 <div style="border-top: 1px solid #999999"><br/></div>
@@ -344,7 +379,9 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
       <figure class="right_image">
-        <!-- RESERVED FOR FUTURE APPLICATION -->
+        <a href="https://www.hendrikse.name/helion/kinematics/newtons_cradle/">
+          <img alt="Newton's cradle" src="./images/thumbnails/newtons_cradle.png" title="Newton's Cradle"/>
+        </a>
       </figure>
     </div>
   </div>
