@@ -34,8 +34,9 @@
 # [Fermat's last theorem](https://www.hendrikse.name/fermat-last-theorem/)
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
-<div class="row">
-    <div class="column">
+<div style="width: 50%; float: right; margin: 1em 0 1rem 1em; display: flex; flex-direction: column; align-items: center;" id="pythagorasTreeDemo">
+</div>
+<script type="module" src="https://www.hendrikse.name/helion/examples/pythagoras_tree_demo.js"></script>
 
 <p>
 I created <a href="https://www.hendrikse.name/fermat-last-theorem/">a website]</a> 
@@ -51,13 +52,6 @@ because of the hype and the extraordinary story surrounding it?
 New mathematical concepts are illustrated with interactive visualizations
 that have been created with the <a href="https://www.hendrikse.name/helion/">Helion library</a>.
 </p>
-
-    </div>
-    <div class="column">
-        <div id="pythagorasTreeContainer"></div>
-        <script type="module" src="https://www.hendrikse.name/helion/examples/pythagoras_tree.js"></script>
-    </div>
-</div>
 
 # [Test-driven development](https://www.hendrikse.name/tdd/)
 <div style="border-top: 2px solid #cccccc"><br/></div>
