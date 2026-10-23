@@ -276,7 +276,7 @@ All work and no play makes Jack a dull boy. &mdash; <a href="https://en.wikipedi
             </figure>
         </div>
     </div>
-    <div class="column" style="background-color:#444400;">
+    <div class="column" style="background-color:#4c3340;">
         <h3>Fun</h3>
         <div class="double_image">
             <figure class="left_image">
