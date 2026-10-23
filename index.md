@@ -290,6 +290,7 @@ All work and no play makes Jack a dull boy. &mdash; <a href="https://en.wikipedi
         </div>
     </div>
 </div>
+<p style="clear:both"></p>
 
 ## Physics
 <div style="border-top: 1px solid #999999"><br/></div>
