@@ -392,9 +392,9 @@ finest that music and poetry can deliver. &mdash;
     </div>
 </div>
 
-<!--                                               -->
-<!-- Astrophysics and Atomic and Molecular physics -->
-<!--                                               -->
+<!--                         -->
+<!-- Astrophysics and Nature -->
+<!--                         -->
 <div class="row">
   <div class="column" style="background-color:#444400;">
     <h3><a href="https://www.hendrikse.name/helion/astrophysics/">Astrophysics</a></h3>
@@ -422,38 +422,17 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
     </div>
-  </div>
-  <div class="column" style="background-color:#444400;">
-    <h3><a href="https://www.hendrikse.name/helion/molecularphysics/">Atomic &amp; molecular physics</a></h3>
     <div class="double_image">
       <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/molecularphysics/molecule_resonance/">
-          <img alt="Molecule resonance frequencies" src="./images/thumbnails/water_molecule.png" title="Molecule resonance frequencies"/>
+        <a href="https://www.hendrikse.name/helion/astrophysics/pulsar/">
+          <img alt="Pulsar" src="./images/thumbnails/pulsar.png" title="Pulsar"/>
         </a>
       </figure>
       <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/molecularphysics/rutherford_scattering/">
-          <img alt="Rutherford scattering" src="./images/thumbnails/rutherford_scattering.png" title="Rutherford scattering"/>
-        </a>
-      </figure>
-    </div>
-    <div class="double_image">
-      <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/molecularphysics/cubic_lattice/">
-          <img alt="Lattice vibrations" src="./images/thumbnails/cubic_lattice.png" title="Lattice vibrations"/>
-        </a>
-      </figure>
-      <figure class="right_image">
-        <!-- SPACE RESERVED FOR FUTURE APPLICATION -->
+        <!-- RESERVED FOR FUTURE APPLICATION -->
       </figure>
     </div>
   </div>
-</div>
-
-<!--                           -->
-<!-- Nature and Fluid dynamics -->
-<!--                           -->
-<div class="row">
   <div class="column" style="background-color:#444400;">
     <h3><a href="https://www.hendrikse.name/helion/nature/">Nature</a></h3>
     <div class="double_image">
@@ -478,6 +457,49 @@ finest that music and poetry can deliver. &mdash;
         <a href="https://www.hendrikse.name/helion/nature/coral_growth/">
           <img alt="Coral growth simulation using DLA" src="./images/thumbnails/coral_2d.png" title="Diffusion limited aggregation"/>
         </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/nature/plants/">
+          <img alt="Plants" src="./images/thumbnails/fern.png" title="Plants"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/nature/voronoi/">
+          <img alt="Cell growth simulation using Voronoi tesselation" src="./images/thumbnails/voronoi.png" title="Cell growth simulation using Voronoi tesselation"/>
+        </a>
+      </figure>
+    </div>
+  </div>
+</div>
+
+<!--                                    -->
+<!-- Fluid Atomic and Molecular physics -->
+<!--                                    -->
+<div class="row">
+  <div class="column" style="background-color:#444400;">
+    <h3><a href="https://www.hendrikse.name/helion/molecularphysics/">Atomic &amp; molecular physics</a></h3>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/molecularphysics/molecule_resonance/">
+          <img alt="Molecule resonance frequencies" src="./images/thumbnails/water_molecule.png" title="Molecule resonance frequencies"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/molecularphysics/rutherford_scattering/">
+          <img alt="Rutherford scattering" src="./images/thumbnails/rutherford_scattering.png" title="Rutherford scattering"/>
+        </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/molecularphysics/cubic_lattice/">
+          <img alt="Lattice vibrations" src="./images/thumbnails/cubic_lattice.png" title="Lattice vibrations"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <!-- SPACE RESERVED FOR FUTURE APPLICATION -->
       </figure>
     </div>
   </div>
