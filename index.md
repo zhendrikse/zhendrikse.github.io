@@ -280,7 +280,7 @@ All work and no play makes Jack a dull boy. &mdash; <a href="https://en.wikipedi
         <h3>Fun</h3>
         <div class="double_image">
             <figure class="left_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/harmonograph/">
+                <a href="https://www.hendrikse.name/helion/games/harmonograph/">
                     <img alt="Harmonograph" src="./images/thumbnails/harmonograph.png" title="Harmonograph"/>
                 </a>
             </figure>
