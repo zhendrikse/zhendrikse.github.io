@@ -406,6 +406,18 @@ finest that music and poetry can deliver. &mdash;
                 </a>
             </figure>
         </div>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/thermodynamics/ising_spin/">
+                    <img alt="Ising spin" src="./images/thumbnails/ising_spin_model.png" title="Ising spin"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <a href="https://www.hendrikse.name/helion/thermodynamics/brownian_motion/">
+                    <img alt="Brownian motion" src="./images/thumbnails/brownian_motion.png" title="Brownian motion"/>
+                </a>
+            </figure>
+        </div>
     </div>
     <div class="column" style="background-color:#444400;">
         <h3><a href="https://www.hendrikse.name/helion/optics/">Optics</a></h3>
@@ -419,6 +431,16 @@ finest that music and poetry can deliver. &mdash;
                 <a href="https://www.hendrikse.name/helion/optics/refraction/">
                     <img alt="Refraction" src="./images/thumbnails/refraction.png" title="Refraction"/>
                 </a>
+            </figure>
+        </div>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/optics/malus_law/">
+                    <img alt="Malus' law" src="./images/thumbnails/malus_law.png" title="Malus' law"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <!-- RESERVED FOR FUTURE APPLICATION -->
             </figure>
         </div>
     </div>
