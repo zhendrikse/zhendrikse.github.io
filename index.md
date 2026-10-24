@@ -461,7 +461,9 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
       <figure class="right_image">
-        <!-- RESERVED FOR FUTURE APPLICATION -->
+        <a href="https://www.hendrikse.name/helion/astrophysics/xray_binary/">
+          <img alt="X-ray binary" src="./images/thumbnails/xray_binary.png" title="X-ray binary"/>
+        </a>
       </figure>
     </div>
   </div>
