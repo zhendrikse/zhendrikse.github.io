@@ -38,20 +38,17 @@
 </div>
 <script type="module" src="https://www.hendrikse.name/helion/examples/pythagoras_tree_demo.js"></script>
 
-<p>
-I created <a href="https://www.hendrikse.name/fermat-last-theorem/">a website]</a> 
+I created [a website](https://www.hendrikse.name/fermat-last-theorem/) 
 dedicated to the question:
-</p>
 
-<blockquote>
-Is Fermat's Last Theorem genuinely mathematically interesting, or is it famous just
-because of the hype and the extraordinary story surrounding it?
-</blockquote>
+> Is Fermat's Last Theorem genuinely mathematically interesting, or is it famous just
+> because of the hype and the extraordinary story surrounding it?
 
-<p>
-New mathematical concepts are illustrated with interactive visualizations
-that have been created with the <a href="https://www.hendrikse.name/helion/">Helion library</a>.
-</p>
+It based on [Noah Jang](https://www.linkedin.com/in/noah-jang-2111392ba/)'s video 
+[Proof of Fermat Last Theorem FROM SCRATCH](https://www.youtube.com/watch?v=9f-hGSh8lF0).
+The interactive simulations, additional explanations, and contextual material are my own work:
+many  mathematical concepts are illustrated with interactive visualizations
+that have been created with the [Helion library](https://www.hendrikse.name/helion/).
 
 # [Test-driven development](https://www.hendrikse.name/tdd/)
 <div style="border-top: 2px solid #cccccc"><br/></div>
@@ -244,44 +241,6 @@ offering a scientific domain-specific language embedded in JavaScript
             <figure class="left_image">
                 <a href="https://www.hendrikse.name/helion/mathematics/binomial_distribution/">
                     <img alt="Galton board" src="./images/thumbnails/galton_board.png" title="Galton board"/>
-                </a>
-            </figure>
-            <figure class="right_image">
-                <!-- RESERVED FOR FUTURE APPLICATION -->
-            </figure>
-        </div>
-    </div>
-</div>
-<p style="clear:both"></p>
-
-## Fun &amp; games
-<div style="border-top: 1px solid #999999"><br/></div>
-
-<blockquote>
-All work and no play makes Jack a dull boy. &mdash; <a href="https://en.wikipedia.org/wiki/Proverb">old proverb</a>
-</blockquote>
-<p style="clear:both"></p>
-
-<div class="row">
-  <div class="column" style="background-color:#4c3340;">
-    <h3>Games</h3>
-        <div class="double_image">
-            <figure class="left_image">
-                <a href="https://www.hendrikse.name/helion/games/rubiks_cube/">
-                    <img alt="Rubik's cube" src="./images/thumbnails/rubiks_cube.png" title="Rubik's cube"/>
-                </a>
-            </figure>
-            <figure class="right_image">
-                <!-- RESERVED FOR FUTURE APPLICATION -->
-            </figure>
-        </div>
-    </div>
-    <div class="column" style="background-color:#4c3340;">
-        <h3>Fun</h3>
-        <div class="double_image">
-            <figure class="left_image">
-                <a href="https://www.hendrikse.name/helion/games/harmonograph/">
-                    <img alt="Harmonograph" src="./images/thumbnails/harmonograph.png" title="Harmonograph"/>
                 </a>
             </figure>
             <figure class="right_image">
@@ -750,4 +709,43 @@ finest that music and poetry can deliver. &mdash;
       </figure>
     </div>
   </div>
+</div>
+
+<p style="clear:both"></p>
+
+## Fun &amp; games
+<div style="border-top: 1px solid #999999"><br/></div>
+
+<blockquote>
+All work and no play makes Jack a dull boy. &mdash; <a href="https://en.wikipedia.org/wiki/Proverb">old proverb</a>
+</blockquote>
+<p style="clear:both"></p>
+
+<div class="row">
+  <div class="column" style="background-color:#4c3340;">
+    <h3>Games</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/games/rubiks_cube/">
+                    <img alt="Rubik's cube" src="./images/thumbnails/rubiks_cube.png" title="Rubik's cube"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <!-- RESERVED FOR FUTURE APPLICATION -->
+            </figure>
+        </div>
+    </div>
+    <div class="column" style="background-color:#4c3340;">
+        <h3>Fun</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/games/harmonograph/">
+                    <img alt="Harmonograph" src="./images/thumbnails/harmonograph.png" title="Harmonograph"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <!-- RESERVED FOR FUTURE APPLICATION -->
+            </figure>
+        </div>
+    </div>
 </div>
