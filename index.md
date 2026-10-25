@@ -34,7 +34,7 @@
 # [Fermat's last theorem](https://www.hendrikse.name/fermat-last-theorem/)
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
-<div style="width: 50%; float: right; margin: 1em 0 1rem 1em; display: flex; flex-direction: column; align-items: center;" id="pythagorasTreeDemo">
+<div style="width: 50%; float: right; margin: 1em 0 1rem 1em; display: flex; flex-direction: column; align-items: center;" id="pythagorasTreeContainer">
 </div>
 <script type="module" src="https://www.hendrikse.name/helion/examples/pythagoras_tree_demo.js"></script>
 
