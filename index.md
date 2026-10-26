@@ -263,46 +263,56 @@ finest that music and poetry can deliver. &mdash;
 </blockquote>
 <p style="clear:both"></p>
 
-<!--                                 -->
-<!-- Electromagnetism and kinematics -->
-<!--                                 -->
-
+<!--                             -->
+<!-- Astrophysics and kinematics -->
+<!--                             -->
 <div class="row">
   <div class="column" style="background-color:#444400;">
-    <h3><a href="https://www.hendrikse.name/helion/electromagnetism/">Electromagnetism</a></h3>
+    <h3><a href="https://www.hendrikse.name/helion/astrophysics/">Astrophysics</a></h3>
     <div class="double_image">
       <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/electromagnetism/electric_fields/">
-          <img alt="Static electric fields" src="./images/thumbnails/solenoid.png" title="Static electric fields"/>
+        <a href="https://www.hendrikse.name/helion/astrophysics/spiral_galaxy/">
+          <img alt="Spiral galaxy" src="./images/thumbnails/spiral_galaxy.png" title="Spiral galaxy"/>
         </a>
       </figure>
       <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/electromagnetism/electromagnetic_fields/">
-          <img alt="Electromagnetic fields" src="./images/thumbnails/electromagnetic_wave_quiver.png" title="Electromagnetic fields"/>
+        <a href="https://www.hendrikse.name/helion/astrophysics/star_cluster/">
+          <img alt="Star cluster" src="./images/thumbnails/star_cluster.png" title="Star cluster"/>
         </a>
       </figure>
     </div>
     <div class="double_image">
       <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/electromagnetism/particle_electric_field/">
-          <img alt="Particles in electric fields" src="./images/thumbnails/charged_ring.png" title="particle in electric fields"/>
+        <a href="https://www.hendrikse.name/helion/astrophysics/black_hole_ray_tracer/">
+          <img alt="Black hole ray tracing" src="./images/thumbnails/black_hole_raytracer.png" title="Black hole ray tracing"/>
         </a>
       </figure>
       <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/electromagnetism/particle_magnetic_field/">
-          <img alt="Particles in magnetic fields" src="./images/thumbnails/proton_in_magnetic_field.png" title="Particles in magnetic fields"/>
+        <a href="https://www.hendrikse.name/helion/astrophysics/keplers_law/">
+          <img alt="Kepler&apos;s law" src="./images/thumbnails/keplers_law.png" title="Kepler&apos;s law"/>
         </a>
       </figure>
     </div>
     <div class="double_image">
       <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/electromagnetism/faradays_law/">
-          <img alt="Faradays law" src="./images/thumbnails/faradays_law.png" title="Faradays law"/>
+        <a href="https://www.hendrikse.name/helion/astrophysics/pulsar/">
+          <img alt="Pulsar" src="./images/thumbnails/pulsar.png" title="Pulsar"/>
         </a>
       </figure>
       <figure class="right_image">
-        <!-- RESERVED FOR FUTURE APPLICATION
-          -->
+        <a href="https://www.hendrikse.name/helion/astrophysics/xray_binary/">
+          <img alt="X-ray binary" src="./images/thumbnails/xray_binary.png" title="X-ray binary"/>
+        </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/astrophysics/night_sky/">
+          <img alt="Night sky projection" src="./images/thumbnails/night_sky.png" title="Night sky projection"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <!-- RESERVED FOR FUTURE APPLICATION -->
       </figure>
     </div>
   </div>
@@ -342,6 +352,16 @@ finest that music and poetry can deliver. &mdash;
         <a href="https://www.hendrikse.name/helion/kinematics/newtons_cradle/">
           <img alt="Newton's cradle" src="./images/thumbnails/newtons_cradle.png" title="Newton's Cradle"/>
         </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/kinematics/moment_of_inertia/">
+          <img alt="Moment of inertia" src="./images/thumbnails/moment_of_inertia.png" title="Moment of inertia"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <!-- RESERVED FOR FUTURE APPLICATION -->
       </figure>
     </div>
   </div>
@@ -405,46 +425,45 @@ finest that music and poetry can deliver. &mdash;
     </div>
 </div>
 
-<!--                         -->
-<!-- Astrophysics and Nature -->
-<!--                         -->
+<!--                             -->
+<!-- Electromagnetism and Nature -->
+<!--                             -->
 <div class="row">
   <div class="column" style="background-color:#444400;">
-    <h3><a href="https://www.hendrikse.name/helion/astrophysics/">Astrophysics</a></h3>
+    <h3><a href="https://www.hendrikse.name/helion/electromagnetism/">Electromagnetism</a></h3>
     <div class="double_image">
       <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/astrophysics/spiral_galaxy/">
-          <img alt="Spiral galaxy" src="./images/thumbnails/spiral_galaxy.png" title="Spiral galaxy"/>
+        <a href="https://www.hendrikse.name/helion/electromagnetism/electric_fields/">
+          <img alt="Static electric fields" src="./images/thumbnails/solenoid.png" title="Static electric fields"/>
         </a>
       </figure>
       <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/astrophysics/star_cluster/">
-          <img alt="Star cluster" src="./images/thumbnails/star_cluster.png" title="Star cluster"/>
+        <a href="https://www.hendrikse.name/helion/electromagnetism/electromagnetic_fields/">
+          <img alt="Electromagnetic fields" src="./images/thumbnails/electromagnetic_wave_quiver.png" title="Electromagnetic fields"/>
         </a>
       </figure>
     </div>
     <div class="double_image">
       <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/astrophysics/black_hole_ray_tracer/">
-          <img alt="Black hole ray tracing" src="./images/thumbnails/black_hole_raytracer.png" title="Black hole ray tracing"/>
+        <a href="https://www.hendrikse.name/helion/electromagnetism/particle_electric_field/">
+          <img alt="Particles in electric fields" src="./images/thumbnails/charged_ring.png" title="particle in electric fields"/>
         </a>
       </figure>
       <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/astrophysics/keplers_law/">
-          <img alt="Kepler&apos;s law" src="./images/thumbnails/keplers_law.png" title="Kepler&apos;s law"/>
+        <a href="https://www.hendrikse.name/helion/electromagnetism/particle_magnetic_field/">
+          <img alt="Particles in magnetic fields" src="./images/thumbnails/proton_in_magnetic_field.png" title="Particles in magnetic fields"/>
         </a>
       </figure>
     </div>
     <div class="double_image">
       <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/astrophysics/pulsar/">
-          <img alt="Pulsar" src="./images/thumbnails/pulsar.png" title="Pulsar"/>
+        <a href="https://www.hendrikse.name/helion/electromagnetism/faradays_law/">
+          <img alt="Faradays law" src="./images/thumbnails/faradays_law.png" title="Faradays law"/>
         </a>
       </figure>
       <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/astrophysics/xray_binary/">
-          <img alt="X-ray binary" src="./images/thumbnails/xray_binary.png" title="X-ray binary"/>
-        </a>
+        <!-- RESERVED FOR FUTURE APPLICATION
+          -->
       </figure>
     </div>
   </div>
