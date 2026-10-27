@@ -367,10 +367,37 @@ finest that music and poetry can deliver. &mdash;
   </div>
 </div>
 
-<!--                           -->
-<!-- Thermodynamics and optics -->
-<!--                           -->
+<!--                                      -->
+<!-- Molecular physics and thermodynamics -->
+<!--                                      -->
 <div class="row">
+  <div class="column" style="background-color:#444400;">
+    <h3><a href="https://www.hendrikse.name/helion/molecularphysics/">Atomic &amp; molecular physics</a></h3>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/molecularphysics/molecule_resonance/">
+          <img alt="Molecule resonance frequencies" src="./images/thumbnails/water_molecule.png" title="Molecule resonance frequencies"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/molecularphysics/rutherford_scattering/">
+          <img alt="Rutherford scattering" src="./images/thumbnails/rutherford_scattering.png" title="Rutherford scattering"/>
+        </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/molecularphysics/cubic_lattice/">
+          <img alt="Lattice vibrations" src="./images/thumbnails/cubic_lattice.png" title="Lattice vibrations"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/molecularphysics/uranium_fission/">
+          <img alt="Uranium fission" src="./images/thumbnails/u235_fission.png" title="Uranium fission"/>
+        </a>
+      </figure>
+    </div>
+  </div>
     <div class="column" style="background-color:#444400;">
         <h3><a href="https://www.hendrikse.name/helion/thermodynamics/">Thermodynamics</a></h3>
         <div class="double_image">
@@ -395,31 +422,6 @@ finest that music and poetry can deliver. &mdash;
                 <a href="https://www.hendrikse.name/helion/thermodynamics/brownian_motion/">
                     <img alt="Brownian motion" src="./images/thumbnails/brownian_motion.png" title="Brownian motion"/>
                 </a>
-            </figure>
-        </div>
-    </div>
-    <div class="column" style="background-color:#444400;">
-        <h3><a href="https://www.hendrikse.name/helion/optics/">Optics</a></h3>
-        <div class="double_image">
-            <figure class="left_image">
-                <a href="https://www.hendrikse.name/helion/optics/fraunhofer_diffraction/">
-                    <img alt="Refraction" src="./images/thumbnails/circular_aperture.png" title="Refraction"/>
-                </a>
-            </figure>
-            <figure class="right_image">
-                <a href="https://www.hendrikse.name/helion/optics/refraction/">
-                    <img alt="Refraction" src="./images/thumbnails/refraction.png" title="Refraction"/>
-                </a>
-            </figure>
-        </div>
-        <div class="double_image">
-            <figure class="left_image">
-                <a href="https://www.hendrikse.name/helion/optics/malus_law/">
-                    <img alt="Malus' law" src="./images/thumbnails/malus_law.png" title="Malus' law"/>
-                </a>
-            </figure>
-            <figure class="right_image">
-                <!-- RESERVED FOR FUTURE APPLICATION -->
             </figure>
         </div>
     </div>
@@ -508,37 +510,10 @@ finest that music and poetry can deliver. &mdash;
   </div>
 </div>
 
-<!--                                    -->
-<!-- Fluid Atomic and Molecular physics -->
-<!--                                    -->
+<!--                           -->
+<!-- Optics and fluid dynamics -->
+<!--                           -->
 <div class="row">
-  <div class="column" style="background-color:#444400;">
-    <h3><a href="https://www.hendrikse.name/helion/molecularphysics/">Atomic &amp; molecular physics</a></h3>
-    <div class="double_image">
-      <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/molecularphysics/molecule_resonance/">
-          <img alt="Molecule resonance frequencies" src="./images/thumbnails/water_molecule.png" title="Molecule resonance frequencies"/>
-        </a>
-      </figure>
-      <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/molecularphysics/rutherford_scattering/">
-          <img alt="Rutherford scattering" src="./images/thumbnails/rutherford_scattering.png" title="Rutherford scattering"/>
-        </a>
-      </figure>
-    </div>
-    <div class="double_image">
-      <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/molecularphysics/cubic_lattice/">
-          <img alt="Lattice vibrations" src="./images/thumbnails/cubic_lattice.png" title="Lattice vibrations"/>
-        </a>
-      </figure>
-      <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/molecularphysics/uranium_fission/">
-          <img alt="Uranium fission" src="./images/thumbnails/u235_fission.png" title="Uranium fission"/>
-        </a>
-      </figure>
-    </div>
-  </div>
   <div class="column" style="background-color:#444400;">
     <h3><a href="https://www.hendrikse.name/helion/fluiddynamics/">Fluid dynamics</a></h3>
     <div class="double_image">
@@ -564,6 +539,31 @@ finest that music and poetry can deliver. &mdash;
       </figure>
     </div>
   </div>
+    <div class="column" style="background-color:#444400;">
+        <h3><a href="https://www.hendrikse.name/helion/optics/">Optics</a></h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/optics/fraunhofer_diffraction/">
+                    <img alt="Refraction" src="./images/thumbnails/circular_aperture.png" title="Refraction"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <a href="https://www.hendrikse.name/helion/optics/refraction/">
+                    <img alt="Refraction" src="./images/thumbnails/refraction.png" title="Refraction"/>
+                </a>
+            </figure>
+        </div>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/optics/malus_law/">
+                    <img alt="Malus' law" src="./images/thumbnails/malus_law.png" title="Malus' law"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <!-- RESERVED FOR FUTURE APPLICATION -->
+            </figure>
+        </div>
+    </div>
 </div>
 
 <!--                                      -->
