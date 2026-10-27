@@ -533,7 +533,9 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
       <figure class="right_image">
-        <!-- SPACE RESERVED FOR FUTURE APPLICATION -->
+        <a href="https://www.hendrikse.name/helion/molecularphysics/uranium_fission/">
+          <img alt="Uranium fission" src="./images/thumbnails/u235_fission.png" title="Uranium fission"/>
+        </a>
       </figure>
     </div>
   </div>
