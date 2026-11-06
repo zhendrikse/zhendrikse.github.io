@@ -312,7 +312,9 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
       <figure class="right_image">
-        <!-- RESERVED FOR FUTURE APPLICATION -->
+        <a href="https://www.hendrikse.name/helion/astrophysics/planets/">
+          <img alt="Planets" src="./images/thumbnails/planets.png" title="Planets"/>
+        </a>
       </figure>
     </div>
   </div>
