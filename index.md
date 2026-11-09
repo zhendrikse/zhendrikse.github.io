@@ -208,7 +208,7 @@ offering a scientific domain-specific language embedded in JavaScript
         <div class="double_image">
             <figure class="left_image">
                 <a href="https://www.hendrikse.name/helion/mathematics/archimedes_map/">
-                    <img alt="Archimedes map" src="./images/thumbnails/archimedes_amp.png" title="Archimedes map"/>
+                    <img alt="Archimedes map" src="./images/thumbnails/archimedes_map.png" title="Archimedes map"/>
                 </a>
             </figure>
             <figure class="right_image">
@@ -364,7 +364,7 @@ finest that music and poetry can deliver. &mdash;
       </figure>
       <figure class="right_image">
         <a href="https://www.hendrikse.name/helion/kinematics/newtons_cannonball/">
-          <img alt="Newton's cannonball" src="./images/thumbnails/newtons_cannonball.png" title="Newton's cannonball"/>
+          <img alt="Newton's cannonball" src="./images/thumbnails/newtons_cannon.png" title="Newton's cannonball"/>
         </a>
         <!-- RESERVED FOR FUTURE APPLICATION -->
       </figure>
