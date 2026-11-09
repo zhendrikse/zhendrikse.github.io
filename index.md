@@ -207,8 +207,8 @@ offering a scientific domain-specific language embedded in JavaScript
         <h3>Miscellaneous</h3>
         <div class="double_image">
             <figure class="left_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/fractals/#pythagoras-tree-">
-                    <img alt="Pythagoras tree" src="./images/thumbnails/pythagoras_tree.png" title="Pythagoras tree"/>
+                <a href="https://www.hendrikse.name/helion/mathematics/archimedes_map/">
+                    <img alt="Archimedes map" src="./images/thumbnails/archimedes_amp.png" title="Archimedes map"/>
                 </a>
             </figure>
             <figure class="right_image">
@@ -363,6 +363,9 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
       <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/kinematics/newtons_cannonball/">
+          <img alt="Newton's cannonball" src="./images/thumbnails/newtons_cannonball.png" title="Newton's cannonball"/>
+        </a>
         <!-- RESERVED FOR FUTURE APPLICATION -->
       </figure>
     </div>
