@@ -387,6 +387,7 @@ finest that music and poetry can deliver. &mdash;
       <figure class="right_image">
         <!-- RESERVED FOR FUTURE APPLICATION -->
       </figure>
+    </div>
   </div>
 </div>
 
