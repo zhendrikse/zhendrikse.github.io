@@ -213,7 +213,7 @@ offering a scientific domain-specific language embedded in JavaScript
             </figure>
             <figure class="right_image">
                 <a href="https://www.hendrikse.name/helion/mathematics/pythagoras/">
-                    <img alt="Pythagorean theorem" src="./images/thumbnails/pythagoras.png" title="Pythagorean theorem"/>
+                    <img alt="Pythagorean theorem" src="./images/thumbnails/pythagoras_tree.png" title="Pythagorean theorem"/>
                 </a>
             </figure>
         </div>
@@ -317,6 +317,16 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
     </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/astrophysics/solar_system/">
+          <img alt="Solar system" src="./images/thumbnails/solar_system.png" title="Solar system"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <!-- RESERVED FOR FUTURE APPLICATION -->
+      </figure>
+    </div>
   </div>
   <div class="column" style="background-color:#444400;">
     <h3><a href="https://www.hendrikse.name/helion/kinematics/">Classical mechanics</a></h3>
@@ -366,9 +376,17 @@ finest that music and poetry can deliver. &mdash;
         <a href="https://www.hendrikse.name/helion/kinematics/newtons_cannonball/">
           <img alt="Newton's cannonball" src="./images/thumbnails/newtons_cannon.png" title="Newton's cannonball"/>
         </a>
-        <!-- RESERVED FOR FUTURE APPLICATION -->
       </figure>
     </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/kinematics/harmonic_oscillator/">
+          <img alt="Harmonic oscillator" src="./images/thumbnails/harmonic_oscillator.png" title="Harmonic oscillator"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <!-- RESERVED FOR FUTURE APPLICATION -->
+      </figure>
   </div>
 </div>
 
@@ -601,6 +619,16 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
     </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/waves/suspendend_spring/">
+          <img alt="Suspended spring" src="./images/thumbnails/suspended_spring.png" title="Suspended spring"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <!-- Reserved for future application -->
+      </figure>
+    </div>
   </div>
   <div class="column" style="background-color:#444400;">
     <h3><a href="https://www.hendrikse.name/helion/relativity/">Relativity</a></h3>
@@ -627,6 +655,16 @@ finest that music and poetry can deliver. &mdash;
           <img alt="Lorentz transformation of an electromagnetic field" src="./images/thumbnails/em_field_transform.png" title="Lorentz transformation of an electromagnetic field"/>
         </a>
       </figure>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/relativity/perihelion_mercury/">
+          <img alt="Mercury's perihelion precession" src="./images/thumbnails/perihelion_mercury.png" title="Mercury's perihelion precession"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <!-- Reserved for future application -->
+      </figure>
+    </div>
     </div>
   </div>
 </div>
@@ -693,9 +731,6 @@ finest that music and poetry can deliver. &mdash;
        </a>
       </figure>
       <figure class="right_image">
-        <a href="https://www.hendrikse.name/helion/waves/suspendend_spring/">
-          <img alt="Suspended spring" src="./images/thumbnails/suspended_spring.png" title="Suspended spring"/>
-        </a>
       </figure>
     </div>
     <div class="double_image">
