@@ -656,6 +656,7 @@ finest that music and poetry can deliver. &mdash;
           <img alt="Lorentz transformation of an electromagnetic field" src="./images/thumbnails/em_field_transform.png" title="Lorentz transformation of an electromagnetic field"/>
         </a>
       </figure>
+    </div>
     <div class="double_image">
       <figure class="left_image">
         <a href="https://www.hendrikse.name/helion/relativity/perihelion_mercury/">
@@ -665,7 +666,6 @@ finest that music and poetry can deliver. &mdash;
       <figure class="right_image">
         <!-- Reserved for future application -->
       </figure>
-    </div>
     </div>
   </div>
 </div>
