@@ -622,8 +622,8 @@ finest that music and poetry can deliver. &mdash;
     </div>
     <div class="double_image">
       <figure class="left_image">
-        <a href="https://www.hendrikse.name/helion/waves/suspendend_spring/">
-          <img alt="Suspended spring" src="./images/thumbnails/suspended_spring.png" title="Suspended spring"/>
+        <a href="https://www.hendrikse.name/helion/nature/catenoids/">
+          <img alt="Catenoids" src="./images/thumbnails/suspended_spring.png" title="Catenoids"/>
         </a>
       </figure>
       <figure class="right_image">
