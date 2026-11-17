@@ -190,12 +190,12 @@ offering a scientific domain-specific language embedded in JavaScript
         <h3>Vector fields $\phi: \mathbb{R}^3 \rightarrow \mathbb{R}^3$</h3>
         <div class="double_image">
             <figure class="left_image">
-                <a href="[https://www.hendrikse.name/helion/mathematics/vector_fields](https://www.hendrikse.name/helion/mathematics/vector_fields/#quiver-plot)/">
+                <a href="https://www.hendrikse.name/helion/mathematics/vector_fields/#quiver-plot/">
                     <img alt="Vector fields" src="./images/thumbnails/vector_field.png" title="Vector fields"/>
                 </a>
             </figure>
             <figure class="right_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/vector_fields/#divergence--curl/">
+                <a href="https://www.hendrikse.name/helion/mathematics/vector_fields/#divergence--curl">
                     <img alt="Divergence and curl" src="./images/thumbnails/div_curl_demo.png" title="Divergence and curl"/>
                 </a>
             </figure>
@@ -205,7 +205,7 @@ offering a scientific domain-specific language embedded in JavaScript
         <h3>Scalar fields $\phi: \mathbb{R}^3 \rightarrow \mathbb{R}$</h3>
         <div class="double_image">
             <figure class="left_image">
-                <a href="[https://www.hendrikse.name/helion/mathematics/scalar_fields](https://www.hendrikse.name/helion/mathematics/scalar_fields/">
+                <a href="https://www.hendrikse.name/helion/mathematics/scalar_fields/">
                     <img alt="Scalar fields" src="./images/thumbnails/scalar_field.png" title="Scalar fields"/>
                 </a>
             </figure>
