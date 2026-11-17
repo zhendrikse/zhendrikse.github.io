@@ -170,6 +170,8 @@ offering a scientific domain-specific language embedded in JavaScript
                 </a>
             </figure>
         </div>
+    </div>
+    <div class="column" style="background-color:#004444;">
         <h3>Implicit surfaces</h3>
         <div class="double_image">
             <figure class="left_image">
@@ -182,6 +184,8 @@ offering a scientific domain-specific language embedded in JavaScript
             </figure>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="column" style="background-color:#004444;">
         <h3>Vector fields $\phi: \mathbb{R}^3 \rightarrow \mathbb{R}^3$</h3>
         <div class="double_image">
@@ -196,6 +200,8 @@ offering a scientific domain-specific language embedded in JavaScript
                 </a>
             </figure>
         </div>
+    </div>
+    <div class="column" style="background-color:#004444;">
         <h3>Scalar fields $\phi: \mathbb{R}^3 \rightarrow \mathbb{R}$</h3>
         <div class="double_image">
             <figure class="left_image">
