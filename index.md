@@ -170,6 +170,17 @@ offering a scientific domain-specific language embedded in JavaScript
                 </a>
             </figure>
         </div>
+        <h3>Implicit surfaces</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/implicit_surfaces/">
+                    <img alt="Implicit surfaces" src="./images/thumbnails/implicit_surface.png" title="Implicit surfaces"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <!-- RESERVED FOR FUTURE APPLICATION -->
+            </figure>
+        </div>
     </div>
     <div class="column" style="background-color:#004444;">
         <h3>Vector fields $\phi: \mathbb{R}^3 \rightarrow \mathbb{R}^3$</h3>
@@ -185,6 +196,116 @@ offering a scientific domain-specific language embedded in JavaScript
                 </a>
             </figure>
         </div>
+        <h3>Scalar fields $\phi: \mathbb{R}^3 \rightarrow \mathbb{R}$</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="[https://www.hendrikse.name/helion/mathematics/scalar_fields](https://www.hendrikse.name/helion/mathematics/scalar_fields/">
+                    <img alt="Scalar fields" src="./images/thumbnails/scalar_field.png" title="Scalar fields"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <!-- RESERVED FOR FUTURE APPLICATION -->
+            </figure>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="column" style="background-color:#004444;">
+        <h3>Calculus</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/roots_of_unity/">
+                    <img alt="Roots of unity" src="./images/thumbnails/roots_of_unity.png" title="Roots of unity"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/polar_coordinates/">
+                    <img alt="Polar coordinates" src="./images/thumbnails/polar_coordinates.png" title="Polar coordinates"/>
+                </a>
+            </figure>
+        </div>
+    </div>
+    <div class="column" style="background-color:#004444;">
+        <h3>Miscellaneous</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/archimedes_map/">
+                    <img alt="Archimedes map" src="./images/thumbnails/archimedes_map.png" title="Archimedes map"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/pythagoras/">
+                    <img alt="Pythagorean theorem" src="./images/thumbnails/pythagoras_tree.png" title="Pythagorean theorem"/>
+                </a>
+            </figure>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="column" style="background-color:#004444;">
+        <h3>Fractals</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/fractals/">
+                    <img alt="Fractals" src="./images/thumbnails/dragon_curve.png" title="Fractals"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/fractals_3d/">
+                    <img alt="3D fractals" src="./images/thumbnails/menger_sponge.png" title="3D fractals"/>
+                </a>
+            </figure>
+        </div>
+    </div>
+    <div class="column" style="background-color:#004444;">
+        <h3>Statistics</h3>
+        <div class="double_image">
+            <figure class="left_image">
+                <a href="https://www.hendrikse.name/helion/mathematics/binomial_distribution/">
+                    <img alt="Galton board" src="./images/thumbnails/galton_board.png" title="Galton board"/>
+                </a>
+            </figure>
+            <figure class="right_image">
+                <!-- RESERVED FOR FUTURE APPLICATION -->
+            </figure>
+        </div>
+    </div>
+</div>
+<p style="clear:both"></p>
+
+## Physics
+<div style="border-top: 1px solid #999999"><br/></div>
+
+<blockquote>
+The feeling of awed wonder that science can give us is one of the highest experiences
+of which the human psyche is capable. It is a deep aesthetic passion to rank with the
+finest that music and poetry can deliver. &mdash;
+<a href="https://en.wikipedia.org/wiki/Richard_Dawkins">Richard Dawkins</a> in
+<a href="https://en.wikipedia.org/wiki/Unweaving_the_Rainbow">Unweaving the Rainbow</a>, 1998.
+</blockquote>
+<p style="clear:both"></p>
+
+<!--                             -->
+<!-- Astrophysics and kinematics -->
+<!--                             -->
+<div class="row">
+  <div class="column" style="background-color:#444400;">
+    <h3><a href="https://www.hendrikse.name/helion/astrophysics/">Astrophysics</a></h3>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/astrophysics/spiral_galaxy/">
+          <img alt="Spiral galaxy" src="./images/thumbnails/spiral_galaxy.png" title="Spiral galaxy"/>
+        </a>
+      </figure>
+      <figure class="right_image">
+        <a href="https://www.hendrikse.name/helion/astrophysics/star_cluster/">
+          <img alt="Star cluster" src="./images/thumbnails/star_cluster.png" title="Star cluster"/>
+        </a>
+      </figure>
+    </div>
+    <div class="double_image">
+      <figure class="left_image">
+        <a href="https://www.hendrikse.name/helion/astrophysics/black_hole_ray_tracer/">
     </div>
 </div>
 <div class="row">
