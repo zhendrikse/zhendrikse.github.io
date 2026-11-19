@@ -103,8 +103,8 @@ offering a scientific domain-specific language embedded in JavaScript
                 </a>
             </figure>
             <figure class="right_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/chaos_game/">
-                    <img alt="Chaos game" src="./images/thumbnails/chaos_game.png" title="Chaos game"/>
+                <a href="https://www.hendrikse.name/helion/mathematics/fractals_3d/">
+                    <img alt="3D fractals" src="./images/thumbnails/menger_sponge.png" title="3D fractals"/>
                 </a>
             </figure>
         </div>
@@ -157,7 +157,7 @@ offering a scientific domain-specific language embedded in JavaScript
 </div>
 <div class="row">
     <div class="column" style="background-color:#004444;">
-        <h3>Parametric surfaces</h3>
+        <h3>Parametric &amp implicit surfaces</h3>
         <div class="double_image">
             <figure class="left_image">
                 <a href="https://www.hendrikse.name/helion/mathematics/parametric_surfaces/">
@@ -165,18 +165,18 @@ offering a scientific domain-specific language embedded in JavaScript
                 </a>
             </figure>
             <figure class="right_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/parametric_surfaces/">
-                    <img alt="Spherical harmonics" src="./images/thumbnails/spherical_harmonic_1.png" title="Spherical harmonics"/>
+                <a href="https://www.hendrikse.name/helion/mathematics/implicit_surfaces/">
+                    <img alt="Implicit surfaces" src="./images/thumbnails/implicit_surface.png" title="Implicit surfaces"/>
                 </a>
             </figure>
         </div>
     </div>
     <div class="column" style="background-color:#004444;">
-        <h3>Implicit surfaces</h3>
+        <h3>Statistics</h3>
         <div class="double_image">
             <figure class="left_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/implicit_surfaces/">
-                    <img alt="Implicit surfaces" src="./images/thumbnails/implicit_surface.png" title="Implicit surfaces"/>
+                <a href="https://www.hendrikse.name/helion/mathematics/binomial_distribution/">
+                    <img alt="Galton board" src="./images/thumbnails/galton_board.png" title="Galton board"/>
                 </a>
             </figure>
             <figure class="right_image">
@@ -243,36 +243,6 @@ offering a scientific domain-specific language embedded in JavaScript
                 <a href="https://www.hendrikse.name/helion/mathematics/pythagoras/">
                     <img alt="Pythagorean theorem" src="./images/thumbnails/pythagoras_tree.png" title="Pythagorean theorem"/>
                 </a>
-            </figure>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="column" style="background-color:#004444;">
-        <h3>Fractals</h3>
-        <div class="double_image">
-            <figure class="left_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/fractals/">
-                    <img alt="Fractals" src="./images/thumbnails/dragon_curve.png" title="Fractals"/>
-                </a>
-            </figure>
-            <figure class="right_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/fractals_3d/">
-                    <img alt="3D fractals" src="./images/thumbnails/menger_sponge.png" title="3D fractals"/>
-                </a>
-            </figure>
-        </div>
-    </div>
-    <div class="column" style="background-color:#004444;">
-        <h3>Statistics</h3>
-        <div class="double_image">
-            <figure class="left_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/binomial_distribution/">
-                    <img alt="Galton board" src="./images/thumbnails/galton_board.png" title="Galton board"/>
-                </a>
-            </figure>
-            <figure class="right_image">
-                <!-- RESERVED FOR FUTURE APPLICATION -->
             </figure>
         </div>
     </div>
