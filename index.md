@@ -103,8 +103,8 @@ offering a scientific domain-specific language embedded in JavaScript
                 </a>
             </figure>
             <figure class="right_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/fractals_3d/">
-                    <img alt="3D fractals" src="./images/thumbnails/menger_sponge.png" title="3D fractals"/>
+                <a href="https://www.hendrikse.name/helion/mathematics/fractals/">
+                    <img alt="Fractals" src="./images/thumbnails/menger_sponge.png" title="Fractals"/>
                 </a>
             </figure>
         </div>
