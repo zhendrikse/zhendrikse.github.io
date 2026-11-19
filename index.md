@@ -157,7 +157,7 @@ offering a scientific domain-specific language embedded in JavaScript
 </div>
 <div class="row">
     <div class="column" style="background-color:#004444;">
-        <h3>Parametric &amp implicit surfaces</h3>
+        <h3>Parametric &amp; implicit surfaces</h3>
         <div class="double_image">
             <figure class="left_image">
                 <a href="https://www.hendrikse.name/helion/mathematics/parametric_surfaces/">
