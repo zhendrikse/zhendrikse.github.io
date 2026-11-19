@@ -587,7 +587,9 @@ finest that music and poetry can deliver. &mdash;
        </a>
       </figure>
       <figure class="right_image">
-        <!-- RESERVED FOR FUTURE APPLICATION -->
+       <a href="https://www.hendrikse.name/helion/fluiddynamics/laval_nozzle/">
+         <img alt="Laval nozzle" src="./images/thumbnails/laval_nozzle.png" title="Laval nozzle"/>
+       </a>
       </figure>
     </div>
   </div>
