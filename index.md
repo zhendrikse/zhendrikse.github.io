@@ -140,7 +140,7 @@ offering a scientific domain-specific language embedded in JavaScript
         </div>
     </div>
     <div class="column" style="background-color:#004444;">
-        <h3>$\phi: \mathbb{R}^2 \rightarrow \mathbb{R}^3$ and $\phi: \mathbb{C} \rightarrow \mathbb{C}$</h3>
+        <h3>$\phi: \mathbb{R}^2 \rightarrow \mathbb{R}$ and $\phi: \mathbb{C} \rightarrow \mathbb{C}$</h3>
         <div class="double_image">
             <figure class="left_image">
                 <a href="https://www.hendrikse.name/helion/mathematics/real_surfaces/">
