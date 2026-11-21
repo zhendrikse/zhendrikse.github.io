@@ -103,7 +103,7 @@ offering a scientific domain-specific language embedded in JavaScript
                 </a>
             </figure>
             <figure class="right_image">
-                <a href="https://www.hendrikse.name/helion/mathematics/fractals/">
+                <a href="https://www.hendrikse.name/helion/mathematics/the_world_of_fractals/">
                     <img alt="Fractals" src="./images/thumbnails/menger_sponge.png" title="Fractals"/>
                 </a>
             </figure>
