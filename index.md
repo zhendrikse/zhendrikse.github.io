@@ -240,6 +240,182 @@ finest that music and poetry can deliver. &mdash;
 <!--                             -->
 <!-- Astrophysics and kinematics -->
 <!--                             -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": "https://www.hendrikse.name/helion/astrophysics/#demos",
+  "name": "Astrophysics simulations and visualizations",
+  "description": "A collection of interactive astrophysics simulations and visualizations covering black holes, orbital mechanics, constellations, planets, pulsars, the solar system, spiral galaxies, star clusters, the Sun and X-ray binary star systems.",
+  "url": "https://www.hendrikse.name/helion/astrophysics/",
+  "numberOfItems": 10,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "WebPage",
+        "name": "Black hole ray tracer",
+        "url": "https://www.hendrikse.name/helion/astrophysics/black_hole_ray_tracer/",
+        "description": "A WebGL-based ray tracing simulation of a black hole surrounded by a spinning accretion disk. Explore gravitational light bending, realistic accretion disk coloring, black hole structure and relativistic effects.",
+        "about": [
+          {"@type": "Thing", "name": "Black holes"},
+          {"@type": "Thing", "name": "Gravitational lensing"},
+          {"@type": "Thing", "name": "Accretion disks"},
+          {"@type": "Thing", "name": "Ray tracing"}
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "WebPage",
+        "name": "Kepler's law",
+        "url": "https://www.hendrikse.name/helion/astrophysics/keplers_law/",
+        "description": "An interactive orbital mechanics simulation illustrating Kepler's law of equal areas. Visualize an elliptical planetary orbit with the Sun at one focus and observe how orbital speed changes with distance from the Sun.",
+        "about": [
+          {"@type": "Thing", "name": "Kepler's laws of planetary motion"},
+          {"@type": "Thing", "name": "Orbital mechanics"},
+          {"@type": "Thing", "name": "Elliptical orbits"},
+          {"@type": "Thing", "name": "Astronomy"}
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "WebPage",
+        "name": "The night sky",
+        "url": "https://www.hendrikse.name/helion/astrophysics/night_sky/",
+        "description": "Interactive visualizations of the night sky, including a dynamic constellation simulation with adjustable latitude and bearing, and a panoramic view across the Milky Way.",
+        "about": [
+          {"@type": "Thing", "name": "Night sky"},
+          {"@type": "Thing", "name": "Constellations"},
+          {"@type": "Thing", "name": "Milky Way"},
+          {"@type": "Thing", "name": "Stargazing"}
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "WebPage",
+        "name": "Planets of our solar system",
+        "url": "https://www.hendrikse.name/helion/astrophysics/planets/",
+        "description": "Visually engaging WebGL visualizations of all eight planets of our solar system: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune. Includes planetary size comparisons, orbital periods and infographics about water on Earth.",
+        "about": [
+          {"@type": "Thing", "name": "Planets"},
+          {"@type": "Thing", "name": "Solar system"},
+          {"@type": "Thing", "name": "Planetary diameters"},
+          {"@type": "Thing", "name": "Orbital periods"},
+          {"@type": "Thing", "name": "WebGL"}
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "WebPage",
+        "name": "Pulsar simulation",
+        "url": "https://www.hendrikse.name/helion/astrophysics/pulsar/",
+        "description": "An interactive visualization of a pulsar, illustrating a rapidly rotating neutron star with powerful magnetic fields and beams of electromagnetic radiation sweeping through space.",
+        "about": [
+          {"@type": "Thing", "name": "Pulsars"},
+          {"@type": "Thing", "name": "Neutron stars"},
+          {"@type": "Thing", "name": "Magnetic fields"},
+          {"@type": "Thing", "name": "Electromagnetic radiation"}
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "WebPage",
+        "name": "Solar system simulation",
+        "url": "https://www.hendrikse.name/helion/astrophysics/solar_system/",
+        "description": "An interactive and visually engaging simulation of our solar system, helping explain planetary motion, orbital dynamics and eclipses.",
+        "about": [
+          {"@type": "Thing", "name": "Solar system"},
+          {"@type": "Thing", "name": "Planetary motion"},
+          {"@type": "Thing", "name": "Planetary orbits"},
+          {"@type": "Thing", "name": "Solar eclipses"}
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "WebPage",
+        "name": "Spiral galaxy",
+        "url": "https://www.hendrikse.name/helion/astrophysics/spiral_galaxy/",
+        "description": "A dynamic three-dimensional simulation of a spiral galaxy with physically realistic spiral arms. Explore the galactic core, central bulge, star-forming spiral arms and the outer disk.",
+        "about": [
+          {"@type": "Thing", "name": "Spiral galaxies"},
+          {"@type": "Thing", "name": "Galaxy formation"},
+          {"@type": "Thing", "name": "Galactic structure"},
+          {"@type": "Thing", "name": "Perlin noise"}
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "WebPage",
+        "name": "Star cluster",
+        "url": "https://www.hendrikse.name/helion/astrophysics/star_cluster/",
+        "description": "A three-dimensional simulation of a star cluster generated using Perlin noise. Thousands of stars are distributed throughout a volumetric star cloud, demonstrating procedural generation and 3D point cloud rendering.",
+        "about": [
+          {"@type": "Thing", "name": "Star clusters"},
+          {"@type": "Thing", "name": "Stellar populations"},
+          {"@type": "Thing", "name": "Perlin noise"},
+          {"@type": "Thing", "name": "Point cloud rendering"}
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "WebPage",
+        "name": "Simulation of our Sun",
+        "url": "https://www.hendrikse.name/helion/astrophysics/sun/",
+        "description": "A WebGL-based visualization of the Sun, including its corona. Explore solar structure, nuclear fusion, hydrogen-to-helium conversion and the production of electromagnetic radiation.",
+        "about": [
+          {"@type": "Thing", "name": "Sun"},
+          {"@type": "Thing", "name": "Solar corona"},
+          {"@type": "Thing", "name": "Nuclear fusion"},
+          {"@type": "Thing", "name": "Solar physics"}
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@type": "WebPage",
+        "name": "X-ray binary",
+        "url": "https://www.hendrikse.name/helion/astrophysics/xray_binary/",
+        "description": "An interactive simulation of an X-ray binary star system consisting of a normal star and a compact object such as a white dwarf, neutron star or black hole. Explore gravitational mass transfer and the formation of high-energy X-ray radiation.",
+        "about": [
+          {"@type": "Thing", "name": "X-ray binaries"},
+          {"@type": "Thing", "name": "Binary star systems"},
+          {"@type": "Thing", "name": "Neutron stars"},
+          {"@type": "Thing", "name": "Black holes"},
+          {"@type": "Thing", "name": "X-ray astronomy"}
+        ]
+      }
+    }
+  ]
+}
+</script>
 <div class="row">
   <div class="column" style="background-color:#444400;">
     <h3><a href="https://www.hendrikse.name/helion/astrophysics/">Astrophysics</a></h3>
@@ -273,13 +449,11 @@ finest that music and poetry can deliver. &mdash;
           <img alt="Pulsar" src="./images/thumbnails/pulsar.png" title="Pulsar"/>
         </a>
       </figure>
-      <script type="application/ld+json">{"@context":"https://schema.org","@type":["LearningResource","SoftwareApplication"],"name":"Pulsar","description":"Interactive and visually engaging rendition of a pulsar","url":"https://www.hendrikse.name/helion/astrophysics/pulsar/","learningResourceType":"Simulation","interactivityType":"active","educationalUse":["Self-study","Demonstration","Experimentation"],"about":{"@type":"Thing","name":"astrophysics"},"applicationCategory":"EducationalApplication","operatingSystem":"Any (Web Browser)","programmingLanguage":"JavaScript","isPartOf":{"@type":"SoftwareSourceCode","name":"Helion","url":"https://hendrikse.name/helion/"}}</script>
       <figure class="right_image">
         <a href="https://www.hendrikse.name/helion/astrophysics/xray_binary/">
           <img alt="X-ray binary" src="./images/thumbnails/xray_binary.png" title="X-ray binary"/>
         </a>
       </figure>
-      <script type="application/ld+json">{"@context":"https://schema.org","@type":["LearningResource","SoftwareApplication"],"name":"X-ray binary","description":"Simulation that provides a dynamic illustration of an X-ray binary star system","url":"https://www.hendrikse.name/helion/astrophysics/xray_binary/","learningResourceType":"Simulation","interactivityType":"active","educationalUse":["Self-study","Demonstration","Experimentation"],"about":{"@type":"Thing","name":"astrophysics"},"applicationCategory":"EducationalApplication","operatingSystem":"Any (Web Browser)","programmingLanguage":"JavaScript","isPartOf":{"@type":"SoftwareSourceCode","name":"Helion","url":"https://hendrikse.name/helion/"}}</script>
     </div>
     <div class="double_image">
       <figure class="left_image">
@@ -300,7 +474,9 @@ finest that music and poetry can deliver. &mdash;
         </a>
       </figure>
       <figure class="right_image">
-        <!-- RESERVED FOR FUTURE APPLICATION -->
+        <a href="https://www.hendrikse.name/helion/astrophysics/galactic_collision/">
+          <img alt="Galactic collision" src="./images/thumbnails/galactic_collision.png" title="Galactic collision"/>
+        </a>
       </figure>
     </div>
   </div>
