@@ -50,30 +50,6 @@ The interactive simulations, additional explanations, and contextual material ar
 many  mathematical concepts are illustrated with interactive visualizations
 that have been created with the [Helion library](https://www.hendrikse.name/helion/).
 
-# [Test-driven development](https://www.hendrikse.name/tdd/)
-<div style="border-top: 2px solid #cccccc"><br/></div>
-
-I love training people in becoming more fluent with test-driven development.
-Please take a look at [my TDD pages](https://www.hendrikse.name/tdd/), the GitHub pages site 
-that belongs to my TDD repository, which in turn is packed with dozens of 
-[coding kata&apos;s](https://www.hendrikse.name/tdd/katas/index.html) that I use for my [coding dojos](https://www.hendrikse.name/tdd/dojo/index.html).
-
-<div style="display: flex; align-items: flex-end;">
-<figure style="float: left; width: 55%; text-align: center">
-  <a href="https://www.hendrikse.name/tdd/dojo/index.html">
-    <img alt="Online dojo" src="images/DojoInAction.png"/>
-  </a>&nbsp;&nbsp;&nbsp;
-  <figcaption>A typical setting of an online coding dojo.</figcaption>
-</figure>
-<figure style="float: right; width: 45%; text-align: center">
-  <a href="https://www.hendrikse.name/tdd/dojo/index.html">
-    <img src="images/zeger_teaching.jpg" alt="Coding dojo"/>
-  </a>
-  <figcaption><br/>A typical setting of a coding dojo.</figcaption>
-</figure>
-</div>
-<p style="clear: both;"></p>
-
 # [Helion: Interactive simulations & visualizations](https://www.hendrikse.name/helion/)
 <div style="border-top: 2px solid #cccccc"><br/></div>
 
@@ -297,11 +273,13 @@ finest that music and poetry can deliver. &mdash;
           <img alt="Pulsar" src="./images/thumbnails/pulsar.png" title="Pulsar"/>
         </a>
       </figure>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":["LearningResource","SoftwareApplication"],"name":"Pulsar","description":"Interactive and visually engaging rendition of a pulsar","url":"https://www.hendrikse.name/helion/astrophysics/pulsar/","learningResourceType":"Simulation","interactivityType":"active","educationalUse":["Self-study","Demonstration","Experimentation"],"about":{"@type":"Thing","name":"astrophysics"},"applicationCategory":"EducationalApplication","operatingSystem":"Any (Web Browser)","programmingLanguage":"JavaScript","isPartOf":{"@type":"SoftwareSourceCode","name":"Helion","url":"https://hendrikse.name/helion/"}}</script>
       <figure class="right_image">
         <a href="https://www.hendrikse.name/helion/astrophysics/xray_binary/">
           <img alt="X-ray binary" src="./images/thumbnails/xray_binary.png" title="X-ray binary"/>
         </a>
       </figure>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":["LearningResource","SoftwareApplication"],"name":"X-ray binary","description":"Simulation that provides a dynamic illustration of an X-ray binary star system","url":"https://www.hendrikse.name/helion/astrophysics/xray_binary/","learningResourceType":"Simulation","interactivityType":"active","educationalUse":["Self-study","Demonstration","Experimentation"],"about":{"@type":"Thing","name":"astrophysics"},"applicationCategory":"EducationalApplication","operatingSystem":"Any (Web Browser)","programmingLanguage":"JavaScript","isPartOf":{"@type":"SoftwareSourceCode","name":"Helion","url":"https://hendrikse.name/helion/"}}</script>
     </div>
     <div class="double_image">
       <figure class="left_image">
@@ -811,4 +789,27 @@ All work and no play makes Jack a dull boy. &mdash; <a href="https://en.wikipedi
             </figure>
         </div>
     </div>
+</div>
+
+# [Test-driven development](https://www.hendrikse.name/tdd/)
+<div style="border-top: 2px solid #cccccc"><br/></div>
+
+I love training people in becoming more fluent with test-driven development.
+Please take a look at [my TDD pages](https://www.hendrikse.name/tdd/), the GitHub pages site 
+that belongs to my TDD repository, which in turn is packed with dozens of 
+[coding kata&apos;s](https://www.hendrikse.name/tdd/katas/index.html) that I use for my [coding dojos](https://www.hendrikse.name/tdd/dojo/index.html).
+
+<div style="display: flex; align-items: flex-end;">
+<figure style="float: left; width: 55%; text-align: center">
+  <a href="https://www.hendrikse.name/tdd/dojo/index.html">
+    <img alt="Online dojo" src="images/DojoInAction.png"/>
+  </a>&nbsp;&nbsp;&nbsp;
+  <figcaption>A typical setting of an online coding dojo.</figcaption>
+</figure>
+<figure style="float: right; width: 45%; text-align: center">
+  <a href="https://www.hendrikse.name/tdd/dojo/index.html">
+    <img src="images/zeger_teaching.jpg" alt="Coding dojo"/>
+  </a>
+  <figcaption><br/>A typical setting of a coding dojo.</figcaption>
+</figure>
 </div>
